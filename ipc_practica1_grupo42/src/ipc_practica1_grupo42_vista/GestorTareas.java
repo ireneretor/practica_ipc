@@ -31,26 +31,26 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        anadirNombreTareaLabel = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        anadirNombreTareaTextField = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel21 = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        descripcionScrollPane = new javax.swing.JScrollPane();
+        descripcionTextArea = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        anadirNombreTareaLabel = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        anadirNombreTareaTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
         fechaFormattedTextField = new javax.swing.JFormattedTextField();
         jPanel18 = new javax.swing.JPanel();
-        porcentajeLabel = new javax.swing.JLabel();
-        porcentajeSpinner = new javax.swing.JSpinner();
-        jPanel8 = new javax.swing.JPanel();
         prioridadLabel = new javax.swing.JLabel();
         prioridadComboBox = new javax.swing.JComboBox<>();
+        jPanel8 = new javax.swing.JPanel();
+        anadirProgresoLabel = new javax.swing.JLabel();
+        porcentajeSpinner = new javax.swing.JSpinner();
         completadoCheckBox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
@@ -70,6 +70,7 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         verPrioridadNoModificableLabel = new javax.swing.JLabel();
         verPrioridadModificableLabel = new javax.swing.JLabel();
+        verProgresoLabel = new javax.swing.JLabel();
         verProgresoProgressBar = new javax.swing.JProgressBar();
         jPanel16 = new javax.swing.JPanel();
         editarButton = new javax.swing.JButton();
@@ -77,54 +78,63 @@ public class GestorTareas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(360, 152));
+        jPanel1.setPreferredSize(new java.awt.Dimension(360, 200));
         jPanel1.setLayout(new java.awt.GridLayout(2, 0));
 
-        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
         jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        anadirNombreTareaLabel.setText("Nombre de la tarea");
-        anadirNombreTareaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jPanel19.add(anadirNombreTareaLabel);
+        descripcionLabel.setText("Descripción:");
+        jPanel19.add(descripcionLabel);
 
         jPanel5.add(jPanel19);
 
+        jPanel20.setLayout(new java.awt.BorderLayout());
+
+        descripcionScrollPane.setPreferredSize(new java.awt.Dimension(144, 86));
+
+        descripcionTextArea.setColumns(20);
+        descripcionTextArea.setRows(5);
+        descripcionTextArea.setPreferredSize(new java.awt.Dimension(182, 74));
+        descripcionScrollPane.setViewportView(descripcionTextArea);
+
+        jPanel20.add(descripcionScrollPane, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel20);
+
+        jPanel3.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        jPanel6.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        anadirNombreTareaLabel.setText("Nombre de la tarea");
+        anadirNombreTareaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel22.add(anadirNombreTareaLabel);
+
+        jPanel6.add(jPanel22);
+
+        jPanel21.setMinimumSize(new java.awt.Dimension(25, 26));
+        jPanel21.setLayout(new java.awt.BorderLayout());
+
         anadirNombreTareaTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(160, 22));
+        anadirNombreTareaTextField.setMinimumSize(new java.awt.Dimension(64, 32));
+        anadirNombreTareaTextField.setName(""); // NOI18N
+        anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(160, 32));
         anadirNombreTareaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 anadirNombreTareaTextFieldActionPerformed(evt);
             }
         });
-        jPanel20.add(anadirNombreTareaTextField);
-
-        jPanel5.add(jPanel20);
-
-        jPanel3.add(jPanel5);
-
-        jPanel6.setLayout(new java.awt.GridLayout(1, 2));
-
-        jPanel21.setMinimumSize(new java.awt.Dimension(25, 26));
-        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        descripcionLabel.setText("Descripción:");
-        jPanel21.add(descripcionLabel);
+        jPanel21.add(anadirNombreTareaTextField, java.awt.BorderLayout.CENTER);
 
         jPanel6.add(jPanel21);
 
-        jPanel22.setLayout(new java.awt.BorderLayout());
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel22.add(jScrollPane1, java.awt.BorderLayout.CENTER);
-
-        jPanel6.add(jPanel22);
-
-        jPanel3.add(jPanel6);
+        jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.add(jPanel3);
 
@@ -138,30 +148,21 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel17.add(fechaLabel);
 
         fechaFormattedTextField.setAutoscrolls(false);
-        fechaFormattedTextField.setMinimumSize(new java.awt.Dimension(164, 22));
-        fechaFormattedTextField.setPreferredSize(new java.awt.Dimension(164, 22));
+        fechaFormattedTextField.setMinimumSize(new java.awt.Dimension(100, 32));
+        fechaFormattedTextField.setPreferredSize(new java.awt.Dimension(100, 32));
+        fechaFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaFormattedTextFieldActionPerformed(evt);
+            }
+        });
         jPanel17.add(fechaFormattedTextField);
 
         jPanel7.add(jPanel17);
 
         jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        porcentajeLabel.setText("Porcentaje");
-        jPanel18.add(porcentajeLabel);
-
-        porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 22));
-        porcentajeSpinner.setName(""); // NOI18N
-        porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 22));
-        jPanel18.add(porcentajeSpinner);
-
-        jPanel7.add(jPanel18);
-
-        jPanel4.add(jPanel7);
-
-        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
         prioridadLabel.setText("Prioridad");
-        jPanel8.add(prioridadLabel);
+        jPanel18.add(prioridadLabel);
 
         prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
         prioridadComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +170,21 @@ public class GestorTareas extends javax.swing.JFrame {
                 prioridadComboBoxActionPerformed(evt);
             }
         });
-        jPanel8.add(prioridadComboBox);
+        jPanel18.add(prioridadComboBox);
+
+        jPanel7.add(jPanel18);
+
+        jPanel4.add(jPanel7);
+
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        anadirProgresoLabel.setText("Progreso:");
+        jPanel8.add(anadirProgresoLabel);
+
+        porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 22));
+        porcentajeSpinner.setName(""); // NOI18N
+        porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 22));
+        jPanel8.add(porcentajeSpinner);
 
         completadoCheckBox.setText("Completado");
         completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -243,11 +258,12 @@ public class GestorTareas extends javax.swing.JFrame {
         verPrioridadNoModificableLabel.setText("Prioridad");
         jPanel15.add(verPrioridadNoModificableLabel);
         jPanel15.add(verPrioridadModificableLabel);
+
+        verProgresoLabel.setText("Progreso:");
+        jPanel15.add(verProgresoLabel);
         jPanel15.add(verProgresoProgressBar);
 
         jPanel11.add(jPanel15);
-
-        jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         editarButton.setText("Editar");
         editarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -289,13 +305,20 @@ public class GestorTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anadirNombreTareaTextFieldActionPerformed
 
+    private void fechaFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaFormattedTextFieldActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anadirNombreTareaLabel;
     private javax.swing.JTextField anadirNombreTareaTextField;
+    private javax.swing.JLabel anadirProgresoLabel;
     private javax.swing.JCheckBox completadoCheckBox;
     private javax.swing.JLabel descripcionLabel;
+    private javax.swing.JScrollPane descripcionScrollPane;
+    private javax.swing.JTextArea descripcionTextArea;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JFormattedTextField fechaFormattedTextField;
@@ -323,12 +346,9 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JList<String> listaTareasList;
     private javax.swing.JScrollPane listaTareasScrollPane;
-    private javax.swing.JLabel porcentajeLabel;
     private javax.swing.JSpinner porcentajeSpinner;
     private javax.swing.JComboBox<String> prioridadComboBox;
     private javax.swing.JLabel prioridadLabel;
@@ -339,6 +359,7 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JLabel verNombreTareaLabel;
     private javax.swing.JLabel verPrioridadModificableLabel;
     private javax.swing.JLabel verPrioridadNoModificableLabel;
+    private javax.swing.JLabel verProgresoLabel;
     private javax.swing.JProgressBar verProgresoProgressBar;
     // End of variables declaration//GEN-END:variables
 }
