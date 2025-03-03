@@ -44,7 +44,7 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
-        fechaFormattedTextField = new javax.swing.JFormattedTextField();
+        jSpinner2 = new javax.swing.JSpinner();
         jPanel18 = new javax.swing.JPanel();
         prioridadLabel = new javax.swing.JLabel();
         prioridadComboBox = new javax.swing.JComboBox<>();
@@ -147,15 +147,9 @@ public class GestorTareas extends javax.swing.JFrame {
         fechaLabel.setText("Fecha: ");
         jPanel17.add(fechaLabel);
 
-        fechaFormattedTextField.setAutoscrolls(false);
-        fechaFormattedTextField.setMinimumSize(new java.awt.Dimension(100, 32));
-        fechaFormattedTextField.setPreferredSize(new java.awt.Dimension(100, 32));
-        fechaFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaFormattedTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel17.add(fechaFormattedTextField);
+        jSpinner2.setModel(new javax.swing.SpinnerDateModel());
+        jSpinner2.setEditor(new javax.swing.JSpinner.DateEditor(jSpinner2, "dd/MM/yy"));
+        jPanel17.add(jSpinner2);
 
         jPanel7.add(jPanel17);
 
@@ -181,6 +175,7 @@ public class GestorTareas extends javax.swing.JFrame {
         anadirProgresoLabel.setText("Progreso:");
         jPanel8.add(anadirProgresoLabel);
 
+        porcentajeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 22));
         porcentajeSpinner.setName(""); // NOI18N
         porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 22));
@@ -305,10 +300,6 @@ public class GestorTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anadirNombreTareaTextFieldActionPerformed
 
-    private void fechaFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaFormattedTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaFormattedTextFieldActionPerformed
-
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -321,7 +312,6 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JTextArea descripcionTextArea;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
-    private javax.swing.JFormattedTextField fechaFormattedTextField;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JButton guardarButton;
     private javax.swing.JPanel jPanel1;
@@ -347,6 +337,7 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JList<String> listaTareasList;
     private javax.swing.JScrollPane listaTareasScrollPane;
     private javax.swing.JSpinner porcentajeSpinner;
