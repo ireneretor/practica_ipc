@@ -30,21 +30,27 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
         anadirNombreTareaLabel = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
         anadirNombreTareaTextField = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
-        descripcionTextField = new javax.swing.JTextField();
+        jPanel22 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
         fechaFormattedTextField = new javax.swing.JFormattedTextField();
+        jPanel18 = new javax.swing.JPanel();
         porcentajeLabel = new javax.swing.JLabel();
         porcentajeSpinner = new javax.swing.JSpinner();
         jPanel8 = new javax.swing.JPanel();
         prioridadLabel = new javax.swing.JLabel();
-        prioridadScrollPane = new javax.swing.JScrollPane();
-        prioridadList = new javax.swing.JList<>();
+        prioridadComboBox = new javax.swing.JComboBox<>();
         completadoCheckBox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
@@ -73,53 +79,48 @@ public class GestorTareas extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
-        anadirNombreTareaLabel.setText("Nombre de la tarea");
+        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(anadirNombreTareaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(anadirNombreTareaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(anadirNombreTareaLabel)
-                    .addComponent(anadirNombreTareaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
+        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        anadirNombreTareaLabel.setText("Nombre de la tarea");
+        anadirNombreTareaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel19.add(anadirNombreTareaLabel);
+
+        jPanel5.add(jPanel19);
+
+        anadirNombreTareaTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(160, 22));
+        anadirNombreTareaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anadirNombreTareaTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel20.add(anadirNombreTareaTextField);
+
+        jPanel5.add(jPanel20);
 
         jPanel3.add(jPanel5);
 
-        descripcionLabel.setText("Descripción:");
+        jPanel6.setLayout(new java.awt.GridLayout(1, 2));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(descripcionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(descripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descripcionLabel))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
+        jPanel21.setMinimumSize(new java.awt.Dimension(25, 26));
+        jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        descripcionLabel.setText("Descripción:");
+        jPanel21.add(descripcionLabel);
+
+        jPanel6.add(jPanel21);
+
+        jPanel22.setLayout(new java.awt.BorderLayout());
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel22.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(jPanel22);
 
         jPanel3.add(jPanel6);
 
@@ -127,84 +128,58 @@ public class GestorTareas extends javax.swing.JFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(3, 0));
 
+        jPanel7.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         fechaLabel.setText("Fecha: ");
+        jPanel17.add(fechaLabel);
 
         fechaFormattedTextField.setAutoscrolls(false);
+        fechaFormattedTextField.setMinimumSize(new java.awt.Dimension(164, 22));
+        fechaFormattedTextField.setPreferredSize(new java.awt.Dimension(164, 22));
+        jPanel17.add(fechaFormattedTextField);
+
+        jPanel7.add(jPanel17);
+
+        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         porcentajeLabel.setText("Porcentaje");
+        jPanel18.add(porcentajeLabel);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fechaFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(porcentajeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(porcentajeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(fechaFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(porcentajeLabel)
-                    .addComponent(porcentajeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
+        porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 22));
+        porcentajeSpinner.setName(""); // NOI18N
+        porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 22));
+        jPanel18.add(porcentajeSpinner);
+
+        jPanel7.add(jPanel18);
 
         jPanel4.add(jPanel7);
 
-        prioridadLabel.setText("Prioridad");
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        prioridadList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Alta", "Media", "Baja" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        prioridadLabel.setText("Prioridad");
+        jPanel8.add(prioridadLabel);
+
+        prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
+        prioridadComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prioridadComboBoxActionPerformed(evt);
+            }
         });
-        prioridadScrollPane.setViewportView(prioridadList);
+        jPanel8.add(prioridadComboBox);
 
         completadoCheckBox.setText("Completado");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(prioridadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(prioridadScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(completadoCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(prioridadScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(prioridadLabel)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(completadoCheckBox)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completadoCheckBoxActionPerformed(evt);
+            }
+        });
+        jPanel8.add(completadoCheckBox);
 
         jPanel4.add(jPanel8);
+
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         guardarButton.setText("Guardar");
         guardarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -212,23 +187,7 @@ public class GestorTareas extends javax.swing.JFrame {
                 guardarButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(guardarButton)
-                .addContainerGap(234, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(guardarButton)
-                .addContainerGap())
-        );
+        jPanel9.add(guardarButton);
 
         jPanel4.add(jPanel9);
 
@@ -259,7 +218,7 @@ public class GestorTareas extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(verListaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel10);
@@ -278,7 +237,7 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(verNombreTareaLabel)
                 .addContainerGap())
         );
@@ -299,7 +258,7 @@ public class GestorTareas extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(verTareaDescripcionLabel)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jPanel11.add(jPanel13);
@@ -324,7 +283,7 @@ public class GestorTareas extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verFechaNoModificableLabel)
                     .addComponent(verFechaModificableLabel))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel11.add(jPanel14);
@@ -353,7 +312,7 @@ public class GestorTareas extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(verPrioridadNoModificableLabel)
                         .addComponent(verPrioridadModificableLabel)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         jPanel11.add(jPanel15);
@@ -381,7 +340,7 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addGap(0, 7, Short.MAX_VALUE)
+                .addGap(0, 37, Short.MAX_VALUE)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editarButton)
                     .addComponent(eliminarButton)))
@@ -408,6 +367,18 @@ public class GestorTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_editarButtonActionPerformed
 
+    private void prioridadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prioridadComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prioridadComboBoxActionPerformed
+
+    private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_completadoCheckBoxActionPerformed
+
+    private void anadirNombreTareaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirNombreTareaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_anadirNombreTareaTextFieldActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -415,7 +386,6 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JTextField anadirNombreTareaTextField;
     private javax.swing.JCheckBox completadoCheckBox;
     private javax.swing.JLabel descripcionLabel;
-    private javax.swing.JTextField descripcionTextField;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JFormattedTextField fechaFormattedTextField;
@@ -429,7 +399,13 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -437,12 +413,13 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel porcentajeLabel;
     private javax.swing.JSpinner porcentajeSpinner;
+    private javax.swing.JComboBox<String> prioridadComboBox;
     private javax.swing.JLabel prioridadLabel;
-    private javax.swing.JList<String> prioridadList;
-    private javax.swing.JScrollPane prioridadScrollPane;
     private javax.swing.JLabel verFechaModificableLabel;
     private javax.swing.JLabel verFechaNoModificableLabel;
     private javax.swing.JTextField verListaTextField;
