@@ -6,6 +6,10 @@ package ipc_practica1_grupo42_vista;
 
 import java.time.LocalDate;
 import javax.swing.JTextField;
+import ipc_practica1_grupo42_modelo.Modelo;
+import ipc_practica1_grupo42_modelo.Tareas;
+import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -243,12 +247,13 @@ public class GestorTareas extends javax.swing.JFrame {
 
         jPanel10.setLayout(new java.awt.BorderLayout());
 
+        ArrayList <Tareas> todasTareas=Modelo.getTareas();
         listaTareasList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public int getSize() { return todasTareas.size(); }
+            public String getElementAt(int i) { return todasTareas.get(i).toString(); }
         });
         listaTareasList.setPreferredSize(new java.awt.Dimension(550, 90));
+        listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaTareasScrollPane.setViewportView(listaTareasList);
 
         jPanel10.add(listaTareasScrollPane, java.awt.BorderLayout.CENTER);
