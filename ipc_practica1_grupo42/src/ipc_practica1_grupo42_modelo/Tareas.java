@@ -25,8 +25,12 @@ public class Tareas {
         this.descripcionTareas = descripcion;
         this.fecha = fecha;
         this.prioridad = prioridad;
-        this.progreso = progreso;
         this.completado = completado;
+        if(!completado){
+            this.progreso = progreso;
+        }else{
+            this.progreso=100;
+        }
     }
 
     public String getNombreTarea() {
@@ -70,7 +74,9 @@ public class Tareas {
     }
 
     public void setProgreso(int progreso) {
-        this.progreso = progreso;
+        if(!this.completado){
+            this.progreso = progreso;
+        }
     }
 
     public void setCompletado(boolean completado) {
