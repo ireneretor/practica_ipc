@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import javax.swing.JTextField;
 import ipc_practica1_grupo42_modelo.Modelo;
 import ipc_practica1_grupo42_modelo.Tareas;
+import ipc_practica1_grupo42_controlador.Controlador;
 import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
 
@@ -17,11 +18,16 @@ import javax.swing.ListSelectionModel;
  */
 public class GestorTareas extends javax.swing.JFrame {
 
+    private Controlador controlador;
+    private Modelo modelo;
     /**
      * Creates new form GestorTareas
      */
     public GestorTareas() {
         initComponents();
+        modelo=new Modelo();
+        this.controlador=new Controlador(this, modelo);
+        
     }
 
     /**
@@ -145,11 +151,6 @@ public class GestorTareas extends javax.swing.JFrame {
         anadirNombreTareaTextField.setMinimumSize(new java.awt.Dimension(64, 32));
         anadirNombreTareaTextField.setName(""); // NOI18N
         anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(450, 32));
-        anadirNombreTareaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anadirNombreTareaTextFieldActionPerformed(evt);
-            }
-        });
         jPanel21.add(anadirNombreTareaTextField, java.awt.BorderLayout.CENTER);
 
         jPanel6.add(jPanel21);
@@ -187,11 +188,6 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel18.add(prioridadLabel);
 
         prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
-        prioridadComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prioridadComboBoxActionPerformed(evt);
-            }
-        });
         jPanel18.add(prioridadComboBox);
 
         jPanel7.add(jPanel18);
@@ -213,11 +209,6 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel8.add(porcentajeSpinner);
 
         completadoCheckBox.setText("Completado");
-        completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                completadoCheckBoxActionPerformed(evt);
-            }
-        });
         jPanel8.add(completadoCheckBox);
 
         jPanel4.add(jPanel8);
@@ -254,6 +245,11 @@ public class GestorTareas extends javax.swing.JFrame {
         });
         listaTareasList.setPreferredSize(new java.awt.Dimension(550, 90));
         listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaTareasListValueChanged(evt);
+            }
+        });
         listaTareasScrollPane.setViewportView(listaTareasList);
 
         jPanel10.add(listaTareasScrollPane, java.awt.BorderLayout.CENTER);
@@ -269,6 +265,8 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel11.add(jPanel12);
 
         jPanel13.setLayout(new java.awt.BorderLayout());
+
+        verDescripcionJSCroll.setEnabled(false);
 
         verDescripcionTextArea.setEditable(false);
         verDescripcionTextArea.setColumns(20);
@@ -311,6 +309,11 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel16.add(editarButton);
 
         eliminarButton.setText("Eliminar");
+        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarButtonActionPerformed(evt);
+            }
+        });
         jPanel16.add(eliminarButton);
 
         jPanel11.add(jPanel16);
@@ -324,24 +327,58 @@ public class GestorTareas extends javax.swing.JFrame {
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoGuardar();
     }//GEN-LAST:event_guardarButtonActionPerformed
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoEditar();
     }//GEN-LAST:event_editarButtonActionPerformed
 
-    private void prioridadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prioridadComboBoxActionPerformed
+    private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_prioridadComboBoxActionPerformed
+        String tareaSeleccionada = listaTareasList.getSelectedValue();
+        for(Tareas t: modelo.getTareas()){
+            if(t.toString().equals(tareaSeleccionada)){
+                verNombreTareaLabel.setText(t.getNombreTarea());
+                verDescripcionTextArea.setText(t.getDescripcionTareas());
+                verFechaModificableLabel.setText(t.getFecha().toString());
+                verPrioridadModificableLabel.setText(t.getPrioridad());
+                verProgresoProgressBar.setValue(t.getProgreso());
+                break;
+            }
+        }
+    }//GEN-LAST:event_listaTareasListValueChanged
 
-    private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
+    private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_completadoCheckBoxActionPerformed
+        controlador.procesarEventoEliminar();
+    }//GEN-LAST:event_eliminarButtonActionPerformed
 
-    private void anadirNombreTareaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirNombreTareaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_anadirNombreTareaTextFieldActionPerformed
-
+    public void actualizarTareas(String[] tareas){
+        listaTareasList.setListData(tareas);
+    }
+    
+    public void editarCamposTexto(){
+        String tareaSeleccionada = listaTareasList.getSelectedValue();
+        if(tareaSeleccionada==null){
+            //Tenemos que mostrar mensajes de error
+        } else {
+            for(Tareas t: modelo.getTareas()){
+            if(t.toString().equals(tareaSeleccionada)){
+                anadirNombreTareaLabel.setText(t.getNombreTarea());
+                descripcionTextArea.setText(t.getDescripcionTareas());
+                fechaSpinner.setValue(t.getFecha());
+                prioridadComboBox.setSelectedItem(t.getPrioridad());
+                porcentajeSpinner.setValue(t.getProgreso());
+                if(t.getProgreso()==100) completadoCheckBox.setSelected(true);
+                else completadoCheckBox.setSelected(false);
+                break;
+            }
+        }
+        }
+    }
+    
     public String getNombreTarea(){
         return anadirNombreTareaTextField.getText();
     }

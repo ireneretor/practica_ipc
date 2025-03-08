@@ -82,6 +82,11 @@ public class Tareas {
     public void setCompletado(boolean completado) {
         this.completado = completado;
     }
-
+    
+    @Override
+    public String toString(){
+        if (completado) return nombreTarea+": "+fecha+": Completada";
+        else return nombreTarea+": "+fecha+": Pendiente";
+    }
 }
 

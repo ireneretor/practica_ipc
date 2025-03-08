@@ -1,6 +1,7 @@
-package ipc_practica1_grupo42_vista;
+package ipc_practica1_grupo42_controlador;
 import ipc_practica1_grupo42_modelo.Modelo;
 import ipc_practica1_grupo42_modelo.Tareas;
+import ipc_practica1_grupo42_vista.GestorTareas;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,12 +14,12 @@ public class Controlador {
     private GestorTareas vista;
     private Modelo modelo;
     
-    public Controlador(GestorTareas vista){
+    public Controlador(GestorTareas vista, Modelo modelo){
         this.vista=vista;
-        this.modelo=new Modelo();
+        this.modelo=modelo;
     }
     
-    public void procesarGuardar(){
+    public void procesarEventoGuardar(){
         String nombreTarea=vista.getNombreTarea();
         String descripcion=vista.getDescripcion();
         LocalDate fecha=vista.getFecha();
@@ -50,10 +51,21 @@ public class Controlador {
                             progreso=100;
                         }
                         modelo.addTarea(new Tareas(nombreTarea,descripcion,fecha,prioridad,progreso,completado));
+                        vista.actualizarTareas(modelo.getTareasString());
                     }
                     
                 }
             }
         }
+    }
+    
+    public void procesarEventoEditar(){
+        //TODO funcion editar
+        vista.editarCamposTexto();
+    }
+    
+    public void procesarEventoEliminar(){
+        //TODO funcion eliminar
+        
     }
 }

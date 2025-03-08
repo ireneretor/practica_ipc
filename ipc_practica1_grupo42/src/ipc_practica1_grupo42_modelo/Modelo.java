@@ -10,11 +10,14 @@ public class Modelo {
     private ArrayList <Tareas> tareas;
     
     public Modelo(){
-        tareas=new ArrayList <> ();
+        this.tareas = new ArrayList<>();
     }
-    
     public ArrayList <Tareas> getTareas(){
         return this.tareas;
+    }
+    
+    public String[] getTareasString(){
+        return this.tareas.toArray(String[]::new);
     }
     
     public void addTarea(Tareas tarea){
