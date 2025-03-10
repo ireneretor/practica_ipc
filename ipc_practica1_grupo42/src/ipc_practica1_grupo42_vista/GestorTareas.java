@@ -5,7 +5,6 @@
 package ipc_practica1_grupo42_vista;
 
 import java.time.LocalDate;
-import javax.swing.JTextField;
 import ipc_practica1_grupo42_modelo.Modelo;
 import ipc_practica1_grupo42_modelo.Tareas;
 import ipc_practica1_grupo42_controlador.Controlador;
@@ -20,14 +19,14 @@ public class GestorTareas extends javax.swing.JFrame {
 
     private Controlador controlador;
     private Modelo modelo;
+
     /**
      * Creates new form GestorTareas
      */
     public GestorTareas() {
         initComponents();
-        modelo=new Modelo();
-        this.controlador=new Controlador(this, modelo);
-        
+        this.modelo = new Modelo();
+        this.controlador = new Controlador(this, modelo);
     }
 
     /**
@@ -238,12 +237,6 @@ public class GestorTareas extends javax.swing.JFrame {
 
         jPanel10.setLayout(new java.awt.BorderLayout());
 
-        ArrayList <Tareas> todasTareas=Modelo.getTareas();
-        listaTareasList.setModel(new javax.swing.AbstractListModel<String>() {
-            public int getSize() { return todasTareas.size(); }
-            public String getElementAt(int i) { return todasTareas.get(i).toString(); }
-        });
-        listaTareasList.setPreferredSize(new java.awt.Dimension(550, 90));
         listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -338,8 +331,8 @@ public class GestorTareas extends javax.swing.JFrame {
     private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
         // TODO add your handling code here:
         String tareaSeleccionada = listaTareasList.getSelectedValue();
-        for(Tareas t: modelo.getTareas()){
-            if(t.toString().equals(tareaSeleccionada)){
+        for (Tareas t : modelo.getTareas()) {
+            if (t.toString().equals(tareaSeleccionada)) {
                 verNombreTareaLabel.setText(t.getNombreTarea());
                 verDescripcionTextArea.setText(t.getDescripcionTareas());
                 verFechaModificableLabel.setText(t.getFecha().toString());
@@ -355,57 +348,58 @@ public class GestorTareas extends javax.swing.JFrame {
         controlador.procesarEventoEliminar();
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
-    public void actualizarTareas(String[] tareas){
+    public void actualizarTareas(String[] tareas) {
         listaTareasList.setListData(tareas);
     }
-    
-    public void editarCamposTexto(){
+
+    public void editarCamposTexto() {
         String tareaSeleccionada = listaTareasList.getSelectedValue();
-        if(tareaSeleccionada==null){
+        if (tareaSeleccionada == null) {
             //Tenemos que mostrar mensajes de error
         } else {
-            for(Tareas t: modelo.getTareas()){
-            if(t.toString().equals(tareaSeleccionada)){
-                anadirNombreTareaLabel.setText(t.getNombreTarea());
-                descripcionTextArea.setText(t.getDescripcionTareas());
-                fechaSpinner.setValue(t.getFecha());
-                prioridadComboBox.setSelectedItem(t.getPrioridad());
-                porcentajeSpinner.setValue(t.getProgreso());
-                if(t.getProgreso()==100) completadoCheckBox.setSelected(true);
-                else completadoCheckBox.setSelected(false);
-                break;
+            for (Tareas t : modelo.getTareas()) {
+                if (t.toString().equals(tareaSeleccionada)) {
+                    anadirNombreTareaLabel.setText(t.getNombreTarea());
+                    descripcionTextArea.setText(t.getDescripcionTareas());
+                    fechaSpinner.setValue(t.getFecha());
+                    prioridadComboBox.setSelectedItem(t.getPrioridad());
+                    porcentajeSpinner.setValue(t.getProgreso());
+                    if (t.getProgreso() == 100) {
+                        completadoCheckBox.setSelected(true);
+                    } else {
+                        completadoCheckBox.setSelected(false);
+                    }
+                    break;
+                }
             }
         }
-        }
     }
-    
-    public String getNombreTarea(){
+
+    public String getNombreTarea() {
         return anadirNombreTareaTextField.getText();
     }
-    
-    public String getDescripcion(){
+
+    public String getDescripcion() {
         return descripcionTextArea.getText();
     }
-    
-    public LocalDate getFecha(){
-        LocalDate fecha=(LocalDate) fechaSpinner.getValue();
+
+    public LocalDate getFecha() {
+        LocalDate fecha = (LocalDate) fechaSpinner.getValue();
         return fecha;
     }
-    
-    public String getPrioridad(){
+
+    public String getPrioridad() {
         return (String) prioridadComboBox.getSelectedItem();
     }
-    
-    public int getProgreso(){
+
+    public int getProgreso() {
         return (int) porcentajeSpinner.getValue();
     }
-    
-    public boolean getCompletado(){
+
+    public boolean getCompletado() {
         return completadoCheckBox.isSelected();
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anadirNombreTareaLabel;

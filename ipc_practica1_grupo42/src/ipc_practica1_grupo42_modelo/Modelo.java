@@ -13,7 +13,8 @@ public class Modelo {
         this.tareas = new ArrayList<>();
     }
     public ArrayList <Tareas> getTareas(){
-        return this.tareas;
+        ArrayList <Tareas> copia=new ArrayList<>(tareas);
+        return copia;
     }
     
     public String[] getTareasString(){
