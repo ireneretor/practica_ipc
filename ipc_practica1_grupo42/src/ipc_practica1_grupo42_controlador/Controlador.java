@@ -2,7 +2,7 @@ package ipc_practica1_grupo42_controlador;
 import ipc_practica1_grupo42_modelo.Modelo;
 import ipc_practica1_grupo42_modelo.Tareas;
 import ipc_practica1_grupo42_vista.GestorTareas;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +22,8 @@ public class Controlador {
     public void procesarEventoGuardar(){
         String nombreTarea=vista.getNombreTarea();
         String descripcion=vista.getDescripcion();
-        LocalDate fecha=vista.getFecha();
+        Date fecha=vista.getFecha();
+        Date fechaActual=new Date();
         String prioridad=vista.getPrioridad();
         int progreso=vista.getProgreso();
         boolean completado=vista.getCompletado();
@@ -41,7 +42,7 @@ public class Controlador {
             if(descripcion.length()>100){
                 throw new IllegalArgumentException("");
             }else{
-                if(fecha.isAfter(LocalDate.now())){
+                if(fecha.before(fechaActual)){
                     throw new IllegalArgumentException("");
                 }else{
                     if(!completado & (progreso<0 |progreso>100)){
@@ -51,7 +52,7 @@ public class Controlador {
                             progreso=100;
                         }
                         modelo.addTarea(new Tareas(nombreTarea,descripcion,fecha,prioridad,progreso,completado));
-                        vista.actualizarTareas(modelo.getTareasString());
+                        vista.actualizarTareas(modelo.getTareas());
                     }
                     
                 }

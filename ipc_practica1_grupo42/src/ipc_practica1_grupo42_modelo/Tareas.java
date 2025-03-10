@@ -4,7 +4,7 @@
  */
 package ipc_practica1_grupo42_modelo;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  *
@@ -15,12 +15,12 @@ import java.time.LocalDate;
 public class Tareas {
     private String nombreTarea;
     private String descripcionTareas;
-    private LocalDate fecha;
+    private Date fecha;
     private String prioridad;
     private int progreso;
     private boolean completado;
     
-    public Tareas(String nombreTarea, String descripcion, LocalDate fecha, String prioridad, int progreso, boolean completado) {
+    public Tareas(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, boolean completado) {
         this.nombreTarea = nombreTarea;
         this.descripcionTareas = descripcion;
         this.fecha = fecha;
@@ -41,7 +41,7 @@ public class Tareas {
         return descripcionTareas;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -65,7 +65,7 @@ public class Tareas {
         this.descripcionTareas = descripcionTareas;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

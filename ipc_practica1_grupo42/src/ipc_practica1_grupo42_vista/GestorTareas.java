@@ -4,7 +4,7 @@
  */
 package ipc_practica1_grupo42_vista;
 
-import java.time.LocalDate;
+import java.util.Date;
 import ipc_practica1_grupo42_modelo.Modelo;
 import ipc_practica1_grupo42_modelo.Tareas;
 import ipc_practica1_grupo42_controlador.Controlador;
@@ -348,8 +348,13 @@ public class GestorTareas extends javax.swing.JFrame {
         controlador.procesarEventoEliminar();
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
-    public void actualizarTareas(String[] tareas) {
-        listaTareasList.setListData(tareas);
+    public void actualizarTareas(ArrayList<Tareas> tareas) {
+         String[] tareasArray = new String[tareas.size()];
+    
+        for (int i = 0; i < tareas.size(); i++) {
+            tareasArray[i] = tareas.get(i).toString();
+        }
+        listaTareasList.setListData(tareasArray);
     }
 
     public void editarCamposTexto() {
@@ -359,7 +364,7 @@ public class GestorTareas extends javax.swing.JFrame {
         } else {
             for (Tareas t : modelo.getTareas()) {
                 if (t.toString().equals(tareaSeleccionada)) {
-                    anadirNombreTareaLabel.setText(t.getNombreTarea());
+                    anadirNombreTareaTextField.setText(t.getNombreTarea());
                     descripcionTextArea.setText(t.getDescripcionTareas());
                     fechaSpinner.setValue(t.getFecha());
                     prioridadComboBox.setSelectedItem(t.getPrioridad());
@@ -383,8 +388,8 @@ public class GestorTareas extends javax.swing.JFrame {
         return descripcionTextArea.getText();
     }
 
-    public LocalDate getFecha() {
-        LocalDate fecha = (LocalDate) fechaSpinner.getValue();
+    public Date getFecha() {
+        Date fecha = (Date)fechaSpinner.getValue();
         return fecha;
     }
 
