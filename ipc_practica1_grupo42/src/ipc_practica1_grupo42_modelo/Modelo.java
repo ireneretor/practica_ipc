@@ -28,4 +28,8 @@ public class Modelo {
     public void editarTarea(int i,Tareas nuevaTarea){
         tareas.set(i,nuevaTarea);
     }
+    
+    public void eliminarTarea(int i){
+        tareas.remove(i);
+    }
 }

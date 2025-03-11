@@ -66,6 +66,7 @@ public class GestorTareas extends javax.swing.JFrame {
         completadoCheckBox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
+        limpiarButton = new javax.swing.JButton();
         jPanel23 = new javax.swing.JPanel();
         erroresLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -227,6 +228,14 @@ public class GestorTareas extends javax.swing.JFrame {
         });
         jPanel9.add(guardarButton);
 
+        limpiarButton.setText("Limpiar");
+        limpiarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarButtonActionPerformed(evt);
+            }
+        });
+        jPanel9.add(limpiarButton);
+
         jPanel4.add(jPanel9);
 
         erroresLabel.setForeground(new java.awt.Color(204, 0, 51));
@@ -355,6 +364,11 @@ public class GestorTareas extends javax.swing.JFrame {
         controlador.procesarEventoEliminar();
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
+    private void limpiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoLimpiar();
+    }//GEN-LAST:event_limpiarButtonActionPerformed
+
     public void actualizarTareas(ArrayList<Tareas> tareas) {
          String[] tareasArray = new String[tareas.size()];
     
@@ -434,6 +448,20 @@ public class GestorTareas extends javax.swing.JFrame {
         erroresLabel.setText(s);
     }
 
+    public void limpiarCampos(){
+        anadirNombreTareaTextField.setText("");
+        descripcionTextArea.setText("");
+        fechaSpinner.setValue(new Date());
+        prioridadComboBox.setSelectedIndex(0);
+        porcentajeSpinner.setValue(0);
+        completadoCheckBox.setSelected(false);
+        listaTareasList.clearSelection();
+        verNombreTareaLabel.setText("");
+        verDescripcionTextArea.setText("");
+        verFechaModificableLabel.setText("");
+        verPrioridadModificableLabel.setText("");
+        verProgresoProgressBar.setValue(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anadirNombreTareaLabel;
@@ -473,6 +501,7 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JButton limpiarButton;
     private javax.swing.JList<String> listaTareasList;
     private javax.swing.JScrollPane listaTareasScrollPane;
     private javax.swing.JSpinner porcentajeSpinner;

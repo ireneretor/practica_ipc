@@ -60,6 +60,7 @@ public class Controlador {
                     vista.actualizarTareas(modelo.getTareas());
                     vista.setError("");
                     indexEditar=-1;
+                    vista.limpiarCampos();
                 }
             }
         }
@@ -68,7 +69,7 @@ public class Controlador {
     public void procesarEventoEditar(){
         String tareaSeleccionada=vista.getListaSeleccionada();
         if (tareaSeleccionada == null) {
-            vista.setError("Tienes que seleccionar una tarea");
+            vista.setError("Tienes que seleccionar una tarea para editar");
         } else {
             int i=0;
             for (Tareas t : modelo.getTareas()) {
@@ -94,6 +95,24 @@ public class Controlador {
     
     public void procesarEventoEliminar(){
         //TODO funcion eliminar
-        
+        String tareaSeleccionada=vista.getListaSeleccionada();
+        if (tareaSeleccionada == null) {
+            vista.setError("Tienes que seleccionar una tarea para editar");
+        } else {
+            int i=0;
+            for (Tareas t : modelo.getTareas()) {
+                if (t.toString().equals(tareaSeleccionada)) {
+                    modelo.eliminarTarea(i);
+                    break;
+                }
+                i++;
+            }
+        }
+        vista.actualizarTareas(modelo.getTareas());
+        vista.limpiarCampos();
+    }
+    
+    public void procesarEventoLimpiar(){
+        vista.limpiarCampos();
     }
 }
