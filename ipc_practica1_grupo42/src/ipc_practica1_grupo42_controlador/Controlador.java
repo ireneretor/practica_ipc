@@ -115,4 +115,13 @@ public class Controlador {
     public void procesarEventoLimpiar(){
         vista.limpiarCampos();
     }
+    
+    public void procesarEventoSeleccionarTarea(String tareaSeleccionada){
+        for (Tareas t : modelo.getTareas()) {
+            if (t.toString().equals(tareaSeleccionada)) {
+                vista.cambiarCamposNoModificables(t);
+                break;
+            }
+        }
+    }
 }

@@ -346,17 +346,7 @@ public class GestorTareas extends javax.swing.JFrame {
 
     private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
         // TODO add your handling code here:
-        String tareaSeleccionada = listaTareasList.getSelectedValue();
-        for (Tareas t : modelo.getTareas()) {
-            if (t.toString().equals(tareaSeleccionada)) {
-                verNombreTareaLabel.setText(t.getNombreTarea());
-                verDescripcionTextArea.setText(t.getDescripcionTareas());
-                verFechaModificableLabel.setText(t.getFecha().toString());
-                verPrioridadModificableLabel.setText(t.getPrioridad());
-                verProgresoProgressBar.setValue(t.getProgreso());
-                break;
-            }
-        }
+        controlador.procesarEventoSeleccionarTarea(listaTareasList.getSelectedValue());
     }//GEN-LAST:event_listaTareasListValueChanged
 
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
@@ -378,7 +368,13 @@ public class GestorTareas extends javax.swing.JFrame {
         listaTareasList.setListData(tareasArray);
     }
 
-    
+    public void cambiarCamposNoModificables(Tareas t){
+        verNombreTareaLabel.setText(t.getNombreTarea());
+        verDescripcionTextArea.setText(t.getDescripcionTareas());
+        verFechaModificableLabel.setText(t.getFecha().toString());
+        verPrioridadModificableLabel.setText(t.getPrioridad());
+        verProgresoProgressBar.setValue(t.getProgreso());
+    }
     
    
 
