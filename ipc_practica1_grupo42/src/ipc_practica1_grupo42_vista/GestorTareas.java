@@ -211,6 +211,11 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel8.add(porcentajeSpinner);
 
         completadoCheckBox.setText("Completado");
+        completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completadoCheckBoxActionPerformed(evt);
+            }
+        });
         jPanel8.add(completadoCheckBox);
 
         jPanel4.add(jPanel8);
@@ -359,6 +364,11 @@ public class GestorTareas extends javax.swing.JFrame {
         controlador.procesarEventoLimpiar();
     }//GEN-LAST:event_limpiarButtonActionPerformed
 
+    private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
+        // TODO add your handling code here:
+        porcentajeSpinner.setEnabled(!getCompletado());
+    }//GEN-LAST:event_completadoCheckBoxActionPerformed
+
     public void actualizarTareas(ArrayList<Tareas> tareas) {
          String[] tareasArray = new String[tareas.size()];
     
@@ -377,7 +387,7 @@ public class GestorTareas extends javax.swing.JFrame {
     }
     
    
-
+s
     public String getNombreTarea() {
         return anadirNombreTareaTextField.getText();
     }

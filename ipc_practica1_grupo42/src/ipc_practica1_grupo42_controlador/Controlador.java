@@ -29,7 +29,10 @@ public class Controlador {
         String prioridad=vista.getPrioridad();
         int progreso=vista.getProgreso();
         boolean completado=vista.getCompletado();
-        
+        if (nombreTarea.trim().isEmpty()) { 
+            vista.setError("El nombre de la tarea no puede ser una serie de caracteres en blanco");
+            return;
+        }
         if(nombreTarea.length()>10 | nombreTarea.length()<1){
             vista.setError("El nombre de la tarea debe tener entre 1 y 10 caracteres");
         }else{
