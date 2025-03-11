@@ -66,6 +66,8 @@ public class GestorTareas extends javax.swing.JFrame {
         completadoCheckBox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        erroresLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         listaTareasScrollPane = new javax.swing.JScrollPane();
@@ -160,7 +162,7 @@ public class GestorTareas extends javax.swing.JFrame {
 
         jPanel4.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel4.setName(""); // NOI18N
-        jPanel4.setLayout(new java.awt.GridLayout(3, 0));
+        jPanel4.setLayout(new java.awt.GridLayout(4, 0));
 
         jPanel7.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel7.setName(""); // NOI18N
@@ -226,6 +228,11 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel9.add(guardarButton);
 
         jPanel4.add(jPanel9);
+
+        erroresLabel.setForeground(new java.awt.Color(204, 0, 51));
+        jPanel23.add(erroresLabel);
+
+        jPanel4.add(jPanel23);
 
         jPanel1.add(jPanel4);
 
@@ -357,28 +364,9 @@ public class GestorTareas extends javax.swing.JFrame {
         listaTareasList.setListData(tareasArray);
     }
 
-    public void editarCamposTexto() {
-        String tareaSeleccionada = listaTareasList.getSelectedValue();
-        if (tareaSeleccionada == null) {
-            //Tenemos que mostrar mensajes de error
-        } else {
-            for (Tareas t : modelo.getTareas()) {
-                if (t.toString().equals(tareaSeleccionada)) {
-                    anadirNombreTareaTextField.setText(t.getNombreTarea());
-                    descripcionTextArea.setText(t.getDescripcionTareas());
-                    fechaSpinner.setValue(t.getFecha());
-                    prioridadComboBox.setSelectedItem(t.getPrioridad());
-                    porcentajeSpinner.setValue(t.getProgreso());
-                    if (t.getProgreso() == 100) {
-                        completadoCheckBox.setSelected(true);
-                    } else {
-                        completadoCheckBox.setSelected(false);
-                    }
-                    break;
-                }
-            }
-        }
-    }
+    
+    
+   
 
     public String getNombreTarea() {
         return anadirNombreTareaTextField.getText();
@@ -404,6 +392,47 @@ public class GestorTareas extends javax.swing.JFrame {
     public boolean getCompletado() {
         return completadoCheckBox.isSelected();
     }
+    
+    public String getListaSeleccionada(){
+        return listaTareasList.getSelectedValue();
+    }
+    
+    
+    
+    
+    
+    
+    public void setNombreTarea(String nombreTarea) {
+        anadirNombreTareaTextField.setText(nombreTarea);
+    }
+
+    public void setDescripcion(String descripcion) {
+        descripcionTextArea.setText(descripcion);
+    }
+
+    public void setFecha(Date fecha) {
+        fechaSpinner.setValue(fecha);
+    }
+
+    public void setPrioridad(String prioridad) {
+        prioridadComboBox.setSelectedItem(prioridad);
+    }
+
+    public void setProgreso(int progreso) {
+        porcentajeSpinner.setValue(progreso);
+    }
+
+    public void setCompletado(boolean completado) {
+        completadoCheckBox.setSelected(completado);
+    }
+
+    public void setListaSeleccionada(String listaSeleccionada) {
+        listaTareasList.setSelectedValue(listaSeleccionada, true);
+    }
+
+    public void setError(String s){
+        erroresLabel.setText(s);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -416,6 +445,7 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JTextArea descripcionTextArea;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
+    private javax.swing.JLabel erroresLabel;
     private javax.swing.JLabel fechaLabel;
     private javax.swing.JSpinner fechaSpinner;
     private javax.swing.JButton guardarButton;
@@ -434,6 +464,7 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

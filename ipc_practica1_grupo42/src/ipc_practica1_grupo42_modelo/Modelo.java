@@ -24,4 +24,8 @@ public class Modelo {
     public void addTarea(Tareas tarea){
         this.tareas.add(tarea);
     }
+
+    public void editarTarea(int i,Tareas nuevaTarea){
+        tareas.set(i,nuevaTarea);
+    }
 }
