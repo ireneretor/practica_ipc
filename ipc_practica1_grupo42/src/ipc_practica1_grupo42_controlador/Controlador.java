@@ -133,10 +133,10 @@ public class Controlador {
     public void procesarEventoCompletado(){
         if(vista.getCompletado()) {
             vista.setProgreso(100);
-            vista.setVisible(false);
+            vista.setSpinnerVisible(false);
         } else {
             vista.setProgreso(0);
-            vista.setVisible(true);
+            vista.setSpinnerVisible(true);
         }
     }
 }
