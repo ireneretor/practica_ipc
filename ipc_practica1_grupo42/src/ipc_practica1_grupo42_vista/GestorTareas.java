@@ -4,17 +4,29 @@
  */
 package ipc_practica1_grupo42_vista;
 
+import java.util.Date;
+import ipc_practica1_grupo42_modelo.Modelo;
+import ipc_practica1_grupo42_modelo.Tareas;
+import ipc_practica1_grupo42_controlador.Controlador;
+import java.util.ArrayList;
+import javax.swing.ListSelectionModel;
+
 /**
  *
  * @author tomip
  */
 public class GestorTareas extends javax.swing.JFrame {
 
+    private Controlador controlador;
+    private Modelo modelo;
+
     /**
      * Creates new form GestorTareas
      */
     public GestorTareas() {
         initComponents();
+        this.modelo = new Modelo();
+        this.controlador = new Controlador(this, modelo);
     }
 
     /**
@@ -30,181 +42,188 @@ public class GestorTareas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        anadirNombreTareaLabel = new javax.swing.JLabel();
-        anadirNombreTareaTextField = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel19 = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
-        descripcionTextField = new javax.swing.JTextField();
+        jPanel20 = new javax.swing.JPanel();
+        descripcionScrollPane = new javax.swing.JScrollPane();
+        descripcionTextArea = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        anadirNombreTareaLabel = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        anadirNombreTareaTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
-        fechaFormattedTextField = new javax.swing.JFormattedTextField();
-        porcentajeLabel = new javax.swing.JLabel();
-        porcentajeSpinner = new javax.swing.JSpinner();
-        jPanel8 = new javax.swing.JPanel();
+        fechaSpinner = new javax.swing.JSpinner();
+        jPanel18 = new javax.swing.JPanel();
         prioridadLabel = new javax.swing.JLabel();
-        prioridadScrollPane = new javax.swing.JScrollPane();
-        prioridadList = new javax.swing.JList<>();
+        prioridadComboBox = new javax.swing.JComboBox<>();
+        jPanel8 = new javax.swing.JPanel();
+        anadirProgresoLabel = new javax.swing.JLabel();
+        porcentajeSpinner = new javax.swing.JSpinner();
         completadoCheckBox = new javax.swing.JCheckBox();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
+        limpiarButton = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        erroresLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        verListaTextField = new javax.swing.JTextField();
+        listaTareasScrollPane = new javax.swing.JScrollPane();
+        listaTareasList = new javax.swing.JList<>();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         verNombreTareaLabel = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        verTareaDescripcionLabel = new javax.swing.JLabel();
+        verDescripcionJSCroll = new javax.swing.JScrollPane();
+        verDescripcionTextArea = new javax.swing.JTextArea();
         jPanel14 = new javax.swing.JPanel();
         verFechaNoModificableLabel = new javax.swing.JLabel();
         verFechaModificableLabel = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         verPrioridadNoModificableLabel = new javax.swing.JLabel();
         verPrioridadModificableLabel = new javax.swing.JLabel();
+        verProgresoLabel = new javax.swing.JLabel();
         verProgresoProgressBar = new javax.swing.JProgressBar();
         jPanel16 = new javax.swing.JPanel();
         editarButton = new javax.swing.JButton();
         eliminarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(75, 86));
 
+        jPanel1.setMinimumSize(new java.awt.Dimension(100, 50));
+        jPanel1.setName(""); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(750, 860));
         jPanel1.setLayout(new java.awt.GridLayout(2, 0));
 
-        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
+        jPanel3.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel3.setName(""); // NOI18N
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-        anadirNombreTareaLabel.setText("Nombre de la tarea");
+        jPanel5.setMinimumSize(new java.awt.Dimension(75, 50));
+        jPanel5.setName(""); // NOI18N
+        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(anadirNombreTareaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(anadirNombreTareaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(anadirNombreTareaLabel)
-                    .addComponent(anadirNombreTareaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-
-        jPanel3.add(jPanel5);
+        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         descripcionLabel.setText("Descripción:");
+        jPanel19.add(descripcionLabel);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(descripcionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(descripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(descripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descripcionLabel))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
+        jPanel5.add(jPanel19);
 
-        jPanel3.add(jPanel6);
+        jPanel20.setLayout(new java.awt.BorderLayout());
+
+        descripcionScrollPane.setPreferredSize(new java.awt.Dimension(144, 86));
+
+        descripcionTextArea.setColumns(20);
+        descripcionTextArea.setRows(5);
+        descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
+        descripcionScrollPane.setViewportView(descripcionTextArea);
+
+        jPanel20.add(descripcionScrollPane, java.awt.BorderLayout.CENTER);
+
+        jPanel5.add(jPanel20);
+
+        jPanel3.add(jPanel5, java.awt.BorderLayout.CENTER);
+
+        jPanel6.setMinimumSize(new java.awt.Dimension(75, 32));
+        jPanel6.setName(""); // NOI18N
+        jPanel6.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel22.setMaximumSize(new java.awt.Dimension(798, 182));
+        jPanel22.setMinimumSize(new java.awt.Dimension(37, 26));
+        jPanel22.setPreferredSize(new java.awt.Dimension(350, 26));
+        jPanel22.setRequestFocusEnabled(false);
+        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        anadirNombreTareaLabel.setText("Nombre de la tarea");
+        anadirNombreTareaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jPanel22.add(anadirNombreTareaLabel);
+
+        jPanel6.add(jPanel22);
+
+        jPanel21.setMinimumSize(new java.awt.Dimension(37, 32));
+        jPanel21.setName(""); // NOI18N
+        jPanel21.setLayout(new java.awt.BorderLayout());
+
+        anadirNombreTareaTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        anadirNombreTareaTextField.setMinimumSize(new java.awt.Dimension(64, 32));
+        anadirNombreTareaTextField.setName(""); // NOI18N
+        anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(450, 32));
+        jPanel21.add(anadirNombreTareaTextField, java.awt.BorderLayout.CENTER);
+
+        jPanel6.add(jPanel21);
+
+        jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.add(jPanel3);
 
-        jPanel4.setLayout(new java.awt.GridLayout(3, 0));
+        jPanel4.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel4.setName(""); // NOI18N
+        jPanel4.setLayout(new java.awt.GridLayout(4, 0));
+
+        jPanel7.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel7.setName(""); // NOI18N
+        jPanel7.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel17.setMinimumSize(new java.awt.Dimension(37, 32));
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         fechaLabel.setText("Fecha: ");
+        jPanel17.add(fechaLabel);
 
-        fechaFormattedTextField.setAutoscrolls(false);
+        fechaSpinner.setModel(new javax.swing.SpinnerDateModel());
+        fechaSpinner.setEditor(new javax.swing.JSpinner.DateEditor(fechaSpinner, "dd/MM/yy"));
+        jPanel17.add(fechaSpinner);
 
-        porcentajeLabel.setText("Porcentaje");
+        jPanel7.add(jPanel17);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(fechaFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(porcentajeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(porcentajeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaLabel)
-                    .addComponent(fechaFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(porcentajeLabel)
-                    .addComponent(porcentajeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
+        jPanel18.setMinimumSize(new java.awt.Dimension(37, 32));
+        jPanel18.setName(""); // NOI18N
+        jPanel18.setPreferredSize(new java.awt.Dimension(450, 32));
+        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
+        prioridadLabel.setText("Prioridad");
+        jPanel18.add(prioridadLabel);
+
+        prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
+        jPanel18.add(prioridadComboBox);
+
+        jPanel7.add(jPanel18);
 
         jPanel4.add(jPanel7);
 
-        prioridadLabel.setText("Prioridad");
+        jPanel8.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel8.setName(""); // NOI18N
+        jPanel8.setPreferredSize(new java.awt.Dimension(550, 32));
+        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        prioridadList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Alta", "Media", "Baja" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        prioridadScrollPane.setViewportView(prioridadList);
+        anadirProgresoLabel.setText("Progreso:");
+        jPanel8.add(anadirProgresoLabel);
+
+        porcentajeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+        porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 22));
+        porcentajeSpinner.setName(""); // NOI18N
+        porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 22));
+        jPanel8.add(porcentajeSpinner);
 
         completadoCheckBox.setText("Completado");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(prioridadLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(prioridadScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(completadoCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(prioridadScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(prioridadLabel)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(completadoCheckBox)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completadoCheckBoxActionPerformed(evt);
+            }
+        });
+        jPanel8.add(completadoCheckBox);
 
         jPanel4.add(jPanel8);
+
+        jPanel9.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel9.setName(""); // NOI18N
+        jPanel9.setPreferredSize(new java.awt.Dimension(550, 33));
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         guardarButton.setText("Guardar");
         guardarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -212,151 +231,88 @@ public class GestorTareas extends javax.swing.JFrame {
                 guardarButtonActionPerformed(evt);
             }
         });
+        jPanel9.add(guardarButton);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(guardarButton)
-                .addContainerGap(234, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(guardarButton)
-                .addContainerGap())
-        );
+        limpiarButton.setText("Limpiar");
+        limpiarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limpiarButtonActionPerformed(evt);
+            }
+        });
+        jPanel9.add(limpiarButton);
 
         jPanel4.add(jPanel9);
+
+        erroresLabel.setForeground(new java.awt.Color(204, 0, 51));
+        jPanel23.add(erroresLabel);
+
+        jPanel4.add(jPanel23);
 
         jPanel1.add(jPanel4);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
 
+        jPanel2.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel2.setPreferredSize(new java.awt.Dimension(750, 860));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
-        verListaTextField.setEditable(false);
-        verListaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verListaTextFieldActionPerformed(evt);
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaTareasListValueChanged(evt);
             }
         });
+        listaTareasScrollPane.setViewportView(listaTareasList);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verListaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verListaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
-        );
+        jPanel10.add(listaTareasScrollPane, java.awt.BorderLayout.CENTER);
 
         jPanel2.add(jPanel10);
 
+        jPanel11.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel11.setLayout(new java.awt.GridLayout(5, 0));
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(verNombreTareaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(verNombreTareaLabel)
-                .addContainerGap())
-        );
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel12.add(verNombreTareaLabel);
 
         jPanel11.add(jPanel12);
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verTareaDescripcionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verTareaDescripcionLabel)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jPanel13.setLayout(new java.awt.BorderLayout());
+
+        verDescripcionJSCroll.setEnabled(false);
+
+        verDescripcionTextArea.setEditable(false);
+        verDescripcionTextArea.setColumns(20);
+        verDescripcionTextArea.setRows(5);
+        verDescripcionJSCroll.setViewportView(verDescripcionTextArea);
+
+        jPanel13.add(verDescripcionJSCroll, java.awt.BorderLayout.CENTER);
 
         jPanel11.add(jPanel13);
 
-        verFechaNoModificableLabel.setText("Fecha");
+        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verFechaNoModificableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(verFechaModificableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(verFechaNoModificableLabel)
-                    .addComponent(verFechaModificableLabel))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
+        verFechaNoModificableLabel.setText("Fecha");
+        jPanel14.add(verFechaNoModificableLabel);
+        jPanel14.add(verFechaModificableLabel);
 
         jPanel11.add(jPanel14);
 
-        verPrioridadNoModificableLabel.setText("Prioridad");
+        jPanel15.setMinimumSize(new java.awt.Dimension(50, 26));
+        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(verPrioridadNoModificableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verPrioridadModificableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verProgresoProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(verProgresoProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(verPrioridadNoModificableLabel)
-                        .addComponent(verPrioridadModificableLabel)))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
+        verPrioridadNoModificableLabel.setText("Prioridad");
+        jPanel15.add(verPrioridadNoModificableLabel);
+        jPanel15.add(verPrioridadModificableLabel);
+
+        verProgresoLabel.setText("Progreso:");
+        jPanel15.add(verProgresoLabel);
+        jPanel15.add(verProgresoProgressBar);
 
         jPanel11.add(jPanel15);
+
+        jPanel16.setMinimumSize(new java.awt.Dimension(50, 33));
 
         editarButton.setText("Editar");
         editarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -364,28 +320,15 @@ public class GestorTareas extends javax.swing.JFrame {
                 editarButtonActionPerformed(evt);
             }
         });
+        jPanel16.add(editarButton);
 
         eliminarButton.setText("Eliminar");
-
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(editarButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(eliminarButton)
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                .addGap(0, 7, Short.MAX_VALUE)
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarButton)
-                    .addComponent(eliminarButton)))
-        );
+        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarButtonActionPerformed(evt);
+            }
+        });
+        jPanel16.add(eliminarButton);
 
         jPanel11.add(jPanel16);
 
@@ -398,28 +341,147 @@ public class GestorTareas extends javax.swing.JFrame {
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoGuardar();
     }//GEN-LAST:event_guardarButtonActionPerformed
-
-    private void verListaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verListaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_verListaTextFieldActionPerformed
 
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoEditar();
     }//GEN-LAST:event_editarButtonActionPerformed
 
+    private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
+        // TODO add your handling code here:
+        controlador.procesarEventoSeleccionarTarea(listaTareasList.getSelectedValue());
+    }//GEN-LAST:event_listaTareasListValueChanged
+
+    private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoEliminar();
+    }//GEN-LAST:event_eliminarButtonActionPerformed
+
+    private void limpiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoLimpiar();
+    }//GEN-LAST:event_limpiarButtonActionPerformed
+
+    private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
+        // TODO add your handling code here:
+        porcentajeSpinner.setEnabled(!getCompletado());
+    }//GEN-LAST:event_completadoCheckBoxActionPerformed
+
+    public void actualizarTareas(ArrayList<Tareas> tareas) {
+         String[] tareasArray = new String[tareas.size()];
     
+        for (int i = 0; i < tareas.size(); i++) {
+            tareasArray[i] = tareas.get(i).toString();
+        }
+        listaTareasList.setListData(tareasArray);
+    }
+
+    public void cambiarCamposNoModificables(Tareas t){
+        verNombreTareaLabel.setText(t.getNombreTarea());
+        verDescripcionTextArea.setText(t.getDescripcionTareas());
+        verFechaModificableLabel.setText(t.getFecha().toString());
+        verPrioridadModificableLabel.setText(t.getPrioridad());
+        verProgresoProgressBar.setValue(t.getProgreso());
+    }
+    
+   
+s
+    public String getNombreTarea() {
+        return anadirNombreTareaTextField.getText();
+    }
+
+    public String getDescripcion() {
+        return descripcionTextArea.getText();
+    }
+
+    public Date getFecha() {
+        Date fecha = (Date)fechaSpinner.getValue();
+        return fecha;
+    }
+
+    public String getPrioridad() {
+        return (String) prioridadComboBox.getSelectedItem();
+    }
+
+    public int getProgreso() {
+        return (int) porcentajeSpinner.getValue();
+    }
+
+    public boolean getCompletado() {
+        return completadoCheckBox.isSelected();
+    }
+    
+    public String getListaSeleccionada(){
+        return listaTareasList.getSelectedValue();
+    }
+    
+    
+    
+    
+    
+    
+    public void setNombreTarea(String nombreTarea) {
+        anadirNombreTareaTextField.setText(nombreTarea);
+    }
+
+    public void setDescripcion(String descripcion) {
+        descripcionTextArea.setText(descripcion);
+    }
+
+    public void setFecha(Date fecha) {
+        fechaSpinner.setValue(fecha);
+    }
+
+    public void setPrioridad(String prioridad) {
+        prioridadComboBox.setSelectedItem(prioridad);
+    }
+
+    public void setProgreso(int progreso) {
+        porcentajeSpinner.setValue(progreso);
+    }
+
+    public void setCompletado(boolean completado) {
+        completadoCheckBox.setSelected(completado);
+    }
+
+    public void setListaSeleccionada(String listaSeleccionada) {
+        listaTareasList.setSelectedValue(listaSeleccionada, true);
+    }
+
+    public void setError(String s){
+        erroresLabel.setText(s);
+    }
+
+    public void limpiarCampos(){
+        anadirNombreTareaTextField.setText("");
+        descripcionTextArea.setText("");
+        fechaSpinner.setValue(new Date());
+        prioridadComboBox.setSelectedIndex(0);
+        porcentajeSpinner.setValue(0);
+        completadoCheckBox.setSelected(false);
+        listaTareasList.clearSelection();
+        verNombreTareaLabel.setText("");
+        verDescripcionTextArea.setText("");
+        verFechaModificableLabel.setText("");
+        verPrioridadModificableLabel.setText("");
+        verProgresoProgressBar.setValue(0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel anadirNombreTareaLabel;
     private javax.swing.JTextField anadirNombreTareaTextField;
+    private javax.swing.JLabel anadirProgresoLabel;
     private javax.swing.JCheckBox completadoCheckBox;
     private javax.swing.JLabel descripcionLabel;
-    private javax.swing.JTextField descripcionTextField;
+    private javax.swing.JScrollPane descripcionScrollPane;
+    private javax.swing.JTextArea descripcionTextArea;
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
-    private javax.swing.JFormattedTextField fechaFormattedTextField;
+    private javax.swing.JLabel erroresLabel;
     private javax.swing.JLabel fechaLabel;
+    private javax.swing.JSpinner fechaSpinner;
     private javax.swing.JButton guardarButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -429,7 +491,14 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -438,18 +507,20 @@ public class GestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JLabel porcentajeLabel;
+    private javax.swing.JButton limpiarButton;
+    private javax.swing.JList<String> listaTareasList;
+    private javax.swing.JScrollPane listaTareasScrollPane;
     private javax.swing.JSpinner porcentajeSpinner;
+    private javax.swing.JComboBox<String> prioridadComboBox;
     private javax.swing.JLabel prioridadLabel;
-    private javax.swing.JList<String> prioridadList;
-    private javax.swing.JScrollPane prioridadScrollPane;
+    private javax.swing.JScrollPane verDescripcionJSCroll;
+    private javax.swing.JTextArea verDescripcionTextArea;
     private javax.swing.JLabel verFechaModificableLabel;
     private javax.swing.JLabel verFechaNoModificableLabel;
-    private javax.swing.JTextField verListaTextField;
     private javax.swing.JLabel verNombreTareaLabel;
     private javax.swing.JLabel verPrioridadModificableLabel;
     private javax.swing.JLabel verPrioridadNoModificableLabel;
+    private javax.swing.JLabel verProgresoLabel;
     private javax.swing.JProgressBar verProgresoProgressBar;
-    private javax.swing.JLabel verTareaDescripcionLabel;
     // End of variables declaration//GEN-END:variables
 }
