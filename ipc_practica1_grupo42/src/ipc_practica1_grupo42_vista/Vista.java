@@ -5,9 +5,8 @@
 package ipc_practica1_grupo42_vista;
 
 import java.util.Date;
-import ipc_practica1_grupo42_modelo.Modelo;
-import ipc_practica1_grupo42_modelo.Tareas;
-import ipc_practica1_grupo42_controlador.Controlador;
+import ipc_practica1_grupo42_modelo.GestorTareas;
+import ipc_practica1_grupo42_modelo.Tarea;
 import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
 
@@ -15,17 +14,17 @@ import javax.swing.ListSelectionModel;
  *
  * @author tomip
  */
-public class GestorTareas extends javax.swing.JFrame {
+public class Vista extends javax.swing.JFrame {
 
     private Controlador controlador;
-    private Modelo modelo;
+    private GestorTareas modelo;
 
     /**
      * Creates new form GestorTareas
      */
-    public GestorTareas() {
+    public Vista() {
         initComponents();
-        this.modelo = new Modelo();
+        this.modelo = new GestorTareas();
         this.controlador = new Controlador(this, modelo);
     }
 
@@ -370,7 +369,7 @@ public class GestorTareas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_completadoCheckBoxActionPerformed
 
-    public void actualizarTareas(ArrayList<Tareas> tareas) {
+    public void actualizarTareas(ArrayList<Tarea> tareas) {
          String[] tareasArray = new String[tareas.size()];
     
         for (int i = 0; i < tareas.size(); i++) {
@@ -379,7 +378,7 @@ public class GestorTareas extends javax.swing.JFrame {
         listaTareasList.setListData(tareasArray);
     }
 
-    public void cambiarCamposNoModificables(Tareas t){
+    public void cambiarCamposNoModificables(Tarea t){
         verNombreTareaLabel.setText(t.getNombreTarea());
         verDescripcionTextArea.setText(t.getDescripcionTareas());
         verFechaModificableLabel.setText(t.getFecha().toString());

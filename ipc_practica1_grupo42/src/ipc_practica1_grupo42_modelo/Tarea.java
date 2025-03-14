@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * Tipo de dato que define las tareas que se tienen almacenar
  * @author tomruiz,irereto
  */
-public class Tareas {
+public class Tarea {
     private String nombreTarea;
     private String descripcionTareas;
     private Date fecha;
@@ -33,7 +33,7 @@ public class Tareas {
      * @throws IllegalArgumentException si prioridad no es "Baja", "Media" o "Alta"
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
      */
-    public Tareas(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, boolean completado) {
+    public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, boolean completado) {
         if (nombreTarea.trim().isEmpty()) { 
             throw new IllegalArgumentException("El nombre de la tarea no puede ser una serie de caracteres en blanco");
         }else if(nombreTarea.length()>10 | nombreTarea.length()<1){

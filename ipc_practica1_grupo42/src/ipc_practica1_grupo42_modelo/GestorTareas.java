@@ -6,14 +6,14 @@ package ipc_practica1_grupo42_modelo;
 import java.util.ArrayList;
 
 
-public class Modelo {
-    private ArrayList <Tareas> tareas;
+public class GestorTareas {
+    private ArrayList <Tarea> tareas;
     
-    public Modelo(){
+    public GestorTareas(){
         this.tareas = new ArrayList<>();
     }
-    public ArrayList <Tareas> getTareas(){
-        ArrayList <Tareas> copia=new ArrayList<>(tareas);
+    public ArrayList <Tarea> getTareas(){
+        ArrayList <Tarea> copia=new ArrayList<>(tareas);
         return copia;
     }
     
@@ -21,11 +21,11 @@ public class Modelo {
         return this.tareas.toArray(String[]::new);
     }
     
-    public void addTarea(Tareas tarea){
+    public void addTarea(Tarea tarea){
         this.tareas.add(tarea);
     }
 
-    public void editarTarea(int i,Tareas nuevaTarea){
+    public void editarTarea(int i,Tarea nuevaTarea){
         tareas.set(i,nuevaTarea);
     }
     
