@@ -30,7 +30,6 @@ public class Tareas {
      * @throws IllegalArgumentException si nombreTarea son caracteres en blanco
      * @throws IllegalArgumentException si nombreTarea tiene más de 10 caracteres o menos de 1
      * @throws IllegalArgumentException si descripción tiene más de 100 caracteres
-     * @throws IllegalArgumentException si fecha es anterior o igual a hoy
      * @throws IllegalArgumentException si prioridad no es "Baja", "Media" o "Alta"
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
      */
@@ -42,9 +41,6 @@ public class Tareas {
         }
         if(descripcion.length()>100){
             throw new IllegalArgumentException("La descripción no puede tener más de 100 caracteres");
-        }
-        if(fecha.before(new Date())){
-            throw new IllegalArgumentException("La fecha fijada no puede ser anterior a hoy");
         }
         if(!(prioridad.equals("Baja") | prioridad.equals("Media") | prioridad.equals("Alta"))){
             throw new IllegalArgumentException("La prioridad debe ser Baja,Media o Alta");
@@ -131,14 +127,16 @@ public class Tareas {
      * @param descripcion: String que se refiere a la descripcion de la tarea
      * @throws IllegalArgumentException si descripción tiene más de 100 caracteres
      */
-    public void setDescripcionTareas(String descripcionTareas) {
-        this.descripcionTareas = descripcionTareas;
+    public void setDescripcionTareas(String descripcion) {
+        if(descripcion.length()>100){
+            throw new IllegalArgumentException("La descripción no puede tener más de 100 caracteres");
+        }
+        this.descripcionTareas = descripcion;
     }
 
     /**
      * Setter de la fecha
      * @param fecha: LocalDate referida a la fecha en la que se espera que acabe la tarea
-     * @throws IllegalArgumentException si fecha es anterior o igual a hoy
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
@@ -150,6 +148,9 @@ public class Tareas {
      * @throws IllegalArgumentException si prioridad no es "Baja", "Media" o "Alta"
      */
     public void setPrioridad(String prioridad) {
+        if(!(prioridad.equals("Baja") | prioridad.equals("Media") | prioridad.equals("Alta"))){
+            throw new IllegalArgumentException("La prioridad debe ser Baja,Media o Alta");
+        }
         this.prioridad = prioridad;
     }
 
@@ -159,7 +160,13 @@ public class Tareas {
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
      */
     public void setProgreso(int progreso) {
+        if(progreso<0 | progreso>100){
+            throw new IllegalArgumentException("El progreso debe estar entre 0 y 100");
+        }
         if(!this.completado){
+            if(progreso<0 | progreso>100){
+                throw new IllegalArgumentException("El progreso debe estar entre 0 y 100");
+            }
             this.progreso = progreso;
         }
     }
