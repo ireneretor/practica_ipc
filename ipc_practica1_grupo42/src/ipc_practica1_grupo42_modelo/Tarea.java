@@ -196,7 +196,7 @@ public class Tarea {
     public String toString(){
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         if (completado) return nombreTarea+": "+formato.format(fecha)+": Completada";
-        else return nombreTarea+": "+fecha+": Pendiente";
+        else return nombreTarea+": "+formato.format(fecha)+": Pendiente";
     }
 }
 
