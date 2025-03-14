@@ -55,7 +55,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         fechaLabel = new javax.swing.JLabel();
-        fechaSpinner = new javax.swing.JSpinner();
+        fechaDateChooser = new com.toedter.calendar.JDateChooser();
         jPanel18 = new javax.swing.JPanel();
         prioridadLabel = new javax.swing.JLabel();
         prioridadComboBox = new javax.swing.JComboBox<>();
@@ -174,9 +174,11 @@ public class Vista extends javax.swing.JFrame {
         fechaLabel.setText("Fecha: ");
         jPanel17.add(fechaLabel);
 
-        fechaSpinner.setModel(new javax.swing.SpinnerDateModel());
-        fechaSpinner.setEditor(new javax.swing.JSpinner.DateEditor(fechaSpinner, "dd/MM/yy"));
-        jPanel17.add(fechaSpinner);
+        fechaDateChooser.setDateFormatString("dd/MM/yyyy");
+        fechaDateChooser.setMaxSelectableDate(new java.util.Date(253370764872000L));
+        fechaDateChooser.setMinimumSize(new java.awt.Dimension(120, 25));
+        fechaDateChooser.setPreferredSize(new java.awt.Dimension(120, 25));
+        jPanel17.add(fechaDateChooser);
 
         jPanel7.add(jPanel17);
 
@@ -397,7 +399,7 @@ public class Vista extends javax.swing.JFrame {
     }
 
     public Date getFecha() {
-        Date fecha = (Date)fechaSpinner.getValue();
+        Date fecha = (Date) fechaDateChooser.getDate();
         return fecha;
     }
 
@@ -431,7 +433,7 @@ public class Vista extends javax.swing.JFrame {
     }
 
     public void setFecha(Date fecha) {
-        fechaSpinner.setValue(fecha);
+        fechaDateChooser.setDate(fecha);
     }
 
     public void setPrioridad(String prioridad) {
@@ -461,7 +463,7 @@ public class Vista extends javax.swing.JFrame {
     public void limpiarCampos(){
         anadirNombreTareaTextField.setText("");
         descripcionTextArea.setText("");
-        fechaSpinner.setValue(new Date());
+        fechaDateChooser.setDate(new Date());
         prioridadComboBox.setSelectedIndex(0);
         porcentajeSpinner.setValue(0);
         completadoCheckBox.setSelected(false);
@@ -485,8 +487,8 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton editarButton;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JLabel erroresLabel;
+    private com.toedter.calendar.JDateChooser fechaDateChooser;
     private javax.swing.JLabel fechaLabel;
-    private javax.swing.JSpinner fechaSpinner;
     private javax.swing.JButton guardarButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

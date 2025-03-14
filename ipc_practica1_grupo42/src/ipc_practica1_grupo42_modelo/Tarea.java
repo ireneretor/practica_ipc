@@ -5,7 +5,7 @@
 package ipc_practica1_grupo42_modelo;
 
 import java.util.Date;
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 
 /**
  * Tipo de dato que define las tareas que se tienen almacenar
@@ -32,6 +32,7 @@ public class Tarea {
      * @throws IllegalArgumentException si descripción tiene más de 100 caracteres
      * @throws IllegalArgumentException si prioridad no es "Baja", "Media" o "Alta"
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
+     * @throws IllegalArgumentException si fecha es nula
      */
     public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, boolean completado) {
         if (nombreTarea.trim().isEmpty()) { 
@@ -47,6 +48,9 @@ public class Tarea {
         }
         if(!completado & (progreso<0 | progreso>100)){
             throw new IllegalArgumentException("El progreso debe estar entre 0 y 100");
+        }
+        if(fecha==null){
+            throw new IllegalArgumentException("La fecha no puede ser nula");
         }
         this.nombreTarea = nombreTarea;
         this.descripcionTareas = descripcion;
@@ -137,8 +141,12 @@ public class Tarea {
     /**
      * Setter de la fecha
      * @param fecha: LocalDate referida a la fecha en la que se espera que acabe la tarea
+     * @throws IllegalArgumentException si fecha es nula
      */
     public void setFecha(Date fecha) {
+        if(fecha==null){
+            throw new IllegalArgumentException("La fecha no puede ser nula");
+        }
         this.fecha = fecha;
     }
 
@@ -186,7 +194,8 @@ public class Tarea {
      */
     @Override
     public String toString(){
-        if (completado) return nombreTarea+": "+fecha+": Completada";
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        if (completado) return nombreTarea+": "+formato.format(fecha)+": Completada";
         else return nombreTarea+": "+fecha+": Pendiente";
     }
 }
