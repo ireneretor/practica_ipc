@@ -366,13 +366,8 @@ public class GestorTareas extends javax.swing.JFrame {
 
     private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
         // TODO add your handling code here:
-        if(getCompletado()) {
-            porcentajeSpinner.setEnabled(false);
-            porcentajeSpinner.setValue(100);
-        } else {
-            porcentajeSpinner.setEnabled(true);
-            porcentajeSpinner.setValue(0);
-        }
+        controlador.procesarEventoCompletado();
+        
     }//GEN-LAST:event_completadoCheckBoxActionPerformed
 
     public void actualizarTareas(ArrayList<Tareas> tareas) {
