@@ -84,8 +84,10 @@ public class Controlador {
                     vista.setProgreso(t.getProgreso());
                     if (t.getProgreso() == 100) {
                         vista.setCompletado(true);
+                        vista.setSpinnerVisible(false);
                     } else {
                         vista.setCompletado(false);
+                        vista.setSpinnerVisible(true);
                     }
                     indexEditar=i;
                     break;

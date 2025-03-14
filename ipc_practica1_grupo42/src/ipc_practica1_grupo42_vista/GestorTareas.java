@@ -387,7 +387,7 @@ public class GestorTareas extends javax.swing.JFrame {
     }
     
    
-s
+
     public String getNombreTarea() {
         return anadirNombreTareaTextField.getText();
     }
@@ -453,6 +453,10 @@ s
     public void setError(String s){
         erroresLabel.setText(s);
     }
+    
+    public void setSpinnerVisible(boolean visible) {
+        porcentajeSpinner.setEnabled(visible);
+    }
 
     public void limpiarCampos(){
         anadirNombreTareaTextField.setText("");
@@ -467,6 +471,7 @@ s
         verFechaModificableLabel.setText("");
         verPrioridadModificableLabel.setText("");
         verProgresoProgressBar.setValue(0);
+        porcentajeSpinner.setEnabled(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
