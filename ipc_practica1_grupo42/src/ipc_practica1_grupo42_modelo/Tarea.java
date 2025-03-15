@@ -19,14 +19,14 @@ public class Tarea {
     private int progreso;
     private boolean completado;
     
-    /**     * @param completado: boolean que indica si la tarea ha sido completada
-
+    /**     
      * Inicializador de la clase Tareas
      * @param nombreTarea:  String que se refiere nombre que se asigna a la tarea
      * @param descripcion: String que se refiere a la descripcion de la tarea
      * @param fecha: LocalDate referida a la fecha en la que se espera que acabe la tarea
      * @param prioridad: String que indica la prioridad de la tarea
      * @param progreso: int que indica el progreso de la tarea
+     * @param completado: boolean que indica si la tarea ha sido completada
      * @throws IllegalArgumentException si nombreTarea son caracteres en blanco
      * @throws IllegalArgumentException si nombreTarea tiene más de 10 caracteres o menos de 1
      * @throws IllegalArgumentException si descripción tiene más de 100 caracteres
@@ -190,7 +190,7 @@ public class Tarea {
     /**
      * Función que devuelve la descripción de la tarea en un String
      * @return un STring con el formato: nombreTarea: fecha: 
-     * si completado es true "Completada" y si es false "Pendientr"
+     * si completado es true "Completada" y si es false "Pendiente"
      */
     @Override
     public String toString(){
