@@ -6,8 +6,9 @@ package ipc_practica1_grupo42_modelo;
 import java.util.ArrayList;
 
 /**
- * Clase que actua como modelo para la gestión de las tareas.
- * @author tomruiz,irereto
+ * Clase que actua como modelo para la gestion de las tareas.
+ * 
+ * @author tomruiz, irereto
  */
 public class GestorTareas {
     private ArrayList <Tarea> tareas;
@@ -21,6 +22,7 @@ public class GestorTareas {
     
     /**
      * Funcion que devuelve una copia de las tareas que guarda el modelo
+     * 
      * @return un arraylist con todas las tareas
      */
     public ArrayList <Tarea> getTareas(){
@@ -30,6 +32,7 @@ public class GestorTareas {
     
     /**
      * Getter del toString de todas las tareas
+     * 
      * @return Array de Stringg con los toString de las tareas
      */
     public String[] getTareasString(){
@@ -37,7 +40,8 @@ public class GestorTareas {
     }
     
     /**
-     * Función para añadir una tarea nueva a la lista
+     * Funcion para añadir una tarea nueva a la lista
+     * 
      * @param tarea: Tarea nueva a añadir
      */
     public void addTarea(Tarea tarea){
@@ -46,7 +50,8 @@ public class GestorTareas {
 
     /**
      * Funcion para editar la tarea en una posicion determinada
-     * @param i: entero que representa la posición en la que se va a cambiar la tarea
+     * 
+     * @param i: entero que representa la posicion en la que se va a cambiar la tarea
      * @param nuevaTarea: tarea que se añade en la posicion i
      */
     public void editarTarea(int i,Tarea nuevaTarea){
@@ -54,8 +59,9 @@ public class GestorTareas {
     }
     
     /**
-     * Función para eliminar una tarea de la lista
-     * @param i: entero que nos da las posición de la tarea a eliminar
+     * Funcion para eliminar una tarea de la lista
+     * 
+     * @param i: entero que nos da las posicion de la tarea a eliminar
      */
     public void eliminarTarea(int i){
         tareas.remove(i);

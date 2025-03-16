@@ -5,7 +5,8 @@ import java.util.Date;
 
 /**
  * Clase controladora de los eventos de la vista
- * @author tomruiz,irereto
+ * 
+ * @author tomruiz, irereto
  */
 public class Controlador {
     
@@ -15,6 +16,7 @@ public class Controlador {
     
     /**
      * Inicializador del controlador
+     * 
      * @param vista: vista de la que se tomaran los valores
      * @param modelo: modelo en el que se almacenan las tareas
      */
@@ -57,7 +59,7 @@ public class Controlador {
     }
     
     /**
-     * Función para procesar la edición de las tareas, poniendo los valores de la tarea seleccionada en la vista para poder ser editada
+     * Funcion para procesar la edicion de las tareas, poniendo los valores de la tarea seleccionada en la vista para poder ser editada
      */
     public void procesarEventoEditar(){
         String tareaSeleccionada=vista.getListaSeleccionada();
@@ -88,7 +90,7 @@ public class Controlador {
     }
     
     /**
-     * Función para procesar el eliminado de una tarea del modelo
+     * Funcion para procesar el eliminado de una tarea del modelo
      */
     public void procesarEventoEliminar(){
         //TODO funcion eliminar
@@ -110,7 +112,7 @@ public class Controlador {
     }
     
     /**
-     * Función para procesar el limpiado de los campos de la vista
+     * Funcion para procesar el limpiado de los campos de la vista
      */
     public void procesarEventoLimpiar(){
         vista.limpiarCampos();
@@ -118,7 +120,8 @@ public class Controlador {
     
     
     /**
-     * Función para procesar el evento de seleccionar una tarea y cambiar los campos no modificables de la vista
+     * Funcion para procesar el evento de seleccionar una tarea y cambiar los campos no modificables de la vista
+     * 
      * @param tareaSeleccionada: toString de la tarea seleccionada en la vista
      */
     public void procesarEventoSeleccionarTarea(String tareaSeleccionada){
@@ -131,7 +134,7 @@ public class Controlador {
     }
     
     /**
-     * Función para procesar la desactivacion del spinner de progreso y la puesta de su valor a 100,
+     * Funcion para procesar la desactivacion del spinner de progreso y la puesta de su valor a 100,
      * en caso de que se presione el comboBox de completado
      */
     public void procesarEventoCompletado(){

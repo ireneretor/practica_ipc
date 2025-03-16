@@ -5,8 +5,9 @@
 package ipc_practica1_grupo42;
 import ipc_practica1_grupo42_vista.Vista;
 /**
- *
- * @author tomip
+ *Clase donde se encuentra el main e inicializa todo el programa
+ * 
+ * @author tomip, irereto
  */
 public class Ipc_practica1_grupo42 {
 

@@ -11,16 +11,17 @@ import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
 
 /**
- *
- * @author tomip
+ * Clase que modifica y controla todo lo relacionado con la vista
+ * 
+ * @author tomruiz, irereto
  */
 public class Vista extends javax.swing.JFrame {
 
     private Controlador controlador;
     private GestorTareas modelo;
 
-    /**
-     * Creates new form GestorTareas
+     /**
+     * Inicializador de la vista
      */
     public Vista() {
         initComponents();
@@ -286,6 +287,8 @@ public class Vista extends javax.swing.JFrame {
         verDescripcionTextArea.setEditable(false);
         verDescripcionTextArea.setColumns(20);
         verDescripcionTextArea.setRows(5);
+        verDescripcionTextArea.setAutoscrolls(false);
+        verDescripcionTextArea.setEnabled(false);
         verDescripcionJSCroll.setViewportView(verDescripcionTextArea);
 
         jPanel13.add(verDescripcionJSCroll, java.awt.BorderLayout.CENTER);
@@ -340,37 +343,80 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de guardar.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoGuardar();
     }//GEN-LAST:event_guardarButtonActionPerformed
 
+    
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de editar.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void editarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoEditar();
     }//GEN-LAST:event_editarButtonActionPerformed
 
+    /**
+     * Funcion que maneja el evento de seleccionar una tarea de la lista.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de cambio de seleccion generado por la lista
+     */
     private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
         // TODO add your handling code here:
         controlador.procesarEventoSeleccionarTarea(listaTareasList.getSelectedValue());
     }//GEN-LAST:event_listaTareasListValueChanged
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de eliminar.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void eliminarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoEliminar();
     }//GEN-LAST:event_eliminarButtonActionPerformed
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de limpiar.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void limpiarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoLimpiar();
     }//GEN-LAST:event_limpiarButtonActionPerformed
 
+    /**
+     * Funcion que maneja el evento de marcar o desmarcar el checkbox.
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por la interaccion con el checkbox
+     */
     private void completadoCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completadoCheckBoxActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoCompletado();
         
     }//GEN-LAST:event_completadoCheckBoxActionPerformed
 
+    /**
+     * Funcion que actualiza la lista de tareas que se muestran.
+     * Convierte el ArrayList de tareas un array de String
+     * 
+     * @param tareas: ArrayList de tareas que tiene que mostrar la lista
+     */
     public void actualizarTareas(ArrayList<Tarea> tareas) {
          String[] tareasArray = new String[tareas.size()];
     
@@ -380,6 +426,12 @@ public class Vista extends javax.swing.JFrame {
         listaTareasList.setListData(tareasArray);
     }
 
+    /**
+     * Funcion que cambia el texto de los campos no modificables con la informacion
+     * de una tarea
+     * 
+     * @param t: tarea de la cual se quiere mostrar la informacion
+     */
     public void cambiarCamposNoModificables(Tarea t){
         verNombreTareaLabel.setText(t.getNombreTarea());
         verDescripcionTextArea.setText(t.getDescripcionTareas());
@@ -389,32 +441,67 @@ public class Vista extends javax.swing.JFrame {
     }
     
    
-
+    /**
+     * Funcion que devuelve el nombre de la tarea ingresada por el usuario
+     * 
+     * @return el nombre de la tarea
+     */
     public String getNombreTarea() {
         return anadirNombreTareaTextField.getText();
     }
 
+    
+    /**
+     * Funcion que devuelve la descripcion de la tarea ingresada por el usuario
+     * 
+     * @return la descripcion de la tarea
+     */
     public String getDescripcion() {
         return descripcionTextArea.getText();
     }
 
+    /**
+     * Funcion que devuelve la fecja de la tarea ingresada por el usuario
+     * 
+     * @return la fecha de la tarea
+     */
     public Date getFecha() {
         Date fecha = (Date) fechaDateChooser.getDate();
         return fecha;
     }
 
+    /**
+     * Funcion que devuelve la prioridad de la tarea ingresada por el usuario
+     * 
+     * @return la prioridad de la tarea
+     */
     public String getPrioridad() {
         return (String) prioridadComboBox.getSelectedItem();
     }
 
+    /**
+     * Funcion que devuelve el progreso de la tarea ingresada por el usuario
+     * 
+     * @return el progreso de la tarea
+     */
     public int getProgreso() {
         return (int) porcentajeSpinner.getValue();
     }
 
+    /**
+     * Funcion que devuelve si la tarea ingresada por el usuario esta completada
+     * 
+     * @return si la tarea esta completada o no en un boolean
+     */
     public boolean getCompletado() {
         return completadoCheckBox.isSelected();
     }
     
+    /**
+     * Funcion que devuelve la tarea seleccionada de la lista
+     * 
+     * @return la tarea seleccionada
+     */
     public String getListaSeleccionada(){
         return listaTareasList.getSelectedValue();
     }
@@ -423,43 +510,96 @@ public class Vista extends javax.swing.JFrame {
     
     
     
-    
+    /**
+     * Setter del campo de texto del nombre de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param nombreTarea: String que se refiere al nombre de la tarea
+     */
     public void setNombreTarea(String nombreTarea) {
         anadirNombreTareaTextField.setText(nombreTarea);
     }
 
+    /**
+     * Setter del area de texto de la descripcion de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param descripcion: String que se refiere a la descripcion de la tarea
+     */
     public void setDescripcion(String descripcion) {
         descripcionTextArea.setText(descripcion);
     }
 
+    /**
+     * Setter del dateChooser de la fecha de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param fecha: Date que se refiere a la fecha de la tarea
+     */
     public void setFecha(Date fecha) {
         fechaDateChooser.setDate(fecha);
     }
 
+    /**
+     * Setter del ComboBox de la prioridad de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param prioridad: String que se refiere a la prioridad de la tarea
+     */
     public void setPrioridad(String prioridad) {
         prioridadComboBox.setSelectedItem(prioridad);
     }
 
+    /**
+     * Setter del Spinner del prgreso de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param progreso: int que se refiere al progreso de la tarea
+     */
     public void setProgreso(int progreso) {
         porcentajeSpinner.setValue(progreso);
     }
 
+    /**
+     * Setter del CheckBox de la completitud de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param completado: boolean que se refiere a la completitud de la tarea
+     */
     public void setCompletado(boolean completado) {
         completadoCheckBox.setSelected(completado);
     }
 
+    /**
+     *
+     * @param listaSeleccionada no se si esta bien
+     */
     public void setListaSeleccionada(String listaSeleccionada) {
         listaTareasList.setSelectedValue(listaSeleccionada, true);
     }
 
+    /**
+     * Setter de la etiqueta del texto de error
+     * 
+     * @param s: String que se refiere al mensaje de error
+     */
     public void setError(String s){
         erroresLabel.setText(s);
     }
     
+    /**
+     * Setter de la visibilidad del Spinner del progreso
+     * 
+     * @param visible: boolean que se refiere a la visibilidad del spinner
+     */
     public void setSpinnerVisible(boolean visible) {
         porcentajeSpinner.setEnabled(visible);
     }
 
+    /**
+     * Funcion que limpia y reinicia todos los campos.
+     * Los campos de texto los deja vacios y el resto de elementos los pone a su valor por defecto
+     */
     public void limpiarCampos(){
         anadirNombreTareaTextField.setText("");
         descripcionTextArea.setText("");
