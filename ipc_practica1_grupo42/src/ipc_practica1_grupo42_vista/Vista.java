@@ -571,14 +571,6 @@ public class Vista extends javax.swing.JFrame {
     }
 
     /**
-     *
-     * @param listaSeleccionada no se si esta bien
-     */
-    public void setListaSeleccionada(String listaSeleccionada) {
-        listaTareasList.setSelectedValue(listaSeleccionada, true);
-    }
-
-    /**
      * Setter de la etiqueta del texto de error
      * 
      * @param s: String que se refiere al mensaje de error
