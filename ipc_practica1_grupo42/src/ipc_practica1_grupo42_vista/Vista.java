@@ -41,17 +41,17 @@ public class Vista extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        anadirNombreTareaLabel = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        anadirNombreTareaTextField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         descripcionLabel = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         descripcionScrollPane = new javax.swing.JScrollPane();
         descripcionTextArea = new javax.swing.JTextArea();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel22 = new javax.swing.JPanel();
-        anadirNombreTareaLabel = new javax.swing.JLabel();
-        jPanel21 = new javax.swing.JPanel();
-        anadirNombreTareaTextField = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
@@ -93,6 +93,7 @@ public class Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(75, 86));
+        getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 50));
         jPanel1.setName(""); // NOI18N
@@ -101,33 +102,7 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel3.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel3.setName(""); // NOI18N
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jPanel5.setMinimumSize(new java.awt.Dimension(75, 50));
-        jPanel5.setName(""); // NOI18N
-        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
-
-        jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
-
-        descripcionLabel.setText("Descripción:");
-        jPanel19.add(descripcionLabel);
-
-        jPanel5.add(jPanel19);
-
-        jPanel20.setLayout(new java.awt.BorderLayout());
-
-        descripcionScrollPane.setPreferredSize(new java.awt.Dimension(144, 86));
-
-        descripcionTextArea.setColumns(20);
-        descripcionTextArea.setRows(5);
-        descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
-        descripcionScrollPane.setViewportView(descripcionTextArea);
-
-        jPanel20.add(descripcionScrollPane, java.awt.BorderLayout.CENTER);
-
-        jPanel5.add(jPanel20);
-
-        jPanel3.add(jPanel5, java.awt.BorderLayout.CENTER);
+        jPanel3.setLayout(new java.awt.GridLayout(2, 0));
 
         jPanel6.setMinimumSize(new java.awt.Dimension(75, 32));
         jPanel6.setName(""); // NOI18N
@@ -137,7 +112,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel22.setMinimumSize(new java.awt.Dimension(37, 26));
         jPanel22.setPreferredSize(new java.awt.Dimension(350, 26));
         jPanel22.setRequestFocusEnabled(false);
-        jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel22.setLayout(new java.awt.GridLayout());
 
         anadirNombreTareaLabel.setText("Nombre de la tarea");
         anadirNombreTareaLabel.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -147,17 +122,43 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel21.setMinimumSize(new java.awt.Dimension(37, 32));
         jPanel21.setName(""); // NOI18N
-        jPanel21.setLayout(new java.awt.BorderLayout());
+        jPanel21.setLayout(new java.awt.GridLayout());
 
         anadirNombreTareaTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         anadirNombreTareaTextField.setMinimumSize(new java.awt.Dimension(64, 32));
         anadirNombreTareaTextField.setName(""); // NOI18N
         anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(450, 32));
-        jPanel21.add(anadirNombreTareaTextField, java.awt.BorderLayout.CENTER);
+        jPanel21.add(anadirNombreTareaTextField);
 
         jPanel6.add(jPanel21);
 
-        jPanel3.add(jPanel6, java.awt.BorderLayout.PAGE_START);
+        jPanel3.add(jPanel6);
+
+        jPanel5.setMinimumSize(new java.awt.Dimension(75, 50));
+        jPanel5.setName(""); // NOI18N
+        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
+
+        jPanel19.setLayout(new java.awt.GridLayout());
+
+        descripcionLabel.setText("Descripción:");
+        jPanel19.add(descripcionLabel);
+
+        jPanel5.add(jPanel19);
+
+        jPanel20.setLayout(new java.awt.GridLayout());
+
+        descripcionScrollPane.setPreferredSize(new java.awt.Dimension(144, 86));
+
+        descripcionTextArea.setColumns(20);
+        descripcionTextArea.setRows(5);
+        descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
+        descripcionScrollPane.setViewportView(descripcionTextArea);
+
+        jPanel20.add(descripcionScrollPane);
+
+        jPanel5.add(jPanel20);
+
+        jPanel3.add(jPanel5);
 
         jPanel1.add(jPanel3);
 
@@ -201,7 +202,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel8.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel8.setName(""); // NOI18N
         jPanel8.setPreferredSize(new java.awt.Dimension(550, 32));
-        jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel8.setLayout(new java.awt.GridLayout());
 
         anadirProgresoLabel.setText("Progreso:");
         jPanel8.add(anadirProgresoLabel);
@@ -225,7 +226,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel9.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel9.setName(""); // NOI18N
         jPanel9.setPreferredSize(new java.awt.Dimension(550, 33));
-        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel9.setLayout(new java.awt.GridLayout());
 
         guardarButton.setText("Guardar");
         guardarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -245,6 +246,8 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel4.add(jPanel9);
 
+        jPanel23.setLayout(new java.awt.GridLayout());
+
         erroresLabel.setForeground(new java.awt.Color(204, 0, 51));
         jPanel23.add(erroresLabel);
 
@@ -252,13 +255,13 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4);
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+        getContentPane().add(jPanel1);
 
         jPanel2.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel2.setPreferredSize(new java.awt.Dimension(750, 860));
         jPanel2.setLayout(new java.awt.GridLayout(2, 0));
 
-        jPanel10.setLayout(new java.awt.BorderLayout());
+        jPanel10.setLayout(new java.awt.GridLayout());
 
         listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -268,19 +271,19 @@ public class Vista extends javax.swing.JFrame {
         });
         listaTareasScrollPane.setViewportView(listaTareasList);
 
-        jPanel10.add(listaTareasScrollPane, java.awt.BorderLayout.CENTER);
+        jPanel10.add(listaTareasScrollPane);
 
         jPanel2.add(jPanel10);
 
         jPanel11.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel11.setLayout(new java.awt.GridLayout(5, 0));
 
-        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel12.setLayout(new java.awt.GridLayout());
         jPanel12.add(verNombreTareaLabel);
 
         jPanel11.add(jPanel12);
 
-        jPanel13.setLayout(new java.awt.BorderLayout());
+        jPanel13.setLayout(new java.awt.GridLayout());
 
         verDescripcionJSCroll.setEnabled(false);
 
@@ -291,11 +294,11 @@ public class Vista extends javax.swing.JFrame {
         verDescripcionTextArea.setEnabled(false);
         verDescripcionJSCroll.setViewportView(verDescripcionTextArea);
 
-        jPanel13.add(verDescripcionJSCroll, java.awt.BorderLayout.CENTER);
+        jPanel13.add(verDescripcionJSCroll);
 
         jPanel11.add(jPanel13);
 
-        jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel14.setLayout(new java.awt.GridLayout());
 
         verFechaNoModificableLabel.setText("Fecha");
         jPanel14.add(verFechaNoModificableLabel);
@@ -304,7 +307,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel11.add(jPanel14);
 
         jPanel15.setMinimumSize(new java.awt.Dimension(50, 26));
-        jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        jPanel15.setLayout(new java.awt.GridLayout());
 
         verPrioridadNoModificableLabel.setText("Prioridad");
         jPanel15.add(verPrioridadNoModificableLabel);
@@ -317,6 +320,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel11.add(jPanel15);
 
         jPanel16.setMinimumSize(new java.awt.Dimension(50, 33));
+        jPanel16.setLayout(new java.awt.GridLayout());
 
         editarButton.setText("Editar");
         editarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -338,7 +342,7 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel2.add(jPanel11);
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
+        getContentPane().add(jPanel2);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
