@@ -107,6 +107,7 @@ public class Controlador {
                 i++;
             }
         }
+        indexEditar=-1;
         vista.actualizarTareas(modelo.getTareas());
         vista.limpiarCampos();
     }

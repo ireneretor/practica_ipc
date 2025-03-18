@@ -101,6 +101,7 @@ public class Vista extends javax.swing.JFrame {
         eliminarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(1000, 660));
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -417,6 +418,7 @@ public class Vista extends javax.swing.JFrame {
 
         jPanel23.setLayout(new java.awt.GridBagLayout());
 
+        erroresLabel.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         erroresLabel.setForeground(new java.awt.Color(204, 0, 51));
         erroresLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         erroresLabel.setAlignmentX(0.5F);
@@ -549,7 +551,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jPanel10, gridBagConstraints);
 
-        jPanel11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
@@ -587,6 +589,7 @@ public class Vista extends javax.swing.JFrame {
         verDescripcionJSCroll.setEnabled(false);
 
         verDescripcionTextArea.setEditable(false);
+        verDescripcionTextArea.setBackground(java.awt.Color.black);
         verDescripcionTextArea.setColumns(20);
         verDescripcionTextArea.setRows(5);
         verDescripcionTextArea.setAutoscrolls(false);
