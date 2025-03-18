@@ -58,7 +58,11 @@ public class Tarea {
         this.descripcionTareas = descripcion;
         this.fecha = fecha;
         this.prioridad = prioridad;
-        this.completado = completado;
+        if(progreso==100) {
+            this.completado=true;
+        } else {
+            this.completado=completado;
+        }
         if(!completado){
             this.progreso = progreso;
         }else{
