@@ -589,7 +589,7 @@ public class Vista extends javax.swing.JFrame {
         verDescripcionJSCroll.setEnabled(false);
 
         verDescripcionTextArea.setEditable(false);
-        verDescripcionTextArea.setBackground(java.awt.Color.black);
+        verDescripcionTextArea.setBackground(new java.awt.Color(204, 204, 204));
         verDescripcionTextArea.setColumns(20);
         verDescripcionTextArea.setRows(5);
         verDescripcionTextArea.setAutoscrolls(false);
