@@ -566,7 +566,6 @@ public class Vista extends javax.swing.JFrame {
 
         listaTareasScrollPane.setBackground(new java.awt.Color(204, 204, 255));
 
-        listaTareasList.setBackground(new java.awt.Color(204, 204, 255));
         listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -668,6 +667,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel13, gridBagConstraints);
 
+        jPanel14.setBackground(new java.awt.Color(255, 153, 255));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
         verFechaNoModificableLabel.setText("Fecha:");
@@ -697,6 +697,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel14, gridBagConstraints);
 
+        jPanel15.setBackground(new java.awt.Color(255, 153, 255));
         jPanel15.setMinimumSize(new java.awt.Dimension(50, 26));
         jPanel15.setLayout(new java.awt.GridBagLayout());
 
@@ -716,6 +717,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel15.add(verPrioridadModificableLabel, gridBagConstraints);
 
+        verProgresoLabel.setBackground(new java.awt.Color(255, 255, 255));
         verProgresoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         verProgresoLabel.setText("Progreso:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -726,6 +728,8 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel15.add(verProgresoLabel, gridBagConstraints);
 
+        verProgresoProgressBar.setBackground(new java.awt.Color(255, 255, 255));
+        verProgresoProgressBar.setForeground(new java.awt.Color(0, 204, 51));
         verProgresoProgressBar.setMaximumSize(new java.awt.Dimension(32767, 20));
         verProgresoProgressBar.setMinimumSize(new java.awt.Dimension(10, 20));
         verProgresoProgressBar.setPreferredSize(new java.awt.Dimension(146, 20));
@@ -746,9 +750,11 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel15, gridBagConstraints);
 
+        jPanel16.setBackground(new java.awt.Color(255, 153, 255));
         jPanel16.setMinimumSize(new java.awt.Dimension(50, 33));
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
+        editarButton.setBackground(new java.awt.Color(204, 0, 255));
         editarButton.setText("Editar");
         editarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         editarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -765,6 +771,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel16.add(editarButton, gridBagConstraints);
 
+        eliminarButton.setBackground(new java.awt.Color(204, 0, 255));
         eliminarButton.setText("Eliminar");
         eliminarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         eliminarButton.setPreferredSize(new java.awt.Dimension(82, 35));
