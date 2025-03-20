@@ -7,6 +7,7 @@ package ipc_practica1_grupo42_vista;
 import java.util.Date;
 import ipc_practica1_grupo42_modelo.GestorTareas;
 import ipc_practica1_grupo42_modelo.Tarea;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
 
@@ -108,7 +109,7 @@ public class Vista extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 0, 255)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 50));
         jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 860));
@@ -592,7 +593,7 @@ public class Vista extends javax.swing.JFrame {
         jPanel2.add(jPanel10, gridBagConstraints);
 
         jPanel11.setBackground(new java.awt.Color(255, 153, 255));
-        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel11.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
@@ -675,7 +676,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         jPanel14.add(verFechaNoModificableLabel, gridBagConstraints);
 
@@ -684,7 +685,7 @@ public class Vista extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.7;
+        gridBagConstraints.weightx = 0.9;
         gridBagConstraints.weighty = 1.0;
         jPanel14.add(verFechaModificableLabel, gridBagConstraints);
 
@@ -850,6 +851,7 @@ public class Vista extends javax.swing.JFrame {
     private void listaTareasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaTareasListValueChanged
         // TODO add your handling code here:
         controlador.procesarEventoSeleccionarTarea(listaTareasList.getSelectedValue());
+        erroresLabel.setText("");
     }//GEN-LAST:event_listaTareasListValueChanged
 
     /**
@@ -908,9 +910,10 @@ public class Vista extends javax.swing.JFrame {
      * @param t: tarea de la cual se quiere mostrar la informacion
      */
     public void cambiarCamposNoModificables(Tarea t){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         verNombreTareaLabel.setText(t.getNombreTarea());
         verDescripcionTextArea.setText(t.getDescripcionTareas());
-        verFechaModificableLabel.setText(t.getFecha().toString());
+        verFechaModificableLabel.setText(formato.format(t.getFecha()));
         verPrioridadModificableLabel.setText(t.getPrioridad());
         verProgresoProgressBar.setValue(t.getProgreso());
     }
@@ -1081,6 +1084,7 @@ public class Vista extends javax.swing.JFrame {
         verPrioridadModificableLabel.setText("");
         verProgresoProgressBar.setValue(0);
         porcentajeSpinner.setEnabled(true);
+        erroresLabel.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

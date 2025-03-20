@@ -95,9 +95,9 @@ public class Controlador {
     public void procesarEventoEliminar(){
         //TODO funcion eliminar
         String tareaSeleccionada=vista.getListaSeleccionada();
-        if (tareaSeleccionada == null) {
+        if (tareaSeleccionada==null) {
             vista.setError("Tienes que seleccionar una tarea para eliminar");
-        } else {
+        }else {
             int i=0;
             for (Tarea t : modelo.getTareas()) {
                 if (t.toString().equals(tareaSeleccionada)) {
@@ -106,10 +106,10 @@ public class Controlador {
                 }
                 i++;
             }
+            indexEditar=-1;
+            vista.actualizarTareas(modelo.getTareas());
+            vista.limpiarCampos();
         }
-        indexEditar=-1;
-        vista.actualizarTareas(modelo.getTareas());
-        vista.limpiarCampos();
     }
     
     /**

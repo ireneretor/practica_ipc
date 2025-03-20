@@ -45,7 +45,14 @@ public class GestorTareas {
      * @param tarea: Tarea nueva a añadir
      */
     public void addTarea(Tarea tarea){
-        this.tareas.add(tarea);
+        boolean existe = false;
+        for (Tarea t : tareas) {
+            if (t.getNombreTarea().equals(tarea.getNombreTarea())) {
+                existe = true;
+                throw new IllegalArgumentException("Ya existe una tarea con ese nombre");
+            }
+        }
+        if(!existe) this.tareas.add(tarea);
     }
 
     /**
