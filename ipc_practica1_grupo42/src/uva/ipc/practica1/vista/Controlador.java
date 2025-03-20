@@ -1,6 +1,6 @@
-package ipc_practica1_grupo42_vista;
-import ipc_practica1_grupo42_modelo.GestorTareas;
-import ipc_practica1_grupo42_modelo.Tarea;
+package uva.ipc.practica1.vista;
+import uva.ipc.practica1.modelo.GestorTareas;
+import uva.ipc.practica1.modelo.Tarea;
 import java.util.Date;
 
 /**

@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ipc_practica1_grupo42_vista;
+package uva.ipc.practica1.vista;
 
 import java.util.Date;
-import ipc_practica1_grupo42_modelo.GestorTareas;
-import ipc_practica1_grupo42_modelo.Tarea;
+import uva.ipc.practica1.modelo.GestorTareas;
+import uva.ipc.practica1.modelo.Tarea;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
@@ -105,7 +105,6 @@ public class Vista extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 153, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(1000, 660));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 255));

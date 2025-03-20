@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ipc_practica1_grupo42_modelo;
+package uva.ipc.practica1.modelo;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;

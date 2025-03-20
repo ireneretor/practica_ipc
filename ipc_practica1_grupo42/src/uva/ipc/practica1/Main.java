@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ipc_practica1_grupo42;
-import ipc_practica1_grupo42_vista.Vista;
+package uva.ipc.practica1;
+import uva.ipc.practica1.vista.Vista;
 /**
  *Clase donde se encuentra el main e inicializa todo el programa
  * 
  * @author tomip, irereto
  */
-public class Ipc_practica1_grupo42 {
+public class Main {
 
     /**
      * @param args the command line arguments
