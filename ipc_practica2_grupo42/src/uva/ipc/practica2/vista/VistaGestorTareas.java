@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package uva.ipc.practica1.vista;
+package uva.ipc.practica2.vista;
 
 import java.util.Date;
-import uva.ipc.practica1.modelo.GestorTareas;
-import uva.ipc.practica1.modelo.Tarea;
+import uva.ipc.practica2.modelo.GestorTareas;
+import uva.ipc.practica2.modelo.Tarea;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.ListSelectionModel;
@@ -16,18 +16,18 @@ import javax.swing.ListSelectionModel;
  * 
  * @author tomruiz, irereto
  */
-public class Vista extends javax.swing.JFrame {
+public class VistaGestorTareas extends javax.swing.JFrame {
 
-    private Controlador controlador;
+    private ControladorGestorTareas controlador;
     private GestorTareas modelo;
 
      /**
      * Inicializador de la vista
      */
-    public Vista() {
+    public VistaGestorTareas() {
         initComponents();
         this.modelo = new GestorTareas();
-        this.controlador = new Controlador(this, modelo);
+        this.controlador = new ControladorGestorTareas(this, modelo);
     }
 
     /**

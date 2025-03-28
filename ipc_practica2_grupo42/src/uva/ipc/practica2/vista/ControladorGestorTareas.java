@@ -1,6 +1,6 @@
-package uva.ipc.practica1.vista;
-import uva.ipc.practica1.modelo.GestorTareas;
-import uva.ipc.practica1.modelo.Tarea;
+package uva.ipc.practica2.vista;
+import uva.ipc.practica2.modelo.GestorTareas;
+import uva.ipc.practica2.modelo.Tarea;
 import java.util.Date;
 
 /**
@@ -8,9 +8,9 @@ import java.util.Date;
  * 
  * @author tomruiz, irereto
  */
-public class Controlador {
+public class ControladorGestorTareas {
     
-    private Vista vista;
+    private VistaGestorTareas vista;
     private GestorTareas modelo;
     private int indexEditar;
     
@@ -20,7 +20,7 @@ public class Controlador {
      * @param vista: vista de la que se tomaran los valores
      * @param modelo: modelo en el que se almacenan las tareas
      */
-    public Controlador(Vista vista, GestorTareas modelo){
+    public ControladorGestorTareas(VistaGestorTareas vista, GestorTareas modelo){
         this.vista=vista;
         this.modelo=modelo;
         this.indexEditar=-1;
