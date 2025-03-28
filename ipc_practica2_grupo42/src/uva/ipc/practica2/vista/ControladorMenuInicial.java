@@ -22,4 +22,8 @@ public class ControladorMenuInicial {
     public void procesarEntrarGestorTareas(){
         Main.getGestorVistas().mostrarVistaGestorTareas();
     }
+    
+    public void procesarEventoSalir(){
+        Main.getGestorVistas().salir();
+    }
 }

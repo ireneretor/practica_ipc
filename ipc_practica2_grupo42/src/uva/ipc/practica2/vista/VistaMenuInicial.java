@@ -171,6 +171,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoSalir();
     }//GEN-LAST:event_salirButtonActionPerformed
 
     /**

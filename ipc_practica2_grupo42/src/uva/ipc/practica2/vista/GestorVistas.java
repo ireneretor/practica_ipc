@@ -40,5 +40,8 @@ public class GestorVistas {
         //vistaActual = new VistaGestorListas();
         vistaActual.setVisible(true);
     }
-
+    
+    public void salir(){
+        System.exit(0);
+    }
 }
