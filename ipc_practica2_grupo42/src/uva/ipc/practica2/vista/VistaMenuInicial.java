@@ -9,12 +9,13 @@ package uva.ipc.practica2.vista;
  * @author tomip
  */
 public class VistaMenuInicial extends javax.swing.JFrame {
-
+    private ControladorMenuInicial controlador;
     /**
      * Creates new form VistaMenuInicial
      */
     public VistaMenuInicial() {
         initComponents();
+        this.controlador = new ControladorMenuInicial(this);
     }
 
     /**
@@ -161,6 +162,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
     private void entrarTareasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarTareasButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEntrarGestorTareas();
     }//GEN-LAST:event_entrarTareasButtonActionPerformed
 
     private void entrarListasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarListasButtonActionPerformed
