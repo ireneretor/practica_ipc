@@ -37,7 +37,7 @@ public class GestorVistas {
             vistaActual.setVisible(false);
             vistaActual.dispose();
         }
-        //vistaActual = new VistaGestorListas();
+        vistaActual = new VistaGestorListas();
         vistaActual.setVisible(true);
     }
     

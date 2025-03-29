@@ -167,6 +167,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
     private void entrarListasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarListasButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEntrarGestorListas();
     }//GEN-LAST:event_entrarListasButtonActionPerformed
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed

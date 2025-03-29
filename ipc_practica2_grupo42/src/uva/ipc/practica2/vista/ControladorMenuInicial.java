@@ -23,6 +23,10 @@ public class ControladorMenuInicial {
         Main.getGestorVistas().mostrarVistaGestorTareas();
     }
     
+    public void procesarEntrarGestorListas(){
+        Main.getGestorVistas().mostrarVistaGestorListas();
+    }
+    
     public void procesarEventoSalir(){
         Main.getGestorVistas().salir();
     }

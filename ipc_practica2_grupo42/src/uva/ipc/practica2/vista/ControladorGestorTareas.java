@@ -38,7 +38,7 @@ public class ControladorGestorTareas {
         boolean completado=vista.getCompletado();
         if(indexEditar==-1){
             try{
-                modelo.addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,completado));
+                modelo.addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
                 vista.actualizarTareas(modelo.getTareas());
                 vista.setError("");
                 indexEditar=-1;
@@ -48,7 +48,7 @@ public class ControladorGestorTareas {
             }
         }else{
             try{
-                modelo.editarTarea(indexEditar, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,completado));
+                modelo.editarTarea(indexEditar, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
                 vista.actualizarTareas(modelo.getTareas());
                 vista.setError("");
                 vista.limpiarCampos();

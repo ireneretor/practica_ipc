@@ -96,35 +96,36 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         verPrioridadNoModificableLabel = new javax.swing.JLabel();
         verPrioridadModificableLabel = new javax.swing.JLabel();
         verProgresoLabel = new javax.swing.JLabel();
+        verProgresoNumeroNoModificableLabel = new javax.swing.JLabel();
         verProgresoProgressBar = new javax.swing.JProgressBar();
         jPanel16 = new javax.swing.JPanel();
         editarButton = new javax.swing.JButton();
         eliminarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 153, 255));
+        setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setMinimumSize(new java.awt.Dimension(100, 50));
         jPanel1.setName(""); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 860));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel3.setName(""); // NOI18N
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel6.setBackground(new java.awt.Color(255, 255, 204));
         jPanel6.setMinimumSize(new java.awt.Dimension(75, 32));
         jPanel6.setName(""); // NOI18N
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
-        jPanel22.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel22.setBackground(new java.awt.Color(255, 255, 204));
         jPanel22.setMaximumSize(new java.awt.Dimension(798, 182));
         jPanel22.setMinimumSize(new java.awt.Dimension(37, 26));
         jPanel22.setPreferredSize(new java.awt.Dimension(350, 26));
@@ -150,16 +151,16 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel6.add(jPanel22, gridBagConstraints);
 
-        jPanel21.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel21.setBackground(new java.awt.Color(255, 255, 204));
         jPanel21.setMinimumSize(new java.awt.Dimension(37, 32));
         jPanel21.setName(""); // NOI18N
         jPanel21.setLayout(new java.awt.GridBagLayout());
 
-        anadirNombreTareaTextField.setBackground(new java.awt.Color(255, 255, 204));
         anadirNombreTareaTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         anadirNombreTareaTextField.setMaximumSize(new java.awt.Dimension(2147483647, 32));
         anadirNombreTareaTextField.setMinimumSize(new java.awt.Dimension(64, 32));
         anadirNombreTareaTextField.setName(""); // NOI18N
+        anadirNombreTareaTextField.setNextFocusableComponent(descripcionTextArea);
         anadirNombreTareaTextField.setPreferredSize(new java.awt.Dimension(450, 32));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -169,7 +170,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel21.add(anadirNombreTareaTextField, gridBagConstraints);
 
-        jPanel24.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel24.setBackground(new java.awt.Color(255, 255, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -178,7 +179,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel21.add(jPanel24, gridBagConstraints);
 
-        jPanel25.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel25.setBackground(new java.awt.Color(255, 255, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -187,7 +188,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel21.add(jPanel25, gridBagConstraints);
 
-        jPanel28.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel28.setBackground(new java.awt.Color(255, 255, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -196,7 +197,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel21.add(jPanel28, gridBagConstraints);
 
-        jPanel29.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel29.setBackground(new java.awt.Color(255, 255, 204));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -221,12 +222,12 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.3;
         jPanel3.add(jPanel6, gridBagConstraints);
 
-        jPanel5.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel5.setBackground(new java.awt.Color(255, 255, 204));
         jPanel5.setMinimumSize(new java.awt.Dimension(75, 50));
         jPanel5.setName(""); // NOI18N
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        jPanel19.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel19.setBackground(new java.awt.Color(255, 255, 204));
         jPanel19.setLayout(new java.awt.GridBagLayout());
 
         descripcionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -247,14 +248,21 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel5.add(jPanel19, gridBagConstraints);
 
-        jPanel20.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel20.setBackground(new java.awt.Color(255, 255, 204));
         jPanel20.setLayout(new java.awt.GridLayout(1, 0));
 
+        descripcionScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        descripcionScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        descripcionScrollPane.setHorizontalScrollBar(null);
         descripcionScrollPane.setPreferredSize(new java.awt.Dimension(144, 86));
 
-        descripcionTextArea.setBackground(new java.awt.Color(255, 255, 204));
         descripcionTextArea.setColumns(20);
+        descripcionTextArea.setLineWrap(true);
         descripcionTextArea.setRows(5);
+        descripcionTextArea.setToolTipText("");
+        descripcionTextArea.setWrapStyleWord(true);
+        descripcionTextArea.setName(""); // NOI18N
+        descripcionTextArea.setNextFocusableComponent(fechaDateChooser);
         descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
         descripcionScrollPane.setViewportView(descripcionTextArea);
 
@@ -285,17 +293,17 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jPanel3, gridBagConstraints);
 
-        jPanel4.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel4.setName(""); // NOI18N
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jPanel7.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel7.setBackground(new java.awt.Color(255, 255, 204));
         jPanel7.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel7.setName(""); // NOI18N
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
-        jPanel17.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel17.setBackground(new java.awt.Color(255, 255, 204));
         jPanel17.setMinimumSize(new java.awt.Dimension(37, 32));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
@@ -310,9 +318,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel17.add(fechaLabel, gridBagConstraints);
 
         fechaDateChooser.setBackground(new java.awt.Color(255, 255, 204));
+        fechaDateChooser.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
         fechaDateChooser.setDateFormatString("dd/MM/yyyy");
         fechaDateChooser.setMaxSelectableDate(new java.util.Date(253370764872000L));
         fechaDateChooser.setMinimumSize(new java.awt.Dimension(120, 28));
+        fechaDateChooser.setNextFocusableComponent(prioridadComboBox);
         fechaDateChooser.setPreferredSize(new java.awt.Dimension(120, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -330,7 +340,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel7.add(jPanel17, gridBagConstraints);
 
-        jPanel18.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel18.setBackground(new java.awt.Color(255, 255, 204));
         jPanel18.setMinimumSize(new java.awt.Dimension(37, 32));
         jPanel18.setName(""); // NOI18N
         jPanel18.setPreferredSize(new java.awt.Dimension(450, 32));
@@ -346,8 +356,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel18.add(prioridadLabel, gridBagConstraints);
 
-        prioridadComboBox.setBackground(new java.awt.Color(255, 255, 204));
         prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
+        prioridadComboBox.setName(""); // NOI18N
+        prioridadComboBox.setNextFocusableComponent(porcentajeSpinner);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -372,7 +383,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel4.add(jPanel7, gridBagConstraints);
 
-        jPanel8.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel8.setName(""); // NOI18N
         jPanel8.setPreferredSize(new java.awt.Dimension(550, 32));
@@ -391,6 +402,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         porcentajeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
         porcentajeSpinner.setMinimumSize(new java.awt.Dimension(60, 28));
         porcentajeSpinner.setName(""); // NOI18N
+        porcentajeSpinner.setNextFocusableComponent(completadoCheckBox);
         porcentajeSpinner.setPreferredSize(new java.awt.Dimension(60, 28));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -400,7 +412,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel8.add(porcentajeSpinner, gridBagConstraints);
 
-        jPanel27.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel27.setBackground(new java.awt.Color(255, 255, 204));
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -421,9 +433,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel8.add(jPanel27, gridBagConstraints);
 
-        completadoCheckBox.setBackground(new java.awt.Color(255, 153, 255));
+        completadoCheckBox.setBackground(new java.awt.Color(255, 255, 204));
         completadoCheckBox.setText("Completado");
         completadoCheckBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        completadoCheckBox.setNextFocusableComponent(guardarButton);
         completadoCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 completadoCheckBoxActionPerformed(evt);
@@ -445,10 +458,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel4.add(jPanel8, gridBagConstraints);
 
-        jPanel23.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel23.setBackground(new java.awt.Color(255, 255, 204));
         jPanel23.setLayout(new java.awt.GridBagLayout());
 
-        erroresLabel.setBackground(new java.awt.Color(255, 153, 255));
+        erroresLabel.setBackground(new java.awt.Color(255, 255, 204));
         erroresLabel.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         erroresLabel.setForeground(new java.awt.Color(153, 0, 51));
         erroresLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -470,7 +483,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel4.add(jPanel23, gridBagConstraints);
 
-        jPanel26.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel26.setBackground(new java.awt.Color(255, 255, 204));
 
         javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
         jPanel26.setLayout(jPanel26Layout);
@@ -491,13 +504,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.2;
         jPanel4.add(jPanel26, gridBagConstraints);
 
-        jPanel9.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel9.setBackground(new java.awt.Color(255, 255, 204));
         jPanel9.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel9.setName(""); // NOI18N
         jPanel9.setPreferredSize(new java.awt.Dimension(550, 33));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        guardarButton.setBackground(new java.awt.Color(204, 0, 255));
+        guardarButton.setBackground(new java.awt.Color(255, 153, 0));
         guardarButton.setText("Guardar");
         guardarButton.setMaximumSize(null);
         guardarButton.setMinimumSize(new java.awt.Dimension(82, 28));
@@ -513,7 +526,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel9.add(guardarButton, gridBagConstraints);
 
-        limpiarButton.setBackground(new java.awt.Color(204, 0, 255));
+        limpiarButton.setBackground(new java.awt.Color(255, 153, 0));
         limpiarButton.setText("Limpiar");
         limpiarButton.setPreferredSize(new java.awt.Dimension(82, 35));
         limpiarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -555,16 +568,16 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel2.setPreferredSize(new java.awt.Dimension(750, 860));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jPanel10.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 204));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
-        listaTareasScrollPane.setBackground(new java.awt.Color(204, 204, 255));
+        listaTareasScrollPane.setBackground(new java.awt.Color(255, 255, 204));
 
         listaTareasList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaTareasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
@@ -591,14 +604,15 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jPanel10, gridBagConstraints);
 
-        jPanel11.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel11.setBackground(new java.awt.Color(255, 255, 204));
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel11.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
-        jPanel12.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel12.setBackground(new java.awt.Color(255, 255, 204));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
+        verNombreTareaLabel.setBackground(new java.awt.Color(255, 255, 255));
         verNombreTareaLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -608,6 +622,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel12.add(verNombreTareaLabel, gridBagConstraints);
 
+        verNombreTareaNoModificableLabel.setBackground(new java.awt.Color(255, 255, 255));
         verNombreTareaNoModificableLabel.setText("Nombre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -626,7 +641,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel12, gridBagConstraints);
 
-        jPanel13.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel13.setBackground(new java.awt.Color(255, 255, 204));
         jPanel13.setLayout(new java.awt.GridBagLayout());
 
         verDescripcionJSCroll.setBackground(new java.awt.Color(255, 153, 255));
@@ -667,7 +682,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel13, gridBagConstraints);
 
-        jPanel14.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel14.setBackground(new java.awt.Color(255, 255, 204));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
         verFechaNoModificableLabel.setText("Fecha:");
@@ -697,18 +712,12 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel14, gridBagConstraints);
 
-        jPanel15.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel15.setBackground(new java.awt.Color(255, 255, 204));
         jPanel15.setMinimumSize(new java.awt.Dimension(50, 26));
         jPanel15.setLayout(new java.awt.GridBagLayout());
 
         verPrioridadNoModificableLabel.setText("Prioridad:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.weighty = 1.0;
-        jPanel15.add(verPrioridadNoModificableLabel, gridBagConstraints);
+        jPanel15.add(verPrioridadNoModificableLabel, new java.awt.GridBagConstraints());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -727,6 +736,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 1.0;
         jPanel15.add(verProgresoLabel, gridBagConstraints);
+        jPanel15.add(verProgresoNumeroNoModificableLabel, new java.awt.GridBagConstraints());
 
         verProgresoProgressBar.setBackground(new java.awt.Color(255, 255, 255));
         verProgresoProgressBar.setForeground(new java.awt.Color(0, 204, 51));
@@ -750,11 +760,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jPanel15, gridBagConstraints);
 
-        jPanel16.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel16.setBackground(new java.awt.Color(255, 255, 204));
         jPanel16.setMinimumSize(new java.awt.Dimension(50, 33));
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
-        editarButton.setBackground(new java.awt.Color(204, 0, 255));
+        editarButton.setBackground(new java.awt.Color(255, 153, 0));
         editarButton.setText("Editar");
         editarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         editarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -771,7 +781,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel16.add(editarButton, gridBagConstraints);
 
-        eliminarButton.setBackground(new java.awt.Color(204, 0, 255));
+        eliminarButton.setBackground(new java.awt.Color(255, 153, 0));
         eliminarButton.setText("Eliminar");
         eliminarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         eliminarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -915,6 +925,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         verFechaModificableLabel.setText(formato.format(t.getFecha()));
         verPrioridadModificableLabel.setText(t.getPrioridad());
         verProgresoProgressBar.setValue(t.getProgreso());
+        verProgresoNumeroNoModificableLabel.setText(Integer.toString(t.getProgreso()));
     }
     
    
@@ -1072,7 +1083,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public void limpiarCampos(){
         anadirNombreTareaTextField.setText("");
         descripcionTextArea.setText("");
-        fechaDateChooser.setDate(null);
+        fechaDateChooser.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
         prioridadComboBox.setSelectedIndex(0);
         porcentajeSpinner.setValue(0);
         completadoCheckBox.setSelected(false);
@@ -1082,6 +1093,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         verFechaModificableLabel.setText("");
         verPrioridadModificableLabel.setText("");
         verProgresoProgressBar.setValue(0);
+        verProgresoNumeroNoModificableLabel.setText("");
         porcentajeSpinner.setEnabled(true);
         erroresLabel.setText("");
     }
@@ -1146,6 +1158,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     private javax.swing.JLabel verPrioridadModificableLabel;
     private javax.swing.JLabel verPrioridadNoModificableLabel;
     private javax.swing.JLabel verProgresoLabel;
+    private javax.swing.JLabel verProgresoNumeroNoModificableLabel;
     private javax.swing.JProgressBar verProgresoProgressBar;
     // End of variables declaration//GEN-END:variables
 }

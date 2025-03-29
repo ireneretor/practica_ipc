@@ -36,38 +36,17 @@ public class Tarea {
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
      * @throws IllegalArgumentException si fecha es nula
      */
-    public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, boolean completado) {
-        if (nombreTarea.trim().isEmpty()) { 
-            throw new IllegalArgumentException("El nombre de la tarea no puede ser una serie de caracteres en blanco");
-        }else if(nombreTarea.length()>10 | nombreTarea.length()<1){
-            throw new IllegalArgumentException("El nombre de la tarea debe tener entre 1 y 10 caracteres");
-        }
-        if(descripcion.length()>100){
-            throw new IllegalArgumentException("La descripción no puede tener más de 100 caracteres");
-        }
-        if(!(prioridad.equals("Baja") | prioridad.equals("Media") | prioridad.equals("Alta"))){
-            throw new IllegalArgumentException("La prioridad debe ser Baja,Media o Alta");
-        }
-        if(!completado & (progreso<0 | progreso>100)){
-            throw new IllegalArgumentException("El progreso debe estar entre 0 y 100");
-        }
-        if(fecha==null){
-            throw new IllegalArgumentException("La fecha no puede ser nula");
-        }
-        this.nombreTarea = nombreTarea;
-        this.descripcionTareas = descripcion;
-        this.fecha = fecha;
-        this.prioridad = prioridad;
+    public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso) {
+        setNombreTarea(nombreTarea);
+        setDescripcionTareas(descripcion);
+        setFecha(fecha);
+        setPrioridad(prioridad);
         if(progreso==100) {
             this.completado=true;
         } else {
-            this.completado=completado;
+            this.completado=false;
         }
-        if(!completado){
-            this.progreso = progreso;
-        }else{
-            this.progreso=100;
-        }
+        setProgreso(progreso);
     }
     /**
      * Getter del nombre de la tarea
@@ -193,6 +172,8 @@ public class Tarea {
                 throw new IllegalArgumentException("El progreso debe estar entre 0 y 100");
             }
             this.progreso = progreso;
+        }else{
+            this.progreso=100;
         }
     }
 
