@@ -2,6 +2,8 @@ package uva.ipc.practica2.vista;
 import uva.ipc.practica2.modelo.GestorTareas;
 import uva.ipc.practica2.modelo.Tarea;
 import java.util.Date;
+import uva.ipc.practica2.Main;
+import uva.ipc.practica2.modelo.GestorListas;
 
 /**
  * Clase controladora de los eventos de la vista
@@ -11,7 +13,7 @@ import java.util.Date;
 public class ControladorGestorTareas {
     
     private VistaGestorTareas vista;
-    private GestorTareas modelo;
+    private GestorListas lista;
     private int indexEditar;
     
     /**
@@ -20,10 +22,11 @@ public class ControladorGestorTareas {
      * @param vista: vista de la que se tomaran los valores
      * @param modelo: modelo en el que se almacenan las tareas
      */
-    public ControladorGestorTareas(VistaGestorTareas vista, GestorTareas modelo){
+    public ControladorGestorTareas(VistaGestorTareas vista){
         this.vista=vista;
-        this.modelo=modelo;
+        this.lista=Main.getGestorListas();
         this.indexEditar=-1;
+        vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
     }
     
     /**
@@ -38,8 +41,8 @@ public class ControladorGestorTareas {
         boolean completado=vista.getCompletado();
         if(indexEditar==-1){
             try{
-                modelo.addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
-                vista.actualizarTareas(modelo.getTareas());
+                lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
+                vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
                 vista.setError("");
                 indexEditar=-1;
                 vista.limpiarCampos();
@@ -48,8 +51,8 @@ public class ControladorGestorTareas {
             }
         }else{
             try{
-                modelo.editarTarea(indexEditar, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
-                vista.actualizarTareas(modelo.getTareas());
+                lista.getListaSeleccionada().editarTarea(indexEditar, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
+                vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
                 vista.setError("");
                 vista.limpiarCampos();
             }catch(IllegalArgumentException e){
@@ -67,7 +70,7 @@ public class ControladorGestorTareas {
             vista.setError("Tienes que seleccionar una tarea para editar");
         } else {
             int i=0;
-            for (Tarea t : modelo.getTareas()) {
+            for (Tarea t : lista.getListaSeleccionada().getTareas()) {
                 if (t.toString().equals(tareaSeleccionada)) {
                     vista.setNombreTarea(t.getNombreTarea());
                     vista.setDescripcion(t.getDescripcionTareas());
@@ -99,15 +102,15 @@ public class ControladorGestorTareas {
             vista.setError("Tienes que seleccionar una tarea para eliminar");
         }else {
             int i=0;
-            for (Tarea t : modelo.getTareas()) {
+            for (Tarea t : lista.getListaSeleccionada().getTareas()) {
                 if (t.toString().equals(tareaSeleccionada)) {
-                    modelo.eliminarTarea(i);
+                    lista.getListaSeleccionada().eliminarTarea(i);
                     break;
                 }
                 i++;
             }
             indexEditar=-1;
-            vista.actualizarTareas(modelo.getTareas());
+            vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
             vista.limpiarCampos();
         }
     }
@@ -126,7 +129,7 @@ public class ControladorGestorTareas {
      * @param tareaSeleccionada: toString de la tarea seleccionada en la vista
      */
     public void procesarEventoSeleccionarTarea(String tareaSeleccionada){
-        for (Tarea t : modelo.getTareas()) {
+        for (Tarea t : lista.getListaSeleccionada().getTareas()) {
             if (t.toString().equals(tareaSeleccionada)) {
                 vista.cambiarCamposNoModificables(t);
                 break;

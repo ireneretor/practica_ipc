@@ -12,12 +12,18 @@ import java.util.ArrayList;
  */
 public class GestorTareas {
     private ArrayList <Tarea> tareas;
+    private String nombre;
     
     /**
      * Inicializador de la clase, creando el arraylist donde se almacenan las tareas.
      */
-    public GestorTareas(){
+    public GestorTareas(String nombre){
         this.tareas = new ArrayList<>();
+        this.nombre= nombre;
+    }
+    
+    public String getNombre(){
+        return nombre;
     }
     
     /**

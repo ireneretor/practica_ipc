@@ -26,8 +26,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
      */
     public VistaGestorTareas() {
         initComponents();
-        this.modelo = new GestorTareas();
-        this.controlador = new ControladorGestorTareas(this, modelo);
+        this.controlador = new ControladorGestorTareas(this);
     }
 
     /**
@@ -71,9 +70,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         porcentajeSpinner = new javax.swing.JSpinner();
         jPanel27 = new javax.swing.JPanel();
         completadoCheckBox = new javax.swing.JCheckBox();
+        jPanel30 = new javax.swing.JPanel();
+        listaActualLabel = new javax.swing.JLabel();
+        seleccionarListaComboBox = new javax.swing.JComboBox<>();
         jPanel23 = new javax.swing.JPanel();
         erroresLabel = new javax.swing.JLabel();
-        jPanel26 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         guardarButton = new javax.swing.JButton();
         limpiarButton = new javax.swing.JButton();
@@ -296,7 +297,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel4.setName(""); // NOI18N
-        jPanel4.setLayout(new java.awt.GridBagLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(5, 0));
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 204));
         jPanel7.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -359,6 +360,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         prioridadComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Media", "Alta" }));
         prioridadComboBox.setName(""); // NOI18N
         prioridadComboBox.setNextFocusableComponent(porcentajeSpinner);
+        prioridadComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prioridadComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -375,13 +381,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel7.add(jPanel18, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.2;
-        jPanel4.add(jPanel7, gridBagConstraints);
+        jPanel4.add(jPanel7);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -450,13 +450,21 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel8.add(completadoCheckBox, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.2;
-        jPanel4.add(jPanel8, gridBagConstraints);
+        jPanel4.add(jPanel8);
+
+        jPanel30.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel30.setMinimumSize(new java.awt.Dimension(75, 86));
+        jPanel30.setName(""); // NOI18N
+        jPanel30.setPreferredSize(new java.awt.Dimension(550, 32));
+
+        listaActualLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        listaActualLabel.setText("Lista actual:");
+        jPanel30.add(listaActualLabel);
+
+        seleccionarListaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel30.add(seleccionarListaComboBox);
+
+        jPanel4.add(jPanel30);
 
         jPanel23.setBackground(new java.awt.Color(255, 255, 204));
         jPanel23.setLayout(new java.awt.GridBagLayout());
@@ -475,34 +483,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel23.add(erroresLabel, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.2;
-        jPanel4.add(jPanel23, gridBagConstraints);
-
-        jPanel26.setBackground(new java.awt.Color(255, 255, 204));
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.2;
-        jPanel4.add(jPanel26, gridBagConstraints);
+        jPanel4.add(jPanel23);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 204));
         jPanel9.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -542,13 +523,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel9.add(limpiarButton, gridBagConstraints);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.2;
-        jPanel4.add(jPanel9, gridBagConstraints);
+        jPanel4.add(jPanel9);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -897,6 +872,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_completadoCheckBoxActionPerformed
 
+    private void prioridadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prioridadComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prioridadComboBoxActionPerformed
+
     /**
      * Funcion que actualiza la lista de tareas que se muestran.
      * Convierte el ArrayList de tareas un array de String
@@ -1130,11 +1109,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -1143,11 +1122,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton limpiarButton;
+    private javax.swing.JLabel listaActualLabel;
     private javax.swing.JList<String> listaTareasList;
     private javax.swing.JScrollPane listaTareasScrollPane;
     private javax.swing.JSpinner porcentajeSpinner;
     private javax.swing.JComboBox<String> prioridadComboBox;
     private javax.swing.JLabel prioridadLabel;
+    private javax.swing.JComboBox<String> seleccionarListaComboBox;
     private javax.swing.JScrollPane verDescripcionJSCroll;
     private javax.swing.JLabel verDescripcionNoModificableLabel;
     private javax.swing.JTextArea verDescripcionTextArea;

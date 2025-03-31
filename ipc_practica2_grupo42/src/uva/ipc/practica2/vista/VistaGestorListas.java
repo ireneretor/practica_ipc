@@ -4,17 +4,21 @@
  */
 package uva.ipc.practica2.vista;
 
+
 /**
  *
  * @author tomip
  */
 public class VistaGestorListas extends javax.swing.JFrame {
+    
+    private ControladorGestorListas controlador;
 
     /**
      * Creates new form VistaGestorListas
      */
     public VistaGestorListas() {
         initComponents();
+        this.controlador = new ControladorGestorListas(this);
     }
 
     /**
@@ -30,13 +34,16 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        listasLabel = new javax.swing.JLabel();
         listaListasScrollPane = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
+        anadirListaLabel = new javax.swing.JLabel();
         anadirListaTextField = new javax.swing.JTextField();
         jPanel16 = new javax.swing.JPanel();
         anadirListaButton = new javax.swing.JButton();
+        jPanel17 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         verNombreListaLabel = new javax.swing.JLabel();
@@ -71,6 +78,9 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
+        listasLabel.setText("Listas creadas:");
+        jPanel5.add(listasLabel, java.awt.BorderLayout.PAGE_START);
+
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -85,6 +95,9 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel6.setLayout(new java.awt.GridLayout(2, 1));
 
         jPanel15.setLayout(new java.awt.GridBagLayout());
+
+        anadirListaLabel.setText("Nombre de la nueva lista:");
+        jPanel15.add(anadirListaLabel, new java.awt.GridBagConstraints());
 
         anadirListaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +117,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 260, 30, 355);
         jPanel16.add(anadirListaButton, gridBagConstraints);
+        jPanel16.add(jPanel17, new java.awt.GridBagConstraints());
 
         jPanel6.add(jPanel16);
 
@@ -172,8 +186,13 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNumTareasCompletadasLabel.setText("Tareas Completadas");
         jPanel12.add(verNumTareasCompletadasLabel);
 
-        verNumTareasCompletadasTextField.setText("jTextField1");
+        verNumTareasCompletadasTextField.setText("33");
         verNumTareasCompletadasTextField.setEnabled(false);
+        verNumTareasCompletadasTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verNumTareasCompletadasTextFieldActionPerformed(evt);
+            }
+        });
         jPanel12.add(verNumTareasCompletadasTextField);
 
         jPanel4.add(jPanel12);
@@ -183,7 +202,8 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel4.add(jPanel13);
 
-        errorLabel.setText("jLabel1");
+        errorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        errorLabel.setText("Error");
         jPanel14.add(errorLabel);
 
         jPanel4.add(jPanel14);
@@ -192,6 +212,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
 
+        jPanel1.setMaximumSize(new java.awt.Dimension(116, 33));
         jPanel1.setMinimumSize(new java.awt.Dimension(116, 33));
         jPanel1.setPreferredSize(new java.awt.Dimension(116, 33));
 
@@ -220,18 +241,23 @@ public class VistaGestorListas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_anadirListaTextFieldActionPerformed
 
-    private void irMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irMenuButtonActionPerformed
+    private void verNombreListaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNombreListaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_irMenuButtonActionPerformed
+    }//GEN-LAST:event_verNombreListaTextFieldActionPerformed
 
     private void irTareasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irTareasButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_irTareasButtonActionPerformed
 
-    private void verNombreListaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNombreListaTextFieldActionPerformed
+    private void irMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irMenuButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_verNombreListaTextFieldActionPerformed
+    }//GEN-LAST:event_irMenuButtonActionPerformed
 
+    private void verNumTareasCompletadasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNumTareasCompletadasTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verNumTareasCompletadasTextFieldActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -269,6 +295,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirListaButton;
+    private javax.swing.JLabel anadirListaLabel;
     private javax.swing.JTextField anadirListaTextField;
     private javax.swing.JButton completarTareaButton;
     private javax.swing.JLabel errorLabel;
@@ -285,6 +312,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -294,6 +322,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane listaListasScrollPane;
+    private javax.swing.JLabel listasLabel;
     private javax.swing.JLabel tareasCompletadasLabel;
     private javax.swing.JScrollPane tareasCompletadasScrollPane;
     private javax.swing.JLabel tareasPendientesLabel;

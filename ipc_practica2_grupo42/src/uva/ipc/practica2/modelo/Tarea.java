@@ -28,7 +28,6 @@ public class Tarea {
      * @param fecha: Date referida a la fecha en la que se espera que acabe la tarea
      * @param prioridad: String que indica la prioridad de la tarea
      * @param progreso: int que indica el progreso de la tarea
-     * @param completado: boolean que indica si la tarea ha sido completada
      * @throws IllegalArgumentException si nombreTarea son caracteres en blanco
      * @throws IllegalArgumentException si nombreTarea tiene mas de 10 caracteres o menos de 1
      * @throws IllegalArgumentException si descripción tiene mas de 100 caracteres

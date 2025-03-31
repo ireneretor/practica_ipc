@@ -7,6 +7,7 @@
 package uva.ipc.practica2.vista;
 
 import uva.ipc.practica2.Main;
+import uva.ipc.practica2.modelo.GestorListas;
 
 /**
  *
@@ -14,9 +15,11 @@ import uva.ipc.practica2.Main;
  */
 public class ControladorMenuInicial {
     private VistaMenuInicial vista;
+    private GestorListas lista;
 
     public ControladorMenuInicial(VistaMenuInicial vista){
         this.vista=vista;
+        this.lista=Main.getGestorListas();
     }
     
     public void procesarEntrarGestorTareas(){
