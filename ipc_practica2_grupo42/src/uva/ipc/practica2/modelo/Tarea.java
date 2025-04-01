@@ -138,7 +138,7 @@ public class Tarea {
      */
     public void setFecha(Date fecha) {
         if(fecha==null){
-            throw new IllegalArgumentException("La fecha no puede ser nula");
+            throw new IllegalArgumentException("La fecha es incorrecta");
         }
         this.fecha = fecha;
     }
