@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package uva.ipc.practica2.vista;
+import uva.ipc.practica2.Main;
 
 /**
  *
@@ -18,5 +19,13 @@ public class ControladorGestorListas {
      */
     public ControladorGestorListas(VistaGestorListas vista){
         this.vista=vista;
+    }
+
+    void procesarEventoVistaTareas() {
+        Main.getGestorVistas().mostrarVistaGestorTareas();
+    }
+
+    void procesarEventoVistaMenu() {
+        Main.getGestorVistas().mostrarVistaMenuInicial();
     }
 }

@@ -247,10 +247,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
     private void irTareasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irTareasButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoVistaTareas();
     }//GEN-LAST:event_irTareasButtonActionPerformed
 
     private void irMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_irMenuButtonActionPerformed
         // TODO add your handling code here:
+        controlador.procesarEventoVistaMenu();
     }//GEN-LAST:event_irMenuButtonActionPerformed
 
     private void verNumTareasCompletadasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNumTareasCompletadasTextFieldActionPerformed
