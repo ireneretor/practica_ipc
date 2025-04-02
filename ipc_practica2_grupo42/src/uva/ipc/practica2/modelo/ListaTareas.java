@@ -10,14 +10,14 @@ import java.util.ArrayList;
  * 
  * @author tomruiz, irereto
  */
-public class GestorTareas {
+public class ListaTareas {
     private ArrayList <Tarea> tareas;
     private String nombre;
     
     /**
      * Inicializador de la clase, creando el arraylist donde se almacenan las tareas.
      */
-    public GestorTareas(String nombre){
+    public ListaTareas(String nombre){
         this.tareas = new ArrayList<>();
         this.nombre= nombre;
     }

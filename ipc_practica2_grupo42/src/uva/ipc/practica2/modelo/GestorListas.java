@@ -12,8 +12,8 @@ import java.util.Date;
  * @author tomip
  */
 public class GestorListas {
-    private ArrayList <GestorTareas> lista;
-    private GestorTareas listaSeleccionada;
+    private ArrayList <ListaTareas> lista;
+    private ListaTareas listaSeleccionada;
     
     /**
      * Inicializador de la clase, creando el arraylist donde se almacenan las tareas.
@@ -24,11 +24,16 @@ public class GestorListas {
         listaSeleccionada=lista.get(0);
     }
     
-    public GestorTareas getListaSeleccionada(){
+    public void addLista(String nombre){
+        lista.add(new ListaTareas(nombre));
+        listaSeleccionada=lista.get(lista.size()-1);
+    }
+    
+    public ListaTareas getListaSeleccionada(){
         return listaSeleccionada;
     }
     
-    public ArrayList <GestorTareas> getGestorTareas(){
+    public ArrayList <ListaTareas> getGestorTareas(){
         return lista;
     }
     
@@ -37,7 +42,7 @@ public class GestorListas {
         Tarea tarea2=new Tarea("Lectura","Leer un artículo sobre el uso de deshacer para el tratamiento de errores",new Date(125, 2, 11),"Baja",100);
         Tarea tarea3 = new Tarea("Boceto", "Realizar un boceto de la práctica 2", new Date(125, 2, 30), "Alta", 25);
         Tarea tarea4 = new Tarea("TE 2", "Realizar una aplicación web", new Date(125, 3, 28), "Media", 100);
-        GestorTareas IPC=new GestorTareas("IPC");
+        ListaTareas IPC=new ListaTareas("IPC");
         IPC.addTarea(tarea1);
         IPC.addTarea(tarea2);
         IPC.addTarea(tarea3);

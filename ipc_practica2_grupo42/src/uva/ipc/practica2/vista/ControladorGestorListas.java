@@ -4,6 +4,7 @@
  */
 package uva.ipc.practica2.vista;
 import uva.ipc.practica2.Main;
+import uva.ipc.practica2.modelo.GestorListas;
 
 /**
  *
@@ -11,6 +12,7 @@ import uva.ipc.practica2.Main;
  */
 public class ControladorGestorListas {
     private VistaGestorListas vista;
+    private GestorListas lista;
     
     /**
      * Inicializador del controlador
@@ -19,6 +21,13 @@ public class ControladorGestorListas {
      */
     public ControladorGestorListas(VistaGestorListas vista){
         this.vista=vista;
+        this.lista=Main.getGestorListas();
+        vista.actualizarListas(lista.getGestorTareas());
+    }
+    
+    public void procesarEventoGuardar(){
+        lista.addLista(vista.getNombreNuevaLista());
+        vista.actualizarListas(lista.getGestorTareas());
     }
 
     void procesarEventoVistaTareas() {

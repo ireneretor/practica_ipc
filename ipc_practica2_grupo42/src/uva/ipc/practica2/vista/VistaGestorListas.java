@@ -4,6 +4,9 @@
  */
 package uva.ipc.practica2.vista;
 
+import java.util.ArrayList;
+import uva.ipc.practica2.modelo.ListaTareas;
+
 
 /**
  *
@@ -29,14 +32,13 @@ public class VistaGestorListas extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         listasLabel = new javax.swing.JLabel();
         listaListasScrollPane = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaListasList = new javax.swing.JList<>();
         jPanel6 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         anadirListaLabel = new javax.swing.JLabel();
@@ -81,12 +83,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
         listasLabel.setText("Listas creadas:");
         jPanel5.add(listasLabel, java.awt.BorderLayout.PAGE_START);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaListasList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        listaListasScrollPane.setViewportView(jList1);
+        listaListasScrollPane.setViewportView(listaListasList);
 
         jPanel5.add(listaListasScrollPane, java.awt.BorderLayout.CENTER);
 
@@ -94,29 +96,23 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel6.setLayout(new java.awt.GridLayout(2, 1));
 
-        jPanel15.setLayout(new java.awt.GridBagLayout());
+        jPanel15.setLayout(new java.awt.BorderLayout());
 
-        anadirListaLabel.setText("Nombre de la nueva lista:");
-        jPanel15.add(anadirListaLabel, new java.awt.GridBagConstraints());
-
-        anadirListaTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anadirListaTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel15.add(anadirListaTextField, new java.awt.GridBagConstraints());
+        anadirListaLabel.setText("Nombre de la nueva lista: ");
+        jPanel15.add(anadirListaLabel, java.awt.BorderLayout.CENTER);
+        jPanel15.add(anadirListaTextField, java.awt.BorderLayout.PAGE_END);
 
         jPanel6.add(jPanel15);
 
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
         anadirListaButton.setText("Añadir Lista");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(20, 260, 30, 355);
-        jPanel16.add(anadirListaButton, gridBagConstraints);
+        anadirListaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anadirListaButtonActionPerformed(evt);
+            }
+        });
+        jPanel16.add(anadirListaButton, new java.awt.GridBagConstraints());
         jPanel16.add(jPanel17, new java.awt.GridBagConstraints());
 
         jPanel6.add(jPanel16);
@@ -237,10 +233,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void anadirListaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirListaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_anadirListaTextFieldActionPerformed
-
     private void verNombreListaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verNombreListaTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_verNombreListaTextFieldActionPerformed
@@ -259,41 +251,24 @@ public class VistaGestorListas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_verNumTareasCompletadasTextFieldActionPerformed
 
+    private void anadirListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anadirListaButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoGuardar();
+    }//GEN-LAST:event_anadirListaButtonActionPerformed
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaGestorListas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaGestorListas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaGestorListas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaGestorListas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    public void actualizarListas(ArrayList<ListaTareas> listas) {
+        String[] listasArray = new String[listas.size()];
+    
+        for (int i = 0; i < listas.size(); i++) {
+            listasArray[i] = listas.get(i).getNombre();
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaGestorListas().setVisible(true);
-            }
-        });
+        listaListasList.setListData(listasArray);
     }
+    
+    public String getNombreNuevaLista(){
+        return anadirListaTextField.getText();
+    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirListaButton;
@@ -303,7 +278,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton irMenuButton;
     private javax.swing.JButton irTareasButton;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList3;
     private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
@@ -323,6 +297,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JList<String> listaListasList;
     private javax.swing.JScrollPane listaListasScrollPane;
     private javax.swing.JLabel listasLabel;
     private javax.swing.JLabel tareasCompletadasLabel;

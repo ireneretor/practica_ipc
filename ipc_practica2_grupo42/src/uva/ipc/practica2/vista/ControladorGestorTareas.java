@@ -1,5 +1,5 @@
 package uva.ipc.practica2.vista;
-import uva.ipc.practica2.modelo.GestorTareas;
+import uva.ipc.practica2.modelo.ListaTareas;
 import uva.ipc.practica2.modelo.Tarea;
 import java.util.Date;
 import uva.ipc.practica2.Main;

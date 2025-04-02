@@ -5,7 +5,7 @@
 package uva.ipc.practica2.vista;
 
 import java.util.Date;
-import uva.ipc.practica2.modelo.GestorTareas;
+import uva.ipc.practica2.modelo.ListaTareas;
 import uva.ipc.practica2.modelo.Tarea;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import javax.swing.ListSelectionModel;
 public class VistaGestorTareas extends javax.swing.JFrame {
 
     private ControladorGestorTareas controlador;
-    private GestorTareas modelo;
+    private ListaTareas modelo;
 
      /**
      * Inicializador de la vista
@@ -463,6 +463,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel30.add(listaActualLabel);
 
         seleccionarListaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        seleccionarListaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seleccionarListaComboBoxActionPerformed(evt);
+            }
+        });
         jPanel30.add(seleccionarListaComboBox);
 
         jPanel4.add(jPanel30);
@@ -877,6 +882,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_prioridadComboBoxActionPerformed
 
+    private void seleccionarListaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarListaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seleccionarListaComboBoxActionPerformed
+
     /**
      * Funcion que actualiza la lista de tareas que se muestran.
      * Convierte el ArrayList de tareas un array de String
@@ -897,7 +906,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
      * 
      * @param listas: ArrayList de listas que tiene que mostrar la lista
      */
-    public void actualizarListas(ArrayList<GestorTareas> listas) {
+    public void actualizarListas(ArrayList<ListaTareas> listas) {
         String[] listasArray = new String[listas.size()];
     
         for (int i = 0; i < listas.size(); i++) {
