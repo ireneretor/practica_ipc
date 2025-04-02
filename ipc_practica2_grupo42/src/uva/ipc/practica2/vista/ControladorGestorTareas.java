@@ -20,13 +20,13 @@ public class ControladorGestorTareas {
      * Inicializador del controlador
      * 
      * @param vista: vista de la que se tomaran los valores
-     * @param modelo: modelo en el que se almacenan las tareas
      */
     public ControladorGestorTareas(VistaGestorTareas vista){
         this.vista=vista;
         this.lista=Main.getGestorListas();
         this.indexEditar=-1;
         vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
+        vista.actualizarListas(lista.getGestorTareas());
     }
     
     /**

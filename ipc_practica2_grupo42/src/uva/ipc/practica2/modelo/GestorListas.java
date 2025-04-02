@@ -28,6 +28,10 @@ public class GestorListas {
         return listaSeleccionada;
     }
     
+    public ArrayList <GestorTareas> getGestorTareas(){
+        return lista;
+    }
+    
     private void rellenarPredeterminado(){
         Tarea tarea1=new Tarea("TE 1","Realizar un análisis de una aplicación", new Date(125, 2, 5),"Alta",50);
         Tarea tarea2=new Tarea("Lectura","Leer un artículo sobre el uso de deshacer para el tratamiento de errores",new Date(125, 2, 11),"Baja",100);

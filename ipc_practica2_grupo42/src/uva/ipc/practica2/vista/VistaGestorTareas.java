@@ -9,6 +9,7 @@ import uva.ipc.practica2.modelo.GestorTareas;
 import uva.ipc.practica2.modelo.Tarea;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ListSelectionModel;
 
 /**
@@ -890,6 +891,21 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         }
         listaTareasList.setListData(tareasArray);
     }
+    /**
+     * Funcion que actualiza la lista de listas en el desplegable seleccionarLista que se muestran.
+     * Convierte el ArrayList de listas en un array de String
+     * 
+     * @param listas: ArrayList de listas que tiene que mostrar la lista
+     */
+    public void actualizarListas(ArrayList<GestorTareas> listas) {
+        String[] listasArray = new String[listas.size()];
+    
+        for (int i = 0; i < listas.size(); i++) {
+            listasArray[i] = listas.get(i).getNombre();
+        }
+        seleccionarListaComboBox.setModel(new DefaultComboBoxModel<>(listasArray));
+    }
+    
 
     /**
      * Funcion que cambia el texto de los campos no modificables con la informacion
