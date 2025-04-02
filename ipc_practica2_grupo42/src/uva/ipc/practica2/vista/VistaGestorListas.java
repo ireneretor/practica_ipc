@@ -5,7 +5,9 @@
 package uva.ipc.practica2.vista;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import uva.ipc.practica2.modelo.ListaTareas;
+import uva.ipc.practica2.modelo.Tarea;
 
 
 /**
@@ -54,12 +56,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
         tareasCompletadasLabel = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         tareasCompletadasScrollPane = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        listaTareasCompletadasList = new javax.swing.JList<>();
         jPanel10 = new javax.swing.JPanel();
         tareasPendientesLabel = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         tareasPendientesScrollPane = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        listaTareasPendientesList = new javax.swing.JList<>();
         jPanel12 = new javax.swing.JPanel();
         verNumTareasCompletadasLabel = new javax.swing.JLabel();
         verNumTareasCompletadasTextField = new javax.swing.JTextField();
@@ -87,6 +89,11 @@ public class VistaGestorListas extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        listaListasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaListasListValueChanged(evt);
+            }
         });
         listaListasScrollPane.setViewportView(listaListasList);
 
@@ -128,7 +135,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNombreListaLabel.setText("Lista:");
         jPanel7.add(verNombreListaLabel);
 
-        verNombreListaTextField.setText("jTextField1");
         verNombreListaTextField.setEnabled(false);
         verNombreListaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,12 +154,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        listaTareasCompletadasList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        tareasCompletadasScrollPane.setViewportView(jList3);
+        tareasCompletadasScrollPane.setViewportView(listaTareasCompletadasList);
 
         jPanel9.add(tareasCompletadasScrollPane, java.awt.BorderLayout.CENTER);
 
@@ -168,12 +174,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel11.setLayout(new java.awt.BorderLayout());
 
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+        listaTareasPendientesList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        tareasPendientesScrollPane.setViewportView(jList4);
+        tareasPendientesScrollPane.setViewportView(listaTareasPendientesList);
 
         jPanel11.add(tareasPendientesScrollPane, java.awt.BorderLayout.CENTER);
 
@@ -255,6 +261,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlador.procesarEventoGuardar();
     }//GEN-LAST:event_anadirListaButtonActionPerformed
+
+    private void listaListasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaListasListValueChanged
+        // TODO add your handling code here:
+        controlador.procesarEventoSeleccionarLista(listaListasList.getSelectedIndex());
+    }//GEN-LAST:event_listaListasListValueChanged
+
     
     public void actualizarListas(ArrayList<ListaTareas> listas) {
         String[] listasArray = new String[listas.size()];
@@ -268,7 +280,33 @@ public class VistaGestorListas extends javax.swing.JFrame {
     public String getNombreNuevaLista(){
         return anadirListaTextField.getText();
     }
-   
+    
+    public void cambiarCamposListaSeleccionada(ListaTareas listaSeleccionada) {
+        verNombreListaTextField.setText(listaSeleccionada.getNombre());
+        ArrayList <Tarea> listas=listaSeleccionada.getTareas();
+        int comp=0;
+        for (int i = 0; i < listas.size(); i++) {
+            Tarea t=listas.get(i);
+            if(t.getProgreso()==100){
+                comp++;
+            }
+        }
+        String[] listaComp=new String[comp];
+        String[] listaPend=new String[listas.size()-comp];
+        comp=0;
+        for (int i = 0; i < listas.size(); i++) {
+            Tarea t=listas.get(i);
+            if(t.getProgreso()==100){
+                listaComp[comp]=listas.get(i).toString();
+                comp++;
+            }else{
+                listaPend[i-comp]=listas.get(i).toString();
+            }
+        }
+        listaTareasCompletadasList.setListData(listaComp);
+        listaTareasPendientesList.setListData(listaPend);
+        verNumTareasCompletadasTextField.setText(Integer.toString(comp));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirListaButton;
@@ -278,8 +316,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton irMenuButton;
     private javax.swing.JButton irTareasButton;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -299,6 +335,8 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JList<String> listaListasList;
     private javax.swing.JScrollPane listaListasScrollPane;
+    private javax.swing.JList<String> listaTareasCompletadasList;
+    private javax.swing.JList<String> listaTareasPendientesList;
     private javax.swing.JLabel listasLabel;
     private javax.swing.JLabel tareasCompletadasLabel;
     private javax.swing.JScrollPane tareasCompletadasScrollPane;
@@ -309,4 +347,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JLabel verNumTareasCompletadasLabel;
     private javax.swing.JTextField verNumTareasCompletadasTextField;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -37,4 +37,9 @@ public class ControladorGestorListas {
     void procesarEventoVistaMenu() {
         Main.getGestorVistas().mostrarVistaMenuInicial();
     }
+
+    public void procesarEventoSeleccionarLista(int posicion) {
+        lista.seleccionarLista(posicion);
+        vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());        
+    }
 }
