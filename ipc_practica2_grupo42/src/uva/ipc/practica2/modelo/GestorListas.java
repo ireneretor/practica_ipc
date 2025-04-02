@@ -26,7 +26,11 @@ public class GestorListas {
     
     public void addLista(String nombre){
         lista.add(new ListaTareas(nombre));
-        listaSeleccionada=lista.get(lista.size()-1);
+        seleccionarLista(lista.size()-1);
+    }
+    
+    public void seleccionarLista(int pos){
+        listaSeleccionada=lista.get(pos);
     }
     
     public ListaTareas getListaSeleccionada(){

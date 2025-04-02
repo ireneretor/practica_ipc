@@ -65,7 +65,7 @@ public class ControladorGestorTareas {
      * Funcion para procesar la edicion de las tareas, poniendo los valores de la tarea seleccionada en la vista para poder ser editada
      */
     public void procesarEventoEditar(){
-        String tareaSeleccionada=vista.getListaSeleccionada();
+        String tareaSeleccionada=vista.getTareaSeleccionada();
         if (tareaSeleccionada == null) {
             vista.setError("Tienes que seleccionar una tarea para editar");
         } else {
@@ -97,7 +97,7 @@ public class ControladorGestorTareas {
      */
     public void procesarEventoEliminar(){
         //TODO funcion eliminar
-        String tareaSeleccionada=vista.getListaSeleccionada();
+        String tareaSeleccionada=vista.getTareaSeleccionada();
         if (tareaSeleccionada==null) {
             vista.setError("Tienes que seleccionar una tarea para eliminar");
         }else {
@@ -149,5 +149,10 @@ public class ControladorGestorTareas {
             vista.setProgreso(0);
             vista.setSpinnerVisible(true);
         }
+    }
+
+    public void procesarCambiarListaSeleccionada() {
+        lista.seleccionarLista(vista.getListaSeleccionada());
+        vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
     }
 }

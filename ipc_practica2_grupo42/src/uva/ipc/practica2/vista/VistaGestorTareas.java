@@ -40,7 +40,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jSpinner1 = new javax.swing.JSpinner();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -884,6 +883,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
 
     private void seleccionarListaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarListaComboBoxActionPerformed
         // TODO add your handling code here:
+        controlador.procesarCambiarListaSeleccionada();
     }//GEN-LAST:event_seleccionarListaComboBoxActionPerformed
 
     /**
@@ -994,8 +994,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
      * 
      * @return la tarea seleccionada
      */
-    public String getListaSeleccionada(){
+    public String getTareaSeleccionada(){
         return listaTareasList.getSelectedValue();
+    }
+    
+    
+    public int getListaSeleccionada(){
+        return seleccionarListaComboBox.getSelectedIndex();
     }
     
     
@@ -1145,7 +1150,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton limpiarButton;
     private javax.swing.JLabel listaActualLabel;
     private javax.swing.JList<String> listaTareasList;
