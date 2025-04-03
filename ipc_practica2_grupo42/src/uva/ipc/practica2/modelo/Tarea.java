@@ -185,6 +185,7 @@ public class Tarea {
      */
     public void setCompletado(boolean completado) {
         this.completado = completado;
+        setProgreso(this.progreso);
     }
     
 

@@ -5,7 +5,6 @@
 package uva.ipc.practica2.vista;
 
 import java.util.ArrayList;
-import javax.swing.DefaultComboBoxModel;
 import uva.ipc.practica2.modelo.ListaTareas;
 import uva.ipc.practica2.modelo.Tarea;
 
@@ -188,7 +187,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNumTareasCompletadasLabel.setText("Tareas Completadas");
         jPanel12.add(verNumTareasCompletadasLabel);
 
-        verNumTareasCompletadasTextField.setText("33");
+        verNumTareasCompletadasTextField.setText("0");
         verNumTareasCompletadasTextField.setEnabled(false);
         verNumTareasCompletadasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +199,11 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel4.add(jPanel12);
 
         completarTareaButton.setText("Completar Tarea");
+        completarTareaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completarTareaButtonActionPerformed(evt);
+            }
+        });
         jPanel13.add(completarTareaButton);
 
         jPanel4.add(jPanel13);
@@ -267,6 +271,11 @@ public class VistaGestorListas extends javax.swing.JFrame {
         controlador.procesarEventoSeleccionarLista(listaListasList.getSelectedIndex());
     }//GEN-LAST:event_listaListasListValueChanged
 
+    private void completarTareaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completarTareaButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarCompletarTarea();
+    }//GEN-LAST:event_completarTareaButtonActionPerformed
+
     
     public void actualizarListas(ArrayList<ListaTareas> listas) {
         String[] listasArray = new String[listas.size()];
@@ -279,6 +288,10 @@ public class VistaGestorListas extends javax.swing.JFrame {
     
     public String getNombreNuevaLista(){
         return anadirListaTextField.getText();
+    }
+    
+    public int getPosicionSelectPendiente(){
+        return listaTareasPendientesList.getSelectedIndices()[0];
     }
     
     public void cambiarCamposListaSeleccionada(ListaTareas listaSeleccionada) {

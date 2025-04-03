@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package uva.ipc.practica2.vista;
+import java.util.ArrayList;
 import uva.ipc.practica2.Main;
 import uva.ipc.practica2.modelo.GestorListas;
+import uva.ipc.practica2.modelo.Tarea;
 
 /**
  *
@@ -41,5 +43,22 @@ public class ControladorGestorListas {
     public void procesarEventoSeleccionarLista(int posicion) {
         lista.seleccionarLista(posicion);
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());        
+    }
+
+    public void procesarCompletarTarea() {
+        int nTarea=vista.getPosicionSelectPendiente();
+        ArrayList <Tarea> tareas=lista.getListaSeleccionada().getTareas();
+        int pend=0;
+        for(int i=0;i<tareas.size();i++){
+            if(tareas.get(i).getProgreso()<100){
+                if(pend==nTarea){
+                    tareas.get(i).setCompletado(true);
+                    vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());
+                    return;
+                }
+                pend++;
+            }
+        }
+        throw new IllegalArgumentException("Chicharron");
     }
 }
