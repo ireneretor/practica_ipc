@@ -300,7 +300,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
                 listaComp[comp]=listas.get(i).toString();
                 comp++;
             }else{
-                listaPend[i-comp]=listas.get(i).toString();
+                listaPend[i-comp]=listas.get(i).stringPendiente();
             }
         }
         listaTareasCompletadasList.setListData(listaComp);
