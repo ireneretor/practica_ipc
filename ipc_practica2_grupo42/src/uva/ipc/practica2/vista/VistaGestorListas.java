@@ -84,11 +84,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
         listasLabel.setText("Listas creadas:");
         jPanel5.add(listasLabel, java.awt.BorderLayout.PAGE_START);
 
-        listaListasList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         listaListasList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 listaListasListValueChanged(evt);
@@ -153,11 +148,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.BorderLayout());
 
-        listaTareasCompletadasList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         tareasCompletadasScrollPane.setViewportView(listaTareasCompletadasList);
 
         jPanel9.add(tareasCompletadasScrollPane, java.awt.BorderLayout.CENTER);
@@ -174,7 +164,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel11.setLayout(new java.awt.BorderLayout());
 
         listaTareasPendientesList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { " " };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });

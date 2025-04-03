@@ -71,6 +71,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5);
 
+        entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_tareas.png"))); // NOI18N
         entrarTareasButton.setText("Gestionar Tareas");
         entrarTareasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +110,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
         jPanel2.add(jPanel7);
 
+        entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
         entrarListasButton.setText("Gestionar Listas");
         entrarListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +149,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
 
         jPanel3.add(jPanel9);
 
+        salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/salir.png"))); // NOI18N
         salirButton.setText("Salir");
         salirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

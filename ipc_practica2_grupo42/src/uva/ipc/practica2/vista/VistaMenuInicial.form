@@ -65,6 +65,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="entrarTareasButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/uva/ipc/practica2/vista/editar_tareas.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Tareas"/>
           </Properties>
           <Events>
@@ -112,6 +115,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="entrarListasButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/uva/ipc/practica2/vista/editar_listas.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Listas"/>
           </Properties>
           <Events>
@@ -159,6 +165,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="salirButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/uva/ipc/practica2/vista/salir.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>

@@ -116,7 +116,8 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMinimumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1700, 800));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 204));
@@ -260,7 +261,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel5.add(jPanel19, gridBagConstraints);
 
         jPanel20.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel20.setLayout(new java.awt.GridLayout(1, 0));
+        jPanel20.setLayout(new java.awt.GridBagLayout());
 
         descripcionScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         descripcionScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -277,7 +278,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
         descripcionScrollPane.setViewportView(descripcionTextArea);
 
-        jPanel20.add(descripcionScrollPane);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        jPanel20.add(descripcionScrollPane, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -307,7 +314,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel4.setName(""); // NOI18N
-        jPanel4.setLayout(new java.awt.GridLayout(5, 0));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 204));
         jPanel7.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -391,7 +398,14 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel7.add(jPanel18, gridBagConstraints);
 
-        jPanel4.add(jPanel7);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel4.add(jPanel7, gridBagConstraints);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 204));
         jPanel8.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -460,16 +474,31 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel8.add(completadoCheckBox, gridBagConstraints);
 
-        jPanel4.add(jPanel8);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel4.add(jPanel8, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(255, 255, 204));
         jPanel30.setMinimumSize(new java.awt.Dimension(75, 86));
         jPanel30.setName(""); // NOI18N
         jPanel30.setPreferredSize(new java.awt.Dimension(550, 32));
+        jPanel30.setLayout(new java.awt.GridBagLayout());
 
         listaActualLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         listaActualLabel.setText("Lista actual:");
-        jPanel30.add(listaActualLabel);
+        listaActualLabel.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 1.0;
+        jPanel30.add(listaActualLabel, gridBagConstraints);
 
         seleccionarListaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         seleccionarListaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -477,9 +506,22 @@ public class VistaGestorTareas extends javax.swing.JFrame {
                 seleccionarListaComboBoxActionPerformed(evt);
             }
         });
-        jPanel30.add(seleccionarListaComboBox);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 1.0;
+        jPanel30.add(seleccionarListaComboBox, gridBagConstraints);
 
-        jPanel4.add(jPanel30);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel4.add(jPanel30, gridBagConstraints);
 
         jPanel23.setBackground(new java.awt.Color(255, 255, 204));
         jPanel23.setLayout(new java.awt.GridBagLayout());
@@ -498,7 +540,14 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel23.add(erroresLabel, gridBagConstraints);
 
-        jPanel4.add(jPanel23);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel4.add(jPanel23, gridBagConstraints);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 204));
         jPanel9.setMinimumSize(new java.awt.Dimension(75, 86));
@@ -520,6 +569,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         jPanel9.add(guardarButton, gridBagConstraints);
 
         limpiarButton.setBackground(new java.awt.Color(255, 153, 0));
@@ -536,9 +586,17 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPanel9.add(limpiarButton, gridBagConstraints);
 
-        jPanel4.add(jPanel9);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel4.add(jPanel9, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -554,7 +612,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.9;
+        gridBagConstraints.weighty = 0.95;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel1, gridBagConstraints);
 
@@ -579,7 +637,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -769,9 +827,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
         jPanel16.add(editarButton, gridBagConstraints);
 
         eliminarButton.setBackground(new java.awt.Color(255, 153, 0));
+        eliminarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/eliminar.png"))); // NOI18N
         eliminarButton.setText("Eliminar");
         eliminarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         eliminarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -786,6 +846,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPanel16.add(eliminarButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -811,12 +872,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.9;
+        gridBagConstraints.weighty = 0.95;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel2, gridBagConstraints);
 
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
+        GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
         GestorListasButton.setText("Gestionar Listas");
         GestorListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -894,12 +956,13 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.weighty = 0.05;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel26, gridBagConstraints);
 
         jPanel31.setLayout(new java.awt.GridBagLayout());
 
+        MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/flecha_atras.png"))); // NOI18N
         MenuButton.setText("Menú Principal");
         MenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -977,7 +1040,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.weighty = 0.05;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel31, gridBagConstraints);
 
