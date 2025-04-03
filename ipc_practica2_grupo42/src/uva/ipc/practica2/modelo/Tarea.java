@@ -4,8 +4,10 @@
  */
 package uva.ipc.practica2.modelo;
 
+import static java.lang.Math.abs;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Tipo de dato que define las tareas que se tienen almacenar
@@ -183,6 +185,15 @@ public class Tarea {
      */
     public void setCompletado(boolean completado) {
         this.completado = completado;
+    }
+    
+
+    public String stringPendiente(){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        long ms = fecha.getTime() - (new Date()).getTime();
+        long dias = TimeUnit.MILLISECONDS.toDays(ms);
+        dias=abs(dias);
+        return nombreTarea+": "+formato.format(fecha)+": Pendiente: "+dias+" dias";
     }
     
     /**
