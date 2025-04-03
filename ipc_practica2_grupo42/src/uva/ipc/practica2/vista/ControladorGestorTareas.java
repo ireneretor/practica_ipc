@@ -155,4 +155,12 @@ public class ControladorGestorTareas {
         lista.seleccionarLista(vista.getListaSeleccionada());
         vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
     }
+
+    void procesarEventoVistaListas() {
+        Main.getGestorVistas().mostrarVistaGestorListas();
+    }
+
+    void procesarEventoVistaMenu() {
+        Main.getGestorVistas().mostrarVistaMenuInicial();
+    }
 }
