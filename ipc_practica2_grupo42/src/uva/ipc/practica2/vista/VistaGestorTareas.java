@@ -20,7 +20,6 @@ import javax.swing.ListSelectionModel;
 public class VistaGestorTareas extends javax.swing.JFrame {
 
     private ControladorGestorTareas controlador;
-    private ListaTareas modelo;
 
      /**
      * Inicializador de la vista
@@ -28,6 +27,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public VistaGestorTareas() {
         initComponents();
         this.controlador = new ControladorGestorTareas(this);
+        
     }
 
     /**

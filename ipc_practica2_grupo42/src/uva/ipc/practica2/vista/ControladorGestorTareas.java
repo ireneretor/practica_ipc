@@ -99,7 +99,7 @@ public class ControladorGestorTareas {
             vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
             vista.limpiarCampos();
         }catch(IllegalArgumentException e){
-                vista.setError(e.getMessage());
+            vista.setError(e.getMessage());
         }
     }
     

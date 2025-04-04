@@ -40,8 +40,8 @@ public class ControladorGestorListas {
         Main.getGestorVistas().mostrarVistaMenuInicial();
     }
 
-    public void procesarEventoSeleccionarLista(int posicion) {
-        lista.seleccionarLista(posicion);
+    public void procesarEventoSeleccionarLista() {
+        lista.seleccionarLista(vista.getIndexListaSeleccionada());
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());        
     }
 
@@ -60,5 +60,15 @@ public class ControladorGestorListas {
             }
         }
         throw new IllegalArgumentException("Chicharron");
+    }
+
+    public void procesarEventoBorrar() {
+        try{
+            lista.eliminarLista(vista.getIndexListaSeleccionada());
+            vista.vaciarCampos();
+            vista.actualizarListas(lista.getGestorTareas());
+        }catch(IllegalArgumentException e){
+                vista.setError(e.getMessage());
+        }
     }
 }

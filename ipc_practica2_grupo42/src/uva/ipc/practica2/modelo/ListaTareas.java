@@ -86,6 +86,16 @@ public class ListaTareas {
         tareas.remove(buscarTarea(tareaSeleccionada));
     }
     
+    public int getNumeroTareasCompletadas(){
+        int comp=0;
+        for (int i = 0; i < tareas.size(); i++) {
+            Tarea t=tareas.get(i);
+            if(t.getProgreso()==100){
+                comp++;
+            }
+        }
+        return comp;
+    }
     
-}
+    }
 

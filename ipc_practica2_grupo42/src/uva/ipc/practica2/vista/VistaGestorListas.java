@@ -47,6 +47,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         anadirListaTextField = new javax.swing.JTextField();
         jPanel16 = new javax.swing.JPanel();
         anadirListaButton = new javax.swing.JButton();
+        borrarListaButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         verNombreListaLabel = new javax.swing.JLabel();
@@ -129,6 +130,14 @@ public class VistaGestorListas extends javax.swing.JFrame {
             }
         });
         jPanel16.add(anadirListaButton, new java.awt.GridBagConstraints());
+
+        borrarListaButton.setText("Borrar Lista");
+        borrarListaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarListaButtonActionPerformed(evt);
+            }
+        });
+        jPanel16.add(borrarListaButton, new java.awt.GridBagConstraints());
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -407,7 +416,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
     private void listaListasListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaListasListValueChanged
         // TODO add your handling code here:
-        controlador.procesarEventoSeleccionarLista(listaListasList.getSelectedIndex());
+        controlador.procesarEventoSeleccionarLista();
     }//GEN-LAST:event_listaListasListValueChanged
 
     private void completarTareaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completarTareaButtonActionPerformed
@@ -415,14 +424,21 @@ public class VistaGestorListas extends javax.swing.JFrame {
         controlador.procesarCompletarTarea();
     }//GEN-LAST:event_completarTareaButtonActionPerformed
 
+    private void borrarListaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarListaButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoBorrar();
+    }//GEN-LAST:event_borrarListaButtonActionPerformed
+
     
     public void actualizarListas(ArrayList<ListaTareas> listas) {
+        listaListasList.clearSelection();
         String[] listasArray = new String[listas.size()];
     
         for (int i = 0; i < listas.size(); i++) {
             listasArray[i] = listas.get(i).getNombre();
         }
         listaListasList.setListData(listasArray);
+        
     }
     
     public String getNombreNuevaLista(){
@@ -436,13 +452,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
     public void cambiarCamposListaSeleccionada(ListaTareas listaSeleccionada) {
         verNombreListaTextField.setText(listaSeleccionada.getNombre());
         ArrayList <Tarea> listas=listaSeleccionada.getTareas();
-        int comp=0;
-        for (int i = 0; i < listas.size(); i++) {
-            Tarea t=listas.get(i);
-            if(t.getProgreso()==100){
-                comp++;
-            }
-        }
+        int comp=listaSeleccionada.getNumeroTareasCompletadas();
         String[] listaComp=new String[comp];
         String[] listaPend=new String[listas.size()-comp];
         comp=0;
@@ -459,11 +469,28 @@ public class VistaGestorListas extends javax.swing.JFrame {
         listaTareasPendientesList.setListData(listaPend);
         verNumTareasCompletadasTextField.setText(Integer.toString(comp));
     }
+    
+    public int getIndexListaSeleccionada(){
+            return(listaListasList.getSelectedIndex());
+    }
+    
+    public void setError(String s){
+        errorLabel.setText(s);
+    }
+    
+    public void vaciarCampos(){
+        verNombreListaTextField.setText("");
+        listaTareasCompletadasList.setListData(new String[0]);
+        listaTareasPendientesList.setListData(new String[0]);
+        errorLabel.setText("");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirListaButton;
     private javax.swing.JLabel anadirListaLabel;
     private javax.swing.JTextField anadirListaTextField;
+    private javax.swing.JButton borrarListaButton;
     private javax.swing.JButton completarTareaButton;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton irMenuButton;

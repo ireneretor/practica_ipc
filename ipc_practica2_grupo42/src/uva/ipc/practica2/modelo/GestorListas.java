@@ -36,7 +36,7 @@ public class GestorListas {
     public ListaTareas getListaSeleccionada(){
         return listaSeleccionada;
     }
-    
+
     public ArrayList <ListaTareas> getGestorTareas(){
         return lista;
     }
@@ -52,6 +52,18 @@ public class GestorListas {
         IPC.addTarea(tarea3);
         IPC.addTarea(tarea4);
         lista.add(IPC);
+    }
+
+    public void eliminarLista(int indexListaSeleccionada) {
+        if(indexListaSeleccionada<(lista.size())){
+            if(lista.get(indexListaSeleccionada).getNumeroTareasCompletadas()==lista.get(indexListaSeleccionada).getTareas().size()){
+                lista.remove(indexListaSeleccionada);
+            }else{
+                throw new IllegalArgumentException("Para borrar una lista, debe completar todas las tareas");
+            }
+        }else{
+            throw new IllegalArgumentException("Debe seleccionar una lista para eliminar");
+        }
     }
 
 }
