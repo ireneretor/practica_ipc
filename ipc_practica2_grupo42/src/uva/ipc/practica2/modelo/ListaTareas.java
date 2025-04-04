@@ -47,7 +47,7 @@ public class ListaTareas {
     
     /**
      * Funcion para añadir una tarea nueva a la lista
-     * 
+     * @throws IllegalArgumentException si la tarea que se introduce se llama igual que otra ya introducida
      * @param tarea: Tarea nueva a añadir
      */
     public void addTarea(Tarea tarea){
@@ -71,13 +71,21 @@ public class ListaTareas {
         tareas.set(i,nuevaTarea);
     }
     
-    /**
-     * Funcion para eliminar una tarea de la lista
-     * 
-     * @param i: entero que nos da las posicion de la tarea a eliminar
-     */
-    public void eliminarTarea(int i){
-        tareas.remove(i);
+    public int buscarTarea(String tareaSeleccionada){
+        int i=0;
+        for (Tarea t : tareas) {
+                if (t.toString().equals(tareaSeleccionada)) {
+                    return i;
+                }
+                i++;
+            }
+        throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
+    
+    public void eliminarTarea(String tareaSeleccionada){
+        tareas.remove(buscarTarea(tareaSeleccionada));
+    }
+    
+    
 }
 
