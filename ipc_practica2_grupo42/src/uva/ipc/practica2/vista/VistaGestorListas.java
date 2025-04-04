@@ -445,8 +445,8 @@ public class VistaGestorListas extends javax.swing.JFrame {
         return anadirListaTextField.getText();
     }
     
-    public int getPosicionSelectPendiente(){
-        return listaTareasPendientesList.getSelectedIndices()[0];
+    public String getPosicionSelectPendiente(){
+        return listaTareasPendientesList.getSelectedValue();
     }
     
     public void cambiarCamposListaSeleccionada(ListaTareas listaSeleccionada) {
@@ -484,6 +484,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         listaTareasPendientesList.setListData(new String[0]);
         errorLabel.setText("");
     }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

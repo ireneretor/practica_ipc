@@ -28,8 +28,13 @@ public class ControladorGestorListas {
     }
     
     public void procesarEventoGuardar(){
-        lista.addLista(vista.getNombreNuevaLista());
-        vista.actualizarListas(lista.getGestorTareas());
+        try{
+            lista.addLista(vista.getNombreNuevaLista());
+            vista.actualizarListas(lista.getGestorTareas());
+            vista.vaciarCampos();
+        }catch(IllegalArgumentException e){
+                vista.setError(e.getMessage());
+        }
     }
 
     void procesarEventoVistaTareas() {
@@ -46,20 +51,13 @@ public class ControladorGestorListas {
     }
 
     public void procesarCompletarTarea() {
-        int nTarea=vista.getPosicionSelectPendiente();
-        ArrayList <Tarea> tareas=lista.getListaSeleccionada().getTareas();
-        int pend=0;
-        for(int i=0;i<tareas.size();i++){
-            if(tareas.get(i).getProgreso()<100){
-                if(pend==nTarea){
-                    tareas.get(i).setCompletado(true);
-                    vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());
-                    return;
-                }
-                pend++;
-            }
+        try{
+            lista.completarTarea(vista.getPosicionSelectPendiente());
+            vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());
+            vista.setError("");
+        }catch(IllegalArgumentException e){
+                vista.setError(e.getMessage());
         }
-        throw new IllegalArgumentException("Chicharron");
     }
 
     public void procesarEventoBorrar() {

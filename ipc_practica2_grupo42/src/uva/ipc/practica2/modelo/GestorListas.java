@@ -25,6 +25,14 @@ public class GestorListas {
     }
     
     public void addLista(String nombre){
+         if (nombre.trim().isEmpty()) { 
+            throw new IllegalArgumentException("El nombre de la lista no puede ser una serie de caracteres en blanco");
+        }
+        for(int i=0;i<lista.size();i++){
+            if(lista.get(i).getNombre().equals(nombre)){
+                throw new IllegalArgumentException("No puede haber dos listas con el mismo nombre");
+            }
+        }
         lista.add(new ListaTareas(nombre));
         seleccionarLista(lista.size()-1);
     }
@@ -39,6 +47,26 @@ public class GestorListas {
 
     public ArrayList <ListaTareas> getGestorTareas(){
         return lista;
+    }
+    
+    public void completarTarea(String posStr){
+        if (posStr == null) {
+                    throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
+
+        }
+        int pos=Integer.parseInt(posStr);
+        ArrayList <Tarea> tareas=listaSeleccionada.getTareas();
+        int pend=0;
+        for(int i=0;i<tareas.size();i++){
+            if(tareas.get(i).getProgreso()<100){
+                if(pend==pos){
+                    tareas.get(i).setCompletado(true);
+                    return;
+                }
+                pend++;
+            }
+        }
+        throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
     }
     
     private void rellenarPredeterminado(){
