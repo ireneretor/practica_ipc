@@ -1084,7 +1084,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         for (int i = 0; i < listas.size(); i++) {
             listasArray[i] = listas.get(i).getNombre();
         }
-        
+        seleccionarListaComboBox.setModel(new DefaultComboBoxModel <> (listasArray));
     }
     
 

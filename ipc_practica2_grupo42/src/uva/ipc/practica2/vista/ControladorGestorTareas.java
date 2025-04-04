@@ -38,7 +38,6 @@ public class ControladorGestorTareas {
         Date fecha=vista.getFecha();
         String prioridad=vista.getPrioridad();
         int progreso=vista.getProgreso();
-        boolean completado=vista.getCompletado();
         if(indexEditar==-1){
             try{
                 lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
@@ -66,30 +65,26 @@ public class ControladorGestorTareas {
      */
     public void procesarEventoEditar(){
         String tareaSeleccionada=vista.getTareaSeleccionada();
-        if (tareaSeleccionada == null) {
-            vista.setError("Tienes que seleccionar una tarea para editar");
-        } else {
-            int i=0;
-            for (Tarea t : lista.getListaSeleccionada().getTareas()) {
-                if (t.toString().equals(tareaSeleccionada)) {
-                    vista.setNombreTarea(t.getNombreTarea());
-                    vista.setDescripcion(t.getDescripcionTareas());
-                    vista.setFecha(t.getFecha());
-                    vista.setPrioridad(t.getPrioridad());
-                    vista.setProgreso(t.getProgreso());
-                    if (t.getProgreso() == 100) {
-                        vista.setCompletado(true);
-                        vista.setSpinnerVisible(false);
-                    } else {
-                        vista.setCompletado(false);
-                        vista.setSpinnerVisible(true);
-                    }
-                    indexEditar=i;
-                    break;
-                }
-                i++;
+        try{
+            int i=lista.getListaSeleccionada().buscarTarea(tareaSeleccionada);
+            Tarea t=lista.getListaSeleccionada().getTareas().get(i);
+            vista.setNombreTarea(t.getNombreTarea());
+            vista.setDescripcion(t.getDescripcionTareas());
+            vista.setFecha(t.getFecha());
+            vista.setPrioridad(t.getPrioridad());
+            vista.setProgreso(t.getProgreso());
+            if (t.getProgreso() == 100) {
+                vista.setCompletado(true);
+                vista.setSpinnerVisible(false);
+            } else {
+                vista.setCompletado(false);
+                vista.setSpinnerVisible(true);
             }
+            indexEditar=i;
+        }catch(IllegalArgumentException e){
+                vista.setError(e.getMessage());
         }
+        
     }
     
     /**
@@ -98,20 +93,13 @@ public class ControladorGestorTareas {
     public void procesarEventoEliminar(){
         //TODO funcion eliminar
         String tareaSeleccionada=vista.getTareaSeleccionada();
-        if (tareaSeleccionada==null) {
-            vista.setError("Tienes que seleccionar una tarea para eliminar");
-        }else {
-            int i=0;
-            for (Tarea t : lista.getListaSeleccionada().getTareas()) {
-                if (t.toString().equals(tareaSeleccionada)) {
-                    lista.getListaSeleccionada().eliminarTarea(i);
-                    break;
-                }
-                i++;
-            }
+        try{
+            lista.getListaSeleccionada().eliminarTarea(tareaSeleccionada);
             indexEditar=-1;
             vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
             vista.limpiarCampos();
+        }catch(IllegalArgumentException e){
+                vista.setError(e.getMessage());
         }
     }
     
