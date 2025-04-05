@@ -113,4 +113,7 @@ public class GestorListas {
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
 
+    public ArrayList<ListaTareas> getListas() {
+        return this.lista;
+    }
 }

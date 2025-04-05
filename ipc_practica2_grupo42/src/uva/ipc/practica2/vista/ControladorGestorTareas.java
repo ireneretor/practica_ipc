@@ -40,25 +40,29 @@ public class ControladorGestorTareas {
         String prioridad=vista.getPrioridad();
         String lista=vista.getLista();
         int progreso=vista.getProgreso();
-        if(indexEditar==-1){
-            try{
-                this.lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso, lista));
-                vista.actualizarTareas(this.lista.getTodasTareas());
-                vista.setError("");
-                indexEditar=-1;
-                vista.limpiarCampos();
-            }catch(IllegalArgumentException e){
-                vista.setError(e.getMessage());
+        if(lista != null) {
+            if(indexEditar==-1){
+                try{
+                    this.lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso, lista));
+                    vista.actualizarTareas(this.lista.getTodasTareas());
+                    vista.setError("");
+                    indexEditar=-1;
+                    vista.limpiarCampos();
+                }catch(IllegalArgumentException e){
+                    vista.setError(e.getMessage());
+                }
+            }else{
+                try{
+                    this.lista.getListaSeleccionada().editarTarea(indexLista, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,lista));
+                    vista.actualizarTareas(this.lista.getTodasTareas());
+                    vista.setError("");
+                    vista.limpiarCampos();
+                }catch(IllegalArgumentException e){
+                    vista.setError(e.getMessage());
+                }
             }
         }else{
-            try{
-                this.lista.getListaSeleccionada().editarTarea(indexLista, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,lista));
-                vista.actualizarTareas(this.lista.getTodasTareas());
-                vista.setError("");
-                vista.limpiarCampos();
-            }catch(IllegalArgumentException e){
-                vista.setError(e.getMessage());
-            }
+            vista.setError("No hay ninguna lista creada");
         }
     }
     
@@ -98,7 +102,13 @@ public class ControladorGestorTareas {
         //TODO funcion eliminar
         String tareaSeleccionada=vista.getTareaSeleccionada();
         try{
-            lista.getListaSeleccionada().eliminarTarea(tareaSeleccionada);
+            for(ListaTareas l: lista.getListas()) {
+                for(Tarea t : l.getTareas()) {
+                    if(tareaSeleccionada.equals(t.toString())) {
+                        l.eliminarTarea(tareaSeleccionada);
+                    }
+                } 
+            }
             indexEditar=-1;
             vista.actualizarTareas(lista.getTodasTareas());
             vista.limpiarCampos();

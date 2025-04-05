@@ -480,6 +480,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNombreListaTextField.setText("");
         listaTareasCompletadasList.setListData(new String[0]);
         listaTareasPendientesList.setListData(new String[0]);
+        verNumTareasCompletadasTextField.setText("0");
         anadirListaTextField.setText("");
         errorLabel.setText("");
     }
