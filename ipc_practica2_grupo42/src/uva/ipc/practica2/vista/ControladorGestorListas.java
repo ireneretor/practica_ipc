@@ -46,8 +46,9 @@ public class ControladorGestorListas {
     }
 
     public void procesarEventoSeleccionarLista() {
-        lista.seleccionarLista(vista.getIndexListaSeleccionada());
-        vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());        
+        if(vista.getIndexListaSeleccionada()!=-1) lista.seleccionarLista(vista.getIndexListaSeleccionada());
+        vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());   
+        vista.setError("");
     }
 
     public void procesarCompletarTarea() {
@@ -63,8 +64,8 @@ public class ControladorGestorListas {
     public void procesarEventoBorrar() {
         try{
             lista.eliminarLista(vista.getIndexListaSeleccionada());
-            vista.vaciarCampos();
             vista.actualizarListas(lista.getGestorTareas());
+            vista.vaciarCampos();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
         }

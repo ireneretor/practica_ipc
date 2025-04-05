@@ -177,7 +177,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         jPanel7.add(verNombreListaLabel, gridBagConstraints);
 
-        verNombreListaTextField.setEnabled(false);
+        verNombreListaTextField.setEditable(false);
         verNombreListaTextField.setMaximumSize(new java.awt.Dimension(2147483647, 26));
         verNombreListaTextField.setMinimumSize(new java.awt.Dimension(64, 26));
         verNombreListaTextField.setPreferredSize(new java.awt.Dimension(374, 26));
@@ -270,9 +270,9 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNumTareasCompletadasLabel.setText("Tareas Completadas");
         jPanel12.add(verNumTareasCompletadasLabel);
 
+        verNumTareasCompletadasTextField.setEditable(false);
         verNumTareasCompletadasTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         verNumTareasCompletadasTextField.setText("0");
-        verNumTareasCompletadasTextField.setEnabled(false);
         verNumTareasCompletadasTextField.setMinimumSize(new java.awt.Dimension(100, 26));
         verNumTareasCompletadasTextField.setPreferredSize(new java.awt.Dimension(30, 26));
         verNumTareasCompletadasTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +307,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel4.add(jPanel13, gridBagConstraints);
 
         errorLabel.setForeground(new java.awt.Color(255, 0, 0));
-        errorLabel.setText("Error");
         jPanel14.add(errorLabel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -431,22 +430,20 @@ public class VistaGestorListas extends javax.swing.JFrame {
 
     
     public void actualizarListas(ArrayList<ListaTareas> listas) {
-        listaListasList.clearSelection();
         String[] listasArray = new String[listas.size()];
     
         for (int i = 0; i < listas.size(); i++) {
             listasArray[i] = listas.get(i).getNombre();
         }
         listaListasList.setListData(listasArray);
-        
     }
     
     public String getNombreNuevaLista(){
         return anadirListaTextField.getText();
     }
     
-    public String getPosicionSelectPendiente(){
-        return listaTareasPendientesList.getSelectedValue();
+    public int getPosicionSelectPendiente(){
+        return listaTareasPendientesList.getSelectedIndex();
     }
     
     public void cambiarCamposListaSeleccionada(ListaTareas listaSeleccionada) {
@@ -479,9 +476,11 @@ public class VistaGestorListas extends javax.swing.JFrame {
     }
     
     public void vaciarCampos(){
+        listaListasList.clearSelection();
         verNombreListaTextField.setText("");
         listaTareasCompletadasList.setListData(new String[0]);
         listaTareasPendientesList.setListData(new String[0]);
+        anadirListaTextField.setText("");
         errorLabel.setText("");
     }
     

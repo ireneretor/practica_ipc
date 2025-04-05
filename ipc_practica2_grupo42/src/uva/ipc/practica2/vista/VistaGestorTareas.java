@@ -944,6 +944,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         verPrioridadModificableLabel.setText(t.getPrioridad());
         verProgresoProgressBar.setValue(t.getProgreso());
         verProgresoNumeroNoModificableLabel.setText(Integer.toString(t.getProgreso()));
+        verListaModificableLabel.setText(t.getLista());
     }
     
    
@@ -1001,6 +1002,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
      */
     public boolean getCompletado() {
         return completadoCheckBox.isSelected();
+    }
+    
+    public String getLista() {
+        return (String)seleccionarListaComboBox.getSelectedItem();
     }
     
     /**
@@ -1080,6 +1085,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public void setCompletado(boolean completado) {
         completadoCheckBox.setSelected(completado);
     }
+    
+    public void setLista(String lista) {
+        seleccionarListaComboBox.setSelectedItem(lista);
+    }
 
     /**
      * Setter de la etiqueta del texto de error
@@ -1110,6 +1119,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         prioridadComboBox.setSelectedIndex(0);
         porcentajeSpinner.setValue(0);
         completadoCheckBox.setSelected(false);
+        seleccionarListaComboBox.setSelectedIndex(0);
         listaTareasList.clearSelection();
         verNombreTareaLabel.setText("");
         verDescripcionTextArea.setText("");

@@ -21,6 +21,7 @@ public class Tarea {
     private String prioridad;
     private int progreso;
     private boolean completado;
+    private String lista;
     
     /**     
      * Inicializador de la clase Tareas
@@ -37,11 +38,12 @@ public class Tarea {
      * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
      * @throws IllegalArgumentException si fecha es nula
      */
-    public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso) {
+    public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, String lista) {
         setNombreTarea(nombreTarea);
         setDescripcionTareas(descripcion);
         setFecha(fecha);
         setPrioridad(prioridad);
+        setLista(lista);
         if(progreso==100) {
             this.completado=true;
         } else {
@@ -93,7 +95,11 @@ public class Tarea {
     public int getProgreso() {
         return progreso;
     }
-
+    
+    public String getLista() {
+        return lista;
+    }
+ 
     /**
      * Getter de completado
      * 
@@ -188,6 +194,9 @@ public class Tarea {
         setProgreso(this.progreso);
     }
     
+    public void setLista(String lista) {
+        this.lista = lista;
+    }
 
     public String stringPendiente(){
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");

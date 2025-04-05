@@ -15,6 +15,7 @@ public class ControladorGestorTareas {
     private VistaGestorTareas vista;
     private GestorListas lista;
     private int indexEditar;
+    private int indexLista;
     
     /**
      * Inicializador del controlador
@@ -25,7 +26,7 @@ public class ControladorGestorTareas {
         this.vista=vista;
         this.lista=Main.getGestorListas();
         this.indexEditar=-1;
-        vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
+        vista.actualizarTareas(lista.getTodasTareas());
         vista.actualizarListas(lista.getGestorTareas());
     }
     
@@ -37,11 +38,12 @@ public class ControladorGestorTareas {
         String descripcion=vista.getDescripcion();
         Date fecha=vista.getFecha();
         String prioridad=vista.getPrioridad();
+        String lista=vista.getLista();
         int progreso=vista.getProgreso();
         if(indexEditar==-1){
             try{
-                lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
-                vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
+                this.lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso, lista));
+                vista.actualizarTareas(this.lista.getTodasTareas());
                 vista.setError("");
                 indexEditar=-1;
                 vista.limpiarCampos();
@@ -50,8 +52,8 @@ public class ControladorGestorTareas {
             }
         }else{
             try{
-                lista.getListaSeleccionada().editarTarea(indexEditar, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso));
-                vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
+                this.lista.getListaSeleccionada().editarTarea(indexLista, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,lista));
+                vista.actualizarTareas(this.lista.getTodasTareas());
                 vista.setError("");
                 vista.limpiarCampos();
             }catch(IllegalArgumentException e){
@@ -66,13 +68,14 @@ public class ControladorGestorTareas {
     public void procesarEventoEditar(){
         String tareaSeleccionada=vista.getTareaSeleccionada();
         try{
-            int i=lista.getListaSeleccionada().buscarTarea(tareaSeleccionada);
-            Tarea t=lista.getListaSeleccionada().getTareas().get(i);
+            int i=lista.buscarTarea(tareaSeleccionada);
+            Tarea t=lista.getTodasTareas().get(i);
             vista.setNombreTarea(t.getNombreTarea());
             vista.setDescripcion(t.getDescripcionTareas());
             vista.setFecha(t.getFecha());
             vista.setPrioridad(t.getPrioridad());
             vista.setProgreso(t.getProgreso());
+            vista.setLista(t.getLista());
             if (t.getProgreso() == 100) {
                 vista.setCompletado(true);
                 vista.setSpinnerVisible(false);
@@ -81,6 +84,7 @@ public class ControladorGestorTareas {
                 vista.setSpinnerVisible(true);
             }
             indexEditar=i;
+            indexLista=lista.getListaSeleccionada().buscarTarea(tareaSeleccionada);
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
         }
@@ -96,7 +100,7 @@ public class ControladorGestorTareas {
         try{
             lista.getListaSeleccionada().eliminarTarea(tareaSeleccionada);
             indexEditar=-1;
-            vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
+            vista.actualizarTareas(lista.getTodasTareas());
             vista.limpiarCampos();
         }catch(IllegalArgumentException e){
             vista.setError(e.getMessage());
@@ -117,7 +121,7 @@ public class ControladorGestorTareas {
      * @param tareaSeleccionada: toString de la tarea seleccionada en la vista
      */
     public void procesarEventoSeleccionarTarea(String tareaSeleccionada){
-        for (Tarea t : lista.getListaSeleccionada().getTareas()) {
+        for (Tarea t : lista.getTodasTareas()) {
             if (t.toString().equals(tareaSeleccionada)) {
                 vista.cambiarCamposNoModificables(t);
                 break;
@@ -141,7 +145,6 @@ public class ControladorGestorTareas {
 
     public void procesarCambiarListaSeleccionada() {
         lista.seleccionarLista(vista.getListaSeleccionada());
-        vista.actualizarTareas(lista.getListaSeleccionada().getTareas());
     }
 
     void procesarEventoVistaListas() {
