@@ -5,12 +5,17 @@
 package uva.ipc.practica2.vista;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.util.Date;
 import uva.ipc.practica2.modelo.ListaTareas;
 import uva.ipc.practica2.modelo.Tarea;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.AbstractAction;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 /**
@@ -28,6 +33,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public VistaGestorTareas() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(255, 255, 230));
+        configurarTabEnTextArea();
         this.controlador = new ControladorGestorTareas(this);
         
     }
@@ -1175,6 +1181,26 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
         anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
     }
+    
+    private void configurarTabEnTextArea() {
+        InputMap im = descripcionTextArea.getInputMap(JComponent.WHEN_FOCUSED);
+        im.put(KeyStroke.getKeyStroke("TAB"), "focusNext");
+        descripcionTextArea.getActionMap().put("focusNext", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                descripcionTextArea.transferFocus();
+            }
+        });
+        im.put(KeyStroke.getKeyStroke("shift TAB"), "focusPrevious");
+        descripcionTextArea.getActionMap().put("focusPrevious", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                descripcionTextArea.transferFocusBackward();
+            }
+        }
+    );
+}
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

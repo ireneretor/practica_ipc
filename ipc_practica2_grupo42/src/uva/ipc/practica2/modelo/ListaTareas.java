@@ -68,7 +68,11 @@ public class ListaTareas {
      * @param nuevaTarea: tarea que se añade en la posicion i
      */
     public void editarTarea(int i,Tarea nuevaTarea){
+        System.out.println(nuevaTarea.toString());
         tareas.set(i,nuevaTarea);
+        for(int j=0;j<tareas.size();j++){
+            System.out.println(tareas.get(j).toString());
+        }
     }
     
     public int buscarTarea(String tareaSeleccionada){
@@ -106,5 +110,9 @@ public class ListaTareas {
         return comp;
     }
     
+    public void editarProgresoTarea(int pos, int progre){
+        tareas.get(pos).setCompletado(false);
+        tareas.get(pos).setProgreso(progre);
+    }
     }
 

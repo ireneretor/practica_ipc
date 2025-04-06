@@ -72,7 +72,7 @@ public class GestorListas {
      * @param posStr posición en la que se encuentra la lista que se va a completar
      * @throws IllegalArgumentException si no se ha seleccionado una tarea
      */
-    public void completarTarea(int posStr){
+    public int[] completarTarea(int posStr){
         if (posStr == -1) {
                     throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
 
@@ -83,8 +83,9 @@ public class GestorListas {
         for(int i=0;i<tareas.size();i++){
             if(tareas.get(i).getProgreso()<100){
                 if(pend==pos){
-                    tareas.get(i).setCompletado(true);
-                    return;
+                    int progreso=tareas.get(i).getProgreso();
+                    tareas.get(i).setCompletado(true);  // Marca la tarea como completada
+                    return new int[]{i, progreso};  // Devuelve la tarea original
                 }
                 pend++;
             }
@@ -152,6 +153,10 @@ public class GestorListas {
                 i++;
             }
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
+    }
+
+    public void deshacerCompletado(int[] tar) {
+        listaSeleccionada.editarProgresoTarea(tar[0],tar[1]);
     }
 
     

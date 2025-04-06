@@ -23,7 +23,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
      */
     public VistaGestorListas() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(255, 255, 230));
+        getContentPane().setBackground(new java.awt.Color(255, 255, 230));        
         this.controlador = new ControladorGestorListas(this);
     }
 
@@ -69,6 +69,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         verNumTareasCompletadasTextField = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         completarTareaButton = new javax.swing.JButton();
+        deshacerCompletarButton = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         errorLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -80,7 +81,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(800, 700));
-        setPreferredSize(new java.awt.Dimension(1000, 600));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 204));
@@ -322,6 +322,15 @@ public class VistaGestorListas extends javax.swing.JFrame {
         });
         jPanel13.add(completarTareaButton);
 
+        deshacerCompletarButton.setBackground(new java.awt.Color(255, 153, 0));
+        deshacerCompletarButton.setText("Deshacer Completar Tarea");
+        deshacerCompletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deshacerCompletarButtonActionPerformed(evt);
+            }
+        });
+        jPanel13.add(deshacerCompletarButton);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -460,6 +469,11 @@ public class VistaGestorListas extends javax.swing.JFrame {
         controlador.procesarEventoBorrar();
     }//GEN-LAST:event_borrarListaButtonActionPerformed
 
+    private void deshacerCompletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deshacerCompletarButtonActionPerformed
+        // TODO add your handling code here:
+        controlador.procesarEventoDeshacer();
+    }//GEN-LAST:event_deshacerCompletarButtonActionPerformed
+
     
     public void actualizarListas(ArrayList<ListaTareas> listas) {
         String[] listasArray = new String[listas.size()];
@@ -555,6 +569,13 @@ public class VistaGestorListas extends javax.swing.JFrame {
         listaTareasPendientesList.setBackground(new Color(255,255,255));
     }
     
+    public void desactivarDeshacerCompletado(){
+        deshacerCompletarButton.setEnabled(false);
+    }
+    
+    public void activarDeshacerCompletado(){
+        deshacerCompletarButton.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anadirListaButton;
@@ -562,6 +583,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
     private javax.swing.JTextField anadirListaTextField;
     private javax.swing.JButton borrarListaButton;
     private javax.swing.JButton completarTareaButton;
+    private javax.swing.JButton deshacerCompletarButton;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JButton irMenuButton;
     private javax.swing.JButton irTareasButton;
