@@ -28,7 +28,8 @@ public class GestorListas {
     /**
      * Función que añade una lista al gestor
      * @param nombre Nombre de la nueva lista
-     * @throws IllegalArgumentException si el nombre de la lista son caracteres en blanco o si el nombre es igual al de otra lista ya añadida
+     * @throws IllegalArgumentException si el nombre de la lista son caracteres en blanco 
+     * @throws IllegalArgumentException si el nombre es igual al de otra lista ya añadida
      */
     public void addLista(String nombre){
          if (nombre.trim().isEmpty()) { 
@@ -44,7 +45,7 @@ public class GestorListas {
     }
     
     /**
-     * Función para indicar que una lista es la seleccionada actualmente.
+     * Función para indicar que una lista es la seleccionada actualmente
      * @param pos indice donde esta la lista
      */
     public void seleccionarLista(int pos){
@@ -75,7 +76,6 @@ public class GestorListas {
     public int[] completarTarea(int posStr){
         if (posStr == -1) {
                     throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
-
         }
         int pos=posStr;
         ArrayList <Tarea> tareas=listaSeleccionada.getTareas();
@@ -112,14 +112,20 @@ public class GestorListas {
     /**
      * Función para eliminar una lista
      * @param indexListaSeleccionada posición en la que se encuentra la lista eliminada
-     * @throws IllegalArgumentException si no se selecciona una lista para eliminar o si la lista tiene tareas sin completar
+     * @throws IllegalArgumentException si no se selecciona una lista para eliminar
+     * @throws IllegalArgumentException si la lista tiene tareas sin completar
+     * @throws IllegalArgumentException si se intenta eliminar la lista por defecto
      */
     public void eliminarLista(int indexListaSeleccionada) {
         if(indexListaSeleccionada!=-1){
-            if(lista.get(indexListaSeleccionada).getNumeroTareasCompletadas()==lista.get(indexListaSeleccionada).getTareas().size()){
-                lista.remove(indexListaSeleccionada);
-            }else{
-                throw new IllegalArgumentException("Para borrar una lista, debe completar todas las tareas");
+            if(indexListaSeleccionada==0) {
+                throw new IllegalArgumentException("No puede borrar la lista por defecto IPC");
+            } else {
+                if(lista.get(indexListaSeleccionada).getNumeroTareasCompletadas()==lista.get(indexListaSeleccionada).getTareas().size()){
+                    lista.remove(indexListaSeleccionada);
+                }else{
+                    throw new IllegalArgumentException("Para borrar una lista, debe completar todas las tareas");
+                }
             }
         }else{
             throw new IllegalArgumentException("Debe seleccionar una lista para eliminar");

@@ -7,13 +7,17 @@ package uva.ipc.practica2.vista;
 import javax.swing.JFrame;
 
 /**
- *
- * @author irereto
+ * Clase controladora de las vistas
+ * 
+ * @author tomruiz, irereto
  */
 public class GestorVistas {
 
     private JFrame vistaActual;
 
+    /**
+     * Funcion para mostrar el menu inicial
+     */
     public void mostrarVistaMenuInicial() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -23,6 +27,9 @@ public class GestorVistas {
         vistaActual.setVisible(true);
     }
 
+    /**
+     * Funcion para mostrar el gestor de tareas
+     */
     public void mostrarVistaGestorTareas() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -32,6 +39,9 @@ public class GestorVistas {
         vistaActual.setVisible(true);
     }
 
+    /**
+     * Funcion para mostrar el gestor de listas
+     */
     public void mostrarVistaGestorListas() {
         if (vistaActual != null) {
             vistaActual.setVisible(false);
@@ -41,6 +51,9 @@ public class GestorVistas {
         vistaActual.setVisible(true);
     }
     
+    /**
+     * Funcion para salir del programa
+     */
     public void salir(){
         System.exit(0);
     }

@@ -6,7 +6,7 @@ import uva.ipc.practica2.Main;
 import uva.ipc.practica2.modelo.GestorListas;
 
 /**
- * Clase controladora de los eventos de la vista
+ * Clase controladora de los eventos de la vista del gestor de tareas
  * 
  * @author tomruiz, irereto
  */
@@ -47,7 +47,10 @@ public class ControladorGestorTareas {
                     vista.actualizarTareas(this.lista.getTodasTareas());
                     indexEditar=-1;
                     vista.limpiarCampos();
+                    vista.errorVerde();
+                    vista.setError("Tarea guardada con éxito");
                 }catch(IllegalArgumentException e){
+                    vista.errorRojo();
                     vista.setError(e.getMessage());
                     if(e.getMessage().equals("La descripción no puede tener más de 100 caracteres")){
                         vista.descripcionRojo();
@@ -62,7 +65,10 @@ public class ControladorGestorTareas {
                     this.lista.getListaSeleccionada().editarTarea(indexLista, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,lista));
                     vista.actualizarTareas(this.lista.getTodasTareas());
                     vista.limpiarCampos();
+                    vista.errorVerde();
+                    vista.setError("Tarea guardada con éxito");
                 }catch(IllegalArgumentException e){
+                    vista.errorRojo();
                     vista.setError(e.getMessage());
                     if(e.getMessage().equals("La descripción no puede tener más de 100 caracteres")){
                         vista.descripcionRojo();
@@ -74,6 +80,7 @@ public class ControladorGestorTareas {
                 }
             }
         }else{
+            vista.errorRojo();
             vista.setError("No hay ninguna lista creada");
         }
     }
@@ -102,6 +109,7 @@ public class ControladorGestorTareas {
             indexEditar=i;
             indexLista=lista.getListaSeleccionada().buscarTarea(tareaSeleccionada);
         }catch(IllegalArgumentException e){
+                vista.errorRojo();
                 vista.setError(e.getMessage());
                 vista.listaRojo();
         }
@@ -124,6 +132,7 @@ public class ControladorGestorTareas {
             vista.actualizarTareas(lista.getTodasTareas());
             vista.limpiarCampos();
         }catch(IllegalArgumentException e){
+            vista.errorRojo();
             vista.setError(e.getMessage());
             vista.listaRojo();
         }
@@ -165,15 +174,24 @@ public class ControladorGestorTareas {
         }
     }
 
+    /**
+     * Funcion para procesar el cambiar la lista seleccionada
+     */
     public void procesarCambiarListaSeleccionada() {
         lista.seleccionarLista(vista.getListaSeleccionada());
     }
 
-    void procesarEventoVistaListas() {
+    /**
+     * Funcion para procesar el evento que cambia la vista al gestor de listas
+     */
+    public void procesarEventoVistaListas() {
         Main.getGestorVistas().mostrarVistaGestorListas();
     }
 
-    void procesarEventoVistaMenu() {
+    /**
+     * Funcion para procesar el evento que cambia la vista al menu principal
+     */
+    public void procesarEventoVistaMenu() {
         Main.getGestorVistas().mostrarVistaMenuInicial();
     }
 }

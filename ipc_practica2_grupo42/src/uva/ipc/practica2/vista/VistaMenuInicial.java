@@ -5,8 +5,9 @@
 package uva.ipc.practica2.vista;
 
 /**
- *
- * @author tomip
+ * Clase que modifica y controla todo lo relacionado con la vista del menu principal
+ * 
+ * @author tomruiz, irereto
  */
 public class VistaMenuInicial extends javax.swing.JFrame {
     private ControladorMenuInicial controlador;
@@ -40,7 +41,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         entrarTareasButton.setBackground(new java.awt.Color(51, 204, 255));
-        entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_tareas.png"))); // NOI18N
+        entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_tareas.png"))); // NOI18N
         entrarTareasButton.setText("Gestionar Tareas");
         entrarTareasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +56,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         getContentPane().add(entrarTareasButton, gridBagConstraints);
 
         entrarListasButton.setBackground(new java.awt.Color(51, 204, 255));
-        entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
+        entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_listas.png"))); // NOI18N
         entrarListasButton.setText("Gestionar Listas");
         entrarListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,7 +71,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         getContentPane().add(entrarListasButton, gridBagConstraints);
 
         salirButton.setBackground(new java.awt.Color(255, 0, 0));
-        salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/salir.png"))); // NOI18N
+        salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/salir.png"))); // NOI18N
         salirButton.setText("Salir");
         salirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,16 +86,33 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de gestionar tareas
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void entrarTareasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarTareasButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEntrarGestorTareas();
     }//GEN-LAST:event_entrarTareasButtonActionPerformed
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de gestionar listas
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void entrarListasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarListasButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEntrarGestorListas();
     }//GEN-LAST:event_entrarListasButtonActionPerformed
-
+/**
+     * Funcion que maneja el evento de seleccionar el boton de salir
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoSalir();

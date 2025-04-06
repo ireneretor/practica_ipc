@@ -9,8 +9,9 @@ import uva.ipc.practica2.modelo.GestorListas;
 import uva.ipc.practica2.modelo.Tarea;
 
 /**
- *
- * @author tomip
+ *Clase controladora de los eventos de la vista del gestor de listas
+ * 
+ * @author tomruiz, irereto
  */
 public class ControladorGestorListas {
     private VistaGestorListas vista;
@@ -30,6 +31,9 @@ public class ControladorGestorListas {
         vista.desactivarDeshacerCompletado();
     }
     
+    /**
+     * Funcion para procesar el guardado de las listas en el modelo con los valores obtenidos de la vista
+     */
     public void procesarEventoGuardar(){
         try{
             lista.addLista(vista.getNombreNuevaLista());
@@ -42,23 +46,36 @@ public class ControladorGestorListas {
         }
     }
 
-    void procesarEventoVistaTareas() {
+    /**
+     * Funcion para procesar el evento que cambia la vista al gestor de tareas
+     */
+    public void procesarEventoVistaTareas() {
         vista.desactivarDeshacerCompletado();
         Main.getGestorVistas().mostrarVistaGestorTareas();
     }
 
-    void procesarEventoVistaMenu() {
+    /**
+     * Funcion para procesar el evento que cambia la vista al menu principal
+     */
+    public void procesarEventoVistaMenu() {
         vista.desactivarDeshacerCompletado();
         Main.getGestorVistas().mostrarVistaMenuInicial();
     }
 
+    /**
+     * Funcion para procesar el evento de seleccionar una lista
+     */
     public void procesarEventoSeleccionarLista() {
         if(vista.getIndexListaSeleccionada()!=-1) lista.seleccionarLista(vista.getIndexListaSeleccionada());
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());   
         vista.setError("");
+        vista.pendientesBlanco();
         desmantelarDeshacer();
     }
 
+    /**
+     * Funcion para procesar el evento de completar una tarea
+     */
     public void procesarCompletarTarea() {
         try{
             tareasAntiguas.add(lista.completarTarea(vista.getPosicionSelectPendiente()));
@@ -72,6 +89,9 @@ public class ControladorGestorListas {
         }
     }
 
+    /**
+     * Funcion para procesar el evento de borrar una lista
+     */
     public void procesarEventoBorrar() {
         try{
             lista.eliminarLista(vista.getIndexListaSeleccionada());
@@ -81,13 +101,16 @@ public class ControladorGestorListas {
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
                 if(e.getMessage().equals("Para borrar una lista, debe completar todas las tareas")){
-                    vista.completadasRojo();
+                    vista.pendientesRojo();
                 }else{
                     vista.listasRojo();
                 }
         }
     }
 
+    /**
+     * Funcion para procesar el evento de deshacer el completar una tarea
+     */
     public void procesarEventoDeshacer() {
         lista.deshacerCompletado(tareasAntiguas.get(tareasAntiguas.size()-1));
         tareasAntiguas.remove(tareasAntiguas.size()-1);
@@ -99,6 +122,9 @@ public class ControladorGestorListas {
         }
     }
     
+    /**
+     * Funcion para reiniciar las acciones que habria que deshacer
+     */
     public void desmantelarDeshacer(){
         tareasAntiguas.clear();
         vista.desactivarDeshacerCompletado();

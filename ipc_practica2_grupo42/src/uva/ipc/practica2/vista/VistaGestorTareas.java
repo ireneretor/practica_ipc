@@ -19,7 +19,7 @@ import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 
 /**
- * Clase que modifica y controla todo lo relacionado con la vista
+ * Clase que modifica y controla todo lo relacionado con la vista del gestor de tareas
  * 
  * @author tomruiz, irereto
  */
@@ -33,7 +33,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public VistaGestorTareas() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(255, 255, 230));
-        configurarTabEnTextArea();
         this.controlador = new ControladorGestorTareas(this);
         
     }
@@ -172,6 +171,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         descripcionTextArea.setName(""); // NOI18N
         descripcionTextArea.setNextFocusableComponent(fechaDateChooser);
         descripcionTextArea.setPreferredSize(new java.awt.Dimension(450, 74));
+        descripcionTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                descripcionTextAreaKeyPressed(evt);
+            }
+        });
         descripcionScrollPane.setViewportView(descripcionTextArea);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -239,11 +243,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         prioridadComboBox.setName(""); // NOI18N
         prioridadComboBox.setNextFocusableComponent(porcentajeSpinner);
         prioridadComboBox.setPreferredSize(new java.awt.Dimension(35, 28));
-        prioridadComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prioridadComboBoxActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
@@ -363,7 +362,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         guardarButton.setBackground(new java.awt.Color(255, 153, 0));
-        guardarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/guardar.png"))); // NOI18N
+        guardarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/guardar.png"))); // NOI18N
         guardarButton.setText("Guardar");
         guardarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         guardarButton.setPreferredSize(new java.awt.Dimension(87, 35));
@@ -380,7 +379,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel9.add(guardarButton, gridBagConstraints);
 
         limpiarButton.setBackground(new java.awt.Color(255, 153, 0));
-        limpiarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/escoba.png"))); // NOI18N
+        limpiarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/escoba.png"))); // NOI18N
         limpiarButton.setText("Limpiar");
         limpiarButton.setPreferredSize(new java.awt.Dimension(82, 35));
         limpiarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -667,7 +666,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
         editarButton.setBackground(new java.awt.Color(255, 153, 0));
-        editarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar-pequeño.png"))); // NOI18N
+        editarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar-pequeño.png"))); // NOI18N
         editarButton.setText("Editar");
         editarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         editarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -686,7 +685,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel16.add(editarButton, gridBagConstraints);
 
         eliminarButton.setBackground(new java.awt.Color(255, 153, 0));
-        eliminarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/eliminar.png"))); // NOI18N
+        eliminarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/eliminar.png"))); // NOI18N
         eliminarButton.setText("Eliminar");
         eliminarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         eliminarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -723,12 +722,14 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         getContentPane().add(jPanel2, gridBagConstraints);
 
         jPanel26.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel26.setMinimumSize(new java.awt.Dimension(170, 51));
+        jPanel26.setPreferredSize(new java.awt.Dimension(170, 51));
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
         GestorListasButton.setBackground(new java.awt.Color(51, 204, 255));
-        GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
+        GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_listas.png"))); // NOI18N
         GestorListasButton.setText("Gestionar Listas");
+        GestorListasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         GestorListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GestorListasButtonActionPerformed(evt);
@@ -767,19 +768,21 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 0.05;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         getContentPane().add(jPanel26, gridBagConstraints);
 
         jPanel31.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel31.setMinimumSize(new java.awt.Dimension(170, 51));
+        jPanel31.setPreferredSize(new java.awt.Dimension(170, 51));
         jPanel31.setLayout(new java.awt.GridBagLayout());
 
         MenuButton.setBackground(new java.awt.Color(51, 204, 255));
-        MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/flecha_atras.png"))); // NOI18N
+        MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/flecha_atras.png"))); // NOI18N
         MenuButton.setText("Menú Principal");
+        MenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MenuButton.setMaximumSize(new java.awt.Dimension(150, 41));
         MenuButton.setMinimumSize(new java.awt.Dimension(150, 41));
         MenuButton.setPreferredSize(new java.awt.Dimension(150, 41));
@@ -813,7 +816,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.75;
         gridBagConstraints.weighty = 1.0;
         jPanel31.add(jPanel35, gridBagConstraints);
@@ -821,10 +824,10 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 0.05;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 0);
         getContentPane().add(jPanel31, gridBagConstraints);
 
         pack();
@@ -841,7 +844,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         controlador.procesarEventoGuardar();
     }//GEN-LAST:event_guardarButtonActionPerformed
 
-    
     /**
      * Funcion que maneja el evento de seleccionar el boton de editar.
      * Llama al controlador para que procese el evento
@@ -863,6 +865,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlador.procesarEventoSeleccionarTarea(listaTareasList.getSelectedValue());
         erroresLabel.setText("");
+        this.listaBlanco();
     }//GEN-LAST:event_listaTareasListValueChanged
 
     /**
@@ -899,73 +902,52 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_completadoCheckBoxActionPerformed
 
-    private void prioridadComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prioridadComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_prioridadComboBoxActionPerformed
-
+    /**
+     * Funcion que maneja el evento de cambiar la lista del combobox
+     * 
+     * @param evt: evento de accion generado por la interaccion con el combobox
+     */
     private void seleccionarListaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarListaComboBoxActionPerformed
         // TODO add your handling code here:
         controlador.procesarCambiarListaSeleccionada();
     }//GEN-LAST:event_seleccionarListaComboBoxActionPerformed
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de gestionar listas
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void GestorListasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestorListasButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoVistaListas();
     }//GEN-LAST:event_GestorListasButtonActionPerformed
 
+    /**
+     * Funcion que maneja el evento de seleccionar el boton de menu principal
+     * Llama al controlador para que procese el evento
+     * 
+     * @param evt: evento de accion generado por el click del boton
+     */
     private void MenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuButtonActionPerformed
         // TODO add your handling code here:
         controlador.procesarEventoVistaMenu();
     }//GEN-LAST:event_MenuButtonActionPerformed
 
     /**
-     * Funcion que actualiza la lista de tareas que se muestran.
-     * Convierte el ArrayList de tareas un array de String
+     * Funcion que maneja el evento de presionar el tabulador en el textArea
      * 
-     * @param tareas: ArrayList de tareas que tiene que mostrar la lista
+     * @param evt: evento generado al presionar una tecla
      */
-    public void actualizarTareas(ArrayList<Tarea> tareas) {
-         String[] tareasArray = new String[tareas.size()];
-    
-        for (int i = 0; i < tareas.size(); i++) {
-            tareasArray[i] = tareas.get(i).toString();
+    private void descripcionTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_descripcionTextAreaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyChar() == '\t') {
+            evt.consume();
+            descripcionTextArea.transferFocus();
         }
-        listaTareasList.setListData(tareasArray);
-    }
-    /**
-     * Funcion que actualiza la lista de listas en el desplegable seleccionarLista que se muestran.
-     * Convierte el ArrayList de listas en un array de String
-     * 
-     * @param listas: ArrayList de listas que tiene que mostrar la lista
-     */
-    public void actualizarListas(ArrayList<ListaTareas> listas) {
-        String[] listasArray = new String[listas.size()];
+    }//GEN-LAST:event_descripcionTextAreaKeyPressed
     
-        for (int i = 0; i < listas.size(); i++) {
-            listasArray[i] = listas.get(i).getNombre();
-        }
-        seleccionarListaComboBox.setModel(new DefaultComboBoxModel <> (listasArray));
-    }
     
-
-    /**
-     * Funcion que cambia el texto de los campos no modificables con la informacion
-     * de una tarea
-     * 
-     * @param t: tarea de la cual se quiere mostrar la informacion
-     */
-    public void cambiarCamposNoModificables(Tarea t){
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        verNombreTareaLabel.setText(t.getNombreTarea());
-        verDescripcionTextArea.setText(t.getDescripcionTareas());
-        verFechaModificableLabel.setText(formato.format(t.getFecha()));
-        verPrioridadModificableLabel.setText(t.getPrioridad());
-        verProgresoProgressBar.setValue(t.getProgreso());
-        verProgresoNumeroNoModificableLabel.setText(Integer.toString(t.getProgreso()));
-        verListaModificableLabel.setText(t.getLista());
-    }
-    
-   
     /**
      * Funcion que devuelve el nombre de la tarea ingresada por el usuario
      * 
@@ -975,7 +957,6 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         return anadirNombreTareaTextField.getText();
     }
 
-    
     /**
      * Funcion que devuelve la descripcion de la tarea ingresada por el usuario
      * 
@@ -1022,6 +1003,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         return completadoCheckBox.isSelected();
     }
     
+    /**
+     * Funcion que devuelve la lista de la tarea ingresada por el usuario
+     * 
+     * @return la lista de la tarea
+     */
     public String getLista() {
         return (String)seleccionarListaComboBox.getSelectedItem();
     }
@@ -1035,13 +1021,14 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         return listaTareasList.getSelectedValue();
     }
     
-    
+    /**
+     * Funcion que devuelve el indice de la lista ingresada por el usuario
+     * 
+     * @return el indice de la lista de la tarea
+     */
     public int getListaSeleccionada(){
         return seleccionarListaComboBox.getSelectedIndex();
     }
-    
-    
-    
     
     
     /**
@@ -1104,6 +1091,12 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         completadoCheckBox.setSelected(completado);
     }
     
+    /**
+     * Setter del ComboBox de la lista de la tarea.
+     * No es necesario comprobar que no recibe un null porque cuando es llamada ya se ha comprobado que los atributos de la tarea son correctos
+     * 
+     * @param lista: String que se refiere a la lista de la tarea
+     */
     public void setLista(String lista) {
         seleccionarListaComboBox.setSelectedItem(lista);
     }
@@ -1126,6 +1119,53 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         porcentajeSpinner.setEnabled(visible);
     }
 
+    
+    /**
+     * Funcion que actualiza la lista de tareas que se muestran.
+     * Convierte el ArrayList de tareas un array de String
+     * 
+     * @param tareas: ArrayList de tareas que tiene que mostrar la lista
+     */
+    public void actualizarTareas(ArrayList<Tarea> tareas) {
+         String[] tareasArray = new String[tareas.size()];
+    
+        for (int i = 0; i < tareas.size(); i++) {
+            tareasArray[i] = tareas.get(i).toString();
+        }
+        listaTareasList.setListData(tareasArray);
+    }
+    /**
+     * Funcion que actualiza la lista de listas en el desplegable seleccionarLista que se muestran.
+     * Convierte el ArrayList de listas en un array de String
+     * 
+     * @param listas: ArrayList de listas que tiene que mostrar la lista
+     */
+    public void actualizarListas(ArrayList<ListaTareas> listas) {
+        String[] listasArray = new String[listas.size()];
+    
+        for (int i = 0; i < listas.size(); i++) {
+            listasArray[i] = listas.get(i).getNombre();
+        }
+        seleccionarListaComboBox.setModel(new DefaultComboBoxModel <> (listasArray));
+    }
+    
+    /**
+     * Funcion que cambia el texto de los campos no modificables con la informacion
+     * de una tarea
+     * 
+     * @param t: tarea de la cual se quiere mostrar la informacion
+     */
+    public void cambiarCamposNoModificables(Tarea t){
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        verNombreTareaLabel.setText(t.getNombreTarea());
+        verDescripcionTextArea.setText(t.getDescripcionTareas());
+        verFechaModificableLabel.setText(formato.format(t.getFecha()));
+        verPrioridadModificableLabel.setText(t.getPrioridad());
+        verProgresoProgressBar.setValue(t.getProgreso());
+        verProgresoNumeroNoModificableLabel.setText(Integer.toString(t.getProgreso()));
+        verListaModificableLabel.setText(t.getLista());
+    }
+    
     /**
      * Funcion que limpia y reinicia todos los campos.
      * Los campos de texto los deja vacios y el resto de elementos los pone a su valor por defecto
@@ -1154,6 +1194,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
 
     }
     
+     /**
+     * Funcion que pone el textArea de descripcion en rojo
+     */
     public void descripcionRojo(){
         descripcionTextArea.setBackground(new Color(255, 153, 153));
         fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
@@ -1161,6 +1204,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         listaTareasList.setBackground(new Color(255, 255, 255));
     }
     
+     /**
+     * Funcion que pone el dateChooser de fecha en rojo
+     */
     public void fechaRojo(){
         fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 153, 153));
         descripcionTextArea.setBackground(new Color(255, 255, 255));
@@ -1168,6 +1214,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         listaTareasList.setBackground(new Color(255, 255, 255));
     }
     
+     /**
+     * Funcion que pone el textField de nombre en rojo
+     */
     public void nombreRojo(){
         anadirNombreTareaTextField.setBackground(new Color(255, 153, 153));
         descripcionTextArea.setBackground(new Color(255, 255, 255));
@@ -1175,6 +1224,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         listaTareasList.setBackground(new Color(255, 255, 255));
     }
     
+     /**
+     * Funcion que pone la lista de tareas en rojo
+     */
     public void listaRojo(){
         listaTareasList.setBackground(new Color(255, 153, 153));
         descripcionTextArea.setBackground(new Color(255, 255, 255));
@@ -1182,26 +1234,27 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
     }
     
-    private void configurarTabEnTextArea() {
-        InputMap im = descripcionTextArea.getInputMap(JComponent.WHEN_FOCUSED);
-        im.put(KeyStroke.getKeyStroke("TAB"), "focusNext");
-        descripcionTextArea.getActionMap().put("focusNext", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                descripcionTextArea.transferFocus();
-            }
-        });
-        im.put(KeyStroke.getKeyStroke("shift TAB"), "focusPrevious");
-        descripcionTextArea.getActionMap().put("focusPrevious", new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                descripcionTextArea.transferFocusBackward();
-            }
-        }
-    );
-}
-
+    /**
+     * Funcion que pone la lista de tareas en blanco
+     */
+    public void listaBlanco(){
+        listaTareasList.setBackground(new Color(255,255,255));
+    }
     
+    /**
+     * Funcion que pone el label de error en rojo
+     */
+    public void errorRojo(){
+        erroresLabel.setForeground(new Color(204, 0, 0));
+    }
+    
+    /**
+     * Funcion que pone el label de error en verde
+     */
+    public void errorVerde(){
+        erroresLabel.setForeground(new Color(0, 204, 51));
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GestorListasButton;

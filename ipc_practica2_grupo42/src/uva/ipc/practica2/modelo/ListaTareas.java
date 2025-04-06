@@ -15,13 +15,20 @@ public class ListaTareas {
     private String nombre;
     
     /**
-     * Inicializador de la clase, creando el arraylist donde se almacenan las tareas.
+     * Inicializador de la clase, creando el arraylist donde se almacenan las tareas
+     * 
+     * @param nombre: nombre de la lista
      */
     public ListaTareas(String nombre){
         this.tareas = new ArrayList<>();
         this.nombre= nombre;
     }
     
+    /**
+     * Funcion que devuelve el nombre de la lista
+     * 
+     * @return un string con el nombre
+     */
     public String getNombre(){
         return nombre;
     }
@@ -39,7 +46,7 @@ public class ListaTareas {
     /**
      * Getter del toString de todas las tareas
      * 
-     * @return Array de Stringg con los toString de las tareas
+     * @return Array de String con los toString de las tareas
      */
     public String[] getTareasString(){
         return this.tareas.toArray(String[]::new);
@@ -47,6 +54,7 @@ public class ListaTareas {
     
     /**
      * Funcion para añadir una tarea nueva a la lista
+     * 
      * @throws IllegalArgumentException si la tarea que se introduce se llama igual que otra ya introducida
      * @param tarea: Tarea nueva a añadir
      */
@@ -75,6 +83,13 @@ public class ListaTareas {
         }
     }
     
+    /**
+     * Funcion para buscar el indice de la tarea seleccionada
+     * 
+     * @param tareaSeleccionada: String que aparece en la lista de la tarea seleccionada
+     * @return entero con el indice de la tarea seleccionada
+     * @throws IllegalArgumentException si no se ha seleccionado una tarea
+     */
     public int buscarTarea(String tareaSeleccionada){
         int i=0;
         for (Tarea t : tareas) {
@@ -86,6 +101,13 @@ public class ListaTareas {
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
     
+    /**
+     * Funcion para eliminar una tarea
+     * 
+     * @param tareaSeleccionada: String que aparece en la lista de la tarea seleccionada
+     * @return boleean si la tarea se ha eliminado
+     * @throws IllegalArgumentException si no se ha seleccionado una tarea
+     */
     public boolean eliminarTarea(String tareaSeleccionada){
         if(tareaSeleccionada==null){ 
             throw new IllegalArgumentException("Tienes que seleccionar una tarea");
@@ -99,6 +121,11 @@ public class ListaTareas {
         return false;
     }
     
+    /**
+     * Funcion para saber el numero de tareas completadas de una lista
+     * 
+     * @return entero con el numero de tareas completadas
+     */
     public int getNumeroTareasCompletadas(){
         int comp=0;
         for (int i = 0; i < tareas.size(); i++) {
@@ -110,9 +137,15 @@ public class ListaTareas {
         return comp;
     }
     
+    /**
+     * Funcion para editar el progreso de una tarea
+     * 
+     * @param pos: Int con la posicion de la tarea que se quiere editar
+     * @param progre: Int con el nuevo progreso
+     */
     public void editarProgresoTarea(int pos, int progre){
         tareas.get(pos).setCompletado(false);
         tareas.get(pos).setProgreso(progre);
     }
-    }
+}
 

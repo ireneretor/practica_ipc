@@ -31,12 +31,7 @@ public class Tarea {
      * @param fecha: Date referida a la fecha en la que se espera que acabe la tarea
      * @param prioridad: String que indica la prioridad de la tarea
      * @param progreso: int que indica el progreso de la tarea
-     * @throws IllegalArgumentException si nombreTarea son caracteres en blanco
-     * @throws IllegalArgumentException si nombreTarea tiene mas de 10 caracteres o menos de 1
-     * @throws IllegalArgumentException si descripción tiene mas de 100 caracteres
-     * @throws IllegalArgumentException si prioridad no es "Baja", "Media" o "Alta"
-     * @throws IllegalArgumentException si progreso no está entre 0 y 100 y completado es false
-     * @throws IllegalArgumentException si fecha es nula
+     * @param lista: String que se refiere al nombre de la lista donde se almacena
      */
     public Tarea(String nombreTarea, String descripcion, Date fecha, String prioridad, int progreso, String lista) {
         setNombreTarea(nombreTarea);
@@ -142,7 +137,7 @@ public class Tarea {
      * Setter de la fecha
      * 
      * @param fecha: Date referida a la fecha en la que se espera que acabe la tarea
-     * @throws IllegalArgumentException si fecha es nula
+     * @throws IllegalArgumentException si fecha es incorrecta
      */
     public void setFecha(Date fecha) {
         if(fecha==null){
@@ -159,7 +154,7 @@ public class Tarea {
      */
     public void setPrioridad(String prioridad) {
         if(!(prioridad.equals("Baja") | prioridad.equals("Media") | prioridad.equals("Alta"))){
-            throw new IllegalArgumentException("La prioridad debe ser Baja,Media o Alta");
+            throw new IllegalArgumentException("La prioridad debe ser Baja, Media o Alta");
         }
         this.prioridad = prioridad;
     }
@@ -194,10 +189,21 @@ public class Tarea {
         setProgreso(this.progreso);
     }
     
+    /**
+     * Setter de lista
+     * 
+     * @param lista: String que indica el nombre de la lista
+     */
     public void setLista(String lista) {
         this.lista = lista;
     }
 
+    /**
+     * Funcion que devuelve la descripcion de la tarea en un String para la lista de pendientes
+     * 
+     * @return String con el formato: nombreTarea: fecha: 
+     * si completado es true "Completada" y si es false "Pendiente": dias restantes
+     */
     public String stringPendiente(){
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         long ms = fecha.getTime() - (new Date()).getTime();
