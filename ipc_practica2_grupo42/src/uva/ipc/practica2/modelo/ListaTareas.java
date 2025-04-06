@@ -82,8 +82,17 @@ public class ListaTareas {
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
     
-    public void eliminarTarea(String tareaSeleccionada){
-        tareas.remove(buscarTarea(tareaSeleccionada));
+    public boolean eliminarTarea(String tareaSeleccionada){
+        if(tareaSeleccionada==null){ 
+            throw new IllegalArgumentException("Tienes que seleccionar una tarea");
+        }
+        for(Tarea t : tareas) {
+                    if(tareaSeleccionada.equals(t.toString())) {
+                        tareas.remove(buscarTarea(tareaSeleccionada));
+                        return true;
+                    }
+                }
+        return false;
     }
     
     public int getNumeroTareasCompletadas(){

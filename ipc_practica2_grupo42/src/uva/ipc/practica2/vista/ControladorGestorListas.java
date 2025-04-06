@@ -34,6 +34,7 @@ public class ControladorGestorListas {
             vista.vaciarCampos();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
+                vista.anadirRojo();
         }
     }
 
@@ -56,8 +57,10 @@ public class ControladorGestorListas {
             lista.completarTarea(vista.getPosicionSelectPendiente());
             vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());
             vista.setError("");
+            vista.pendientesBlanco();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
+                vista.pendientesRojo();
         }
     }
 
@@ -68,6 +71,11 @@ public class ControladorGestorListas {
             vista.vaciarCampos();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
+                if(e.getMessage().equals("Para borrar una lista, debe completar todas las tareas")){
+                    vista.completadasRojo();
+                }else{
+                    vista.listasRojo();
+                }
         }
     }
 }

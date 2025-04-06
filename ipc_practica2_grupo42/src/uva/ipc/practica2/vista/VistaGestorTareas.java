@@ -4,6 +4,7 @@
  */
 package uva.ipc.practica2.vista;
 
+import java.awt.Color;
 import java.util.Date;
 import uva.ipc.practica2.modelo.ListaTareas;
 import uva.ipc.practica2.modelo.Tarea;
@@ -714,8 +715,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel2, gridBagConstraints);
 
+        jPanel26.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
+        GestorListasButton.setBackground(new java.awt.Color(51, 204, 255));
         GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
         GestorListasButton.setText("Gestionar Listas");
         GestorListasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -731,6 +735,8 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel26.add(GestorListasButton, gridBagConstraints);
+
+        jPanel32.setBackground(new java.awt.Color(255, 255, 204));
 
         javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
         jPanel32.setLayout(jPanel32Layout);
@@ -760,8 +766,11 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(jPanel26, gridBagConstraints);
 
+        jPanel31.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel31.setLayout(new java.awt.GridBagLayout());
 
+        MenuButton.setBackground(new java.awt.Color(51, 204, 255));
         MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/flecha_atras.png"))); // NOI18N
         MenuButton.setText("Menú Principal");
         MenuButton.setMaximumSize(new java.awt.Dimension(150, 41));
@@ -780,6 +789,8 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel31.add(MenuButton, gridBagConstraints);
+
+        jPanel35.setBackground(new java.awt.Color(255, 255, 204));
 
         javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
         jPanel35.setLayout(jPanel35Layout);
@@ -1129,7 +1140,41 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         verProgresoNumeroNoModificableLabel.setText("");
         porcentajeSpinner.setEnabled(true);
         erroresLabel.setText("");
+        descripcionTextArea.setBackground(new Color(255, 255, 255));
+        fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
+        anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
+        listaTareasList.setBackground(new Color(255, 255, 255));
+
     }
+    
+    public void descripcionRojo(){
+        descripcionTextArea.setBackground(new Color(255, 153, 153));
+        fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
+        anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
+        listaTareasList.setBackground(new Color(255, 255, 255));
+    }
+    
+    public void fechaRojo(){
+        fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 153, 153));
+        descripcionTextArea.setBackground(new Color(255, 255, 255));
+        anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
+        listaTareasList.setBackground(new Color(255, 255, 255));
+    }
+    
+    public void nombreRojo(){
+        anadirNombreTareaTextField.setBackground(new Color(255, 153, 153));
+        descripcionTextArea.setBackground(new Color(255, 255, 255));
+        fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
+        listaTareasList.setBackground(new Color(255, 255, 255));
+    }
+    
+    public void listaRojo(){
+        listaTareasList.setBackground(new Color(255, 153, 153));
+        descripcionTextArea.setBackground(new Color(255, 255, 255));
+        fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
+        anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GestorListasButton;

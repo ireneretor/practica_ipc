@@ -45,20 +45,32 @@ public class ControladorGestorTareas {
                 try{
                     this.lista.getListaSeleccionada().addTarea(new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso, lista));
                     vista.actualizarTareas(this.lista.getTodasTareas());
-                    vista.setError("");
                     indexEditar=-1;
                     vista.limpiarCampos();
                 }catch(IllegalArgumentException e){
                     vista.setError(e.getMessage());
+                    if(e.getMessage().equals("La descripción no puede tener más de 100 caracteres")){
+                        vista.descripcionRojo();
+                    }else if(e.getMessage().equals("La fecha es incorrecta")){
+                        vista.fechaRojo();
+                    }else{
+                        vista.nombreRojo();
+                    }
                 }
             }else{
                 try{
                     this.lista.getListaSeleccionada().editarTarea(indexLista, new Tarea(nombreTarea,descripcion,fecha,prioridad,progreso,lista));
                     vista.actualizarTareas(this.lista.getTodasTareas());
-                    vista.setError("");
                     vista.limpiarCampos();
                 }catch(IllegalArgumentException e){
                     vista.setError(e.getMessage());
+                    if(e.getMessage().equals("La descripción no puede tener más de 100 caracteres")){
+                        vista.descripcionRojo();
+                    }else if(e.getMessage().equals("La fecha es incorrecta")){
+                        vista.fechaRojo();
+                    }else{
+                        vista.nombreRojo();
+                    }
                 }
             }
         }else{
@@ -91,6 +103,7 @@ public class ControladorGestorTareas {
             indexLista=lista.getListaSeleccionada().buscarTarea(tareaSeleccionada);
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
+                vista.listaRojo();
         }
         
     }
@@ -103,17 +116,16 @@ public class ControladorGestorTareas {
         String tareaSeleccionada=vista.getTareaSeleccionada();
         try{
             for(ListaTareas l: lista.getListas()) {
-                for(Tarea t : l.getTareas()) {
-                    if(tareaSeleccionada.equals(t.toString())) {
-                        l.eliminarTarea(tareaSeleccionada);
-                    }
-                } 
+                if(l.eliminarTarea(tareaSeleccionada)){
+                    break;
+                }
             }
             indexEditar=-1;
             vista.actualizarTareas(lista.getTodasTareas());
             vista.limpiarCampos();
         }catch(IllegalArgumentException e){
             vista.setError(e.getMessage());
+            vista.listaRojo();
         }
     }
     
