@@ -155,6 +155,10 @@ public class GestorListas {
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
 
+    /**
+     * Función para deshacer una tarea que se marco como completada en la vista del gestor
+     * @param tar array de enteros con la posicion de la tarea a editar en la posición 0 y el progreso abterior en la posición 1
+     */
     public void deshacerCompletado(int[] tar) {
         listaSeleccionada.editarProgresoTarea(tar[0],tar[1]);
     }
