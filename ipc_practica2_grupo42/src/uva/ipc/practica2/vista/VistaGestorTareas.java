@@ -27,6 +27,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
      */
     public VistaGestorTareas() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(255, 255, 230));
         this.controlador = new ControladorGestorTareas(this);
         
     }

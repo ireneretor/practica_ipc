@@ -15,6 +15,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
      */
     public VistaMenuInicial() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(255, 255, 204));
         this.controlador = new ControladorMenuInicial(this);
     }
 
@@ -33,10 +34,12 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         salirButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(500, 300));
         setPreferredSize(new java.awt.Dimension(500, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        entrarTareasButton.setBackground(new java.awt.Color(51, 204, 255));
         entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_tareas.png"))); // NOI18N
         entrarTareasButton.setText("Gestionar Tareas");
         entrarTareasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +54,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(entrarTareasButton, gridBagConstraints);
 
+        entrarListasButton.setBackground(new java.awt.Color(51, 204, 255));
         entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/editar_listas.png"))); // NOI18N
         entrarListasButton.setText("Gestionar Listas");
         entrarListasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +69,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(entrarListasButton, gridBagConstraints);
 
+        salirButton.setBackground(new java.awt.Color(255, 0, 0));
         salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/vista/salir.png"))); // NOI18N
         salirButton.setText("Salir");
         salirButton.addActionListener(new java.awt.event.ActionListener() {

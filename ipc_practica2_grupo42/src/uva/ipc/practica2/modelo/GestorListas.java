@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
- * @author tomip
+ * Clase que gestiona las listas creadas
+ * 
+ * @author tomip, irereto
  */
 public class GestorListas {
     private ArrayList <ListaTareas> lista;
     private ListaTareas listaSeleccionada;
     
     /**
-     * Inicializador de la clase, creando el arraylist donde se almacenan las tareas.
+     * Inicializador de la clase, creando el arraylist donde se almacenan las listas.
      */
     public GestorListas(){
         this.lista = new ArrayList<>();
@@ -24,6 +25,11 @@ public class GestorListas {
         listaSeleccionada=lista.get(0);
     }
     
+    /**
+     * Función que añade una lista al gestor
+     * @param nombre Nombre de la nueva lista
+     * @throws IllegalArgumentException si el nombre de la lista son caracteres en blanco o si el nombre es igual al de otra lista ya añadida
+     */
     public void addLista(String nombre){
          if (nombre.trim().isEmpty()) { 
             throw new IllegalArgumentException("El nombre de la lista no puede ser una serie de caracteres en blanco");
@@ -37,18 +43,35 @@ public class GestorListas {
         seleccionarLista(lista.size()-1);
     }
     
+    /**
+     * Función para indicar que una lista es la seleccionada actualmente.
+     * @param pos indice donde esta la lista
+     */
     public void seleccionarLista(int pos){
         listaSeleccionada=lista.get(pos);
     }
     
+    /**
+     * Función que devuelve la lista seleccionada actualmente
+     * @return la ListaTareas que esta seleccionada en el momento
+     */
     public ListaTareas getListaSeleccionada(){
         return listaSeleccionada;
     }
 
-    public ArrayList <ListaTareas> getGestorTareas(){
+    /**
+     * Función que devuelve el ArrayList con todas las listas
+     * @return un ArrayList con todas las listas
+     */
+    public ArrayList <ListaTareas> getGestorListas(){
         return lista;
     }
     
+    /**
+     * Función que completa una tarea de la lista seleccionada
+     * @param posStr posición en la que se encuentra la lista que se va a completar
+     * @throws IllegalArgumentException si no se ha seleccionado una tarea
+     */
     public void completarTarea(int posStr){
         if (posStr == -1) {
                     throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
@@ -69,6 +92,9 @@ public class GestorListas {
         throw new IllegalArgumentException("Debe seleccionar una tarea pendiente para completar");
     }
     
+    /**
+     * Función que introduce la lista predeterminada
+     */
     private void rellenarPredeterminado(){
         Tarea tarea1=new Tarea("TE 1","Realizar un análisis de una aplicación", new Date(125, 2, 5),"Alta",50, "IPC");
         Tarea tarea2=new Tarea("Lectura","Leer un artículo sobre el uso de deshacer para el tratamiento de errores",new Date(125, 2, 11),"Baja",100, "IPC");
@@ -82,6 +108,11 @@ public class GestorListas {
         lista.add(IPC);
     }
 
+    /**
+     * Función para eliminar una lista
+     * @param indexListaSeleccionada posición en la que se encuentra la lista eliminada
+     * @throws IllegalArgumentException si no se selecciona una lista para eliminar o si la lista tiene tareas sin completar
+     */
     public void eliminarLista(int indexListaSeleccionada) {
         if(indexListaSeleccionada!=-1){
             if(lista.get(indexListaSeleccionada).getNumeroTareasCompletadas()==lista.get(indexListaSeleccionada).getTareas().size()){
@@ -94,6 +125,10 @@ public class GestorListas {
         }
     }
     
+    /**
+     * Función que devuelve todas las tareas de todas las listas
+     * @return un ArrayList con todas las tareas de todas las listas
+     */
     public ArrayList <Tarea> getTodasTareas(){
         ArrayList <Tarea> todasTareas=new ArrayList<>();
         for(ListaTareas l: lista){
@@ -102,6 +137,12 @@ public class GestorListas {
         return todasTareas;
     }
     
+    /**
+     * Función para buscar una tarea entre todas las almacenadas en las listas
+     * @param tareaSeleccionada toString de la tarea que se pretende buscar
+     * @return un entero con la posición en la que se encuentra la tarea
+     * @throws IllegalArgumentException si no se ha seleccionado una tarea
+     */
     public int buscarTarea(String tareaSeleccionada){
         int i=0;
         for (Tarea t : this.getTodasTareas()) {
@@ -113,7 +154,5 @@ public class GestorListas {
         throw new IllegalArgumentException("Tienes que seleccionar una tarea");
     }
 
-    public ArrayList<ListaTareas> getListas() {
-        return this.lista;
-    }
+    
 }

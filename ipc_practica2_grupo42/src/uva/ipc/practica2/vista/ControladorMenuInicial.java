@@ -14,6 +14,7 @@ import uva.ipc.practica2.modelo.GestorListas;
  * @author tomip
  */
 public class ControladorMenuInicial {
+    
     private VistaMenuInicial vista;
     private GestorListas lista;
 

@@ -27,7 +27,7 @@ public class ControladorGestorTareas {
         this.lista=Main.getGestorListas();
         this.indexEditar=-1;
         vista.actualizarTareas(lista.getTodasTareas());
-        vista.actualizarListas(lista.getGestorTareas());
+        vista.actualizarListas(lista.getGestorListas());
     }
     
     /**
@@ -115,7 +115,7 @@ public class ControladorGestorTareas {
         //TODO funcion eliminar
         String tareaSeleccionada=vista.getTareaSeleccionada();
         try{
-            for(ListaTareas l: lista.getListas()) {
+            for(ListaTareas l: lista.getGestorListas()) {
                 if(l.eliminarTarea(tareaSeleccionada)){
                     break;
                 }

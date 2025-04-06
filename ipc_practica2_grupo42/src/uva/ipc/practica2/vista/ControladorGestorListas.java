@@ -24,13 +24,13 @@ public class ControladorGestorListas {
     public ControladorGestorListas(VistaGestorListas vista){
         this.vista=vista;
         this.lista=Main.getGestorListas();
-        vista.actualizarListas(lista.getGestorTareas());
+        vista.actualizarListas(lista.getGestorListas());
     }
     
     public void procesarEventoGuardar(){
         try{
             lista.addLista(vista.getNombreNuevaLista());
-            vista.actualizarListas(lista.getGestorTareas());
+            vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
@@ -67,7 +67,7 @@ public class ControladorGestorListas {
     public void procesarEventoBorrar() {
         try{
             lista.eliminarLista(vista.getIndexListaSeleccionada());
-            vista.actualizarListas(lista.getGestorTareas());
+            vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());

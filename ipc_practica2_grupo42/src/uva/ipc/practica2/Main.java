@@ -24,10 +24,18 @@ public class Main {
         gestor.mostrarVistaMenuInicial();     
     }
     
+    /**
+     * Funcion getter del gestor de vistas
+     * @return Gestor de Vistas
+     */
     public static GestorVistas getGestorVistas(){
         return gestor;
     }
     
+    /**
+     * Función gettter del gestor de listas
+     * @return Gestor de listas
+     */
     public static GestorListas getGestorListas(){
         return lista;
     }

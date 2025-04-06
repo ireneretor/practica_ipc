@@ -23,6 +23,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
      */
     public VistaGestorListas() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(255, 255, 230));
         this.controlador = new ControladorGestorListas(this);
     }
 
@@ -76,6 +77,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 204));
         setMinimumSize(new java.awt.Dimension(800, 700));
         setPreferredSize(new java.awt.Dimension(1000, 600));
