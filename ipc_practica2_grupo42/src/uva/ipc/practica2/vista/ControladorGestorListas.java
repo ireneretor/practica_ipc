@@ -40,6 +40,7 @@ public class ControladorGestorListas {
             vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
             desmantelarDeshacer();
+            vista.botonesTareasVisibles(false);
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
                 vista.anadirRojo();
@@ -67,6 +68,7 @@ public class ControladorGestorListas {
      */
     public void procesarEventoSeleccionarLista() {
         if(vista.getIndexListaSeleccionada()!=-1) lista.seleccionarLista(vista.getIndexListaSeleccionada());
+        vista.botonesTareasVisibles(true);
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());   
         vista.setError("");
         vista.pendientesBlanco();
@@ -98,6 +100,7 @@ public class ControladorGestorListas {
             vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
             desmantelarDeshacer();
+            vista.botonesTareasVisibles(false);
         }catch(IllegalArgumentException e){
                 vista.setError(e.getMessage());
                 if(e.getMessage().equals("Para borrar una lista, debe completar todas las tareas")){

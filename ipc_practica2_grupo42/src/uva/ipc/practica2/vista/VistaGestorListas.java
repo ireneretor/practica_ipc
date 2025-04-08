@@ -24,7 +24,8 @@ public class VistaGestorListas extends javax.swing.JFrame {
      */
     public VistaGestorListas() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(255, 255, 230));        
+        getContentPane().setBackground(new java.awt.Color(255, 255, 230)); 
+        botonesTareasVisibles(false);
         this.controlador = new ControladorGestorListas(this);
     }
 
@@ -246,6 +247,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.95;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPanel7.add(verNombreListaTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -308,7 +310,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 204));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
-        tareasPendientesLabel.setText("Tareas pendientes");
+        tareasPendientesLabel.setText("Tareas pendientes:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
@@ -361,7 +363,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(255, 255, 204));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
-        verNumTareasCompletadasLabel.setText("Tareas Completadas");
+        verNumTareasCompletadasLabel.setText("Tareas Completadas:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -376,6 +378,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
         jPanel12.add(verNumTareasCompletadasTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -794,6 +797,12 @@ public class VistaGestorListas extends javax.swing.JFrame {
      */
     public void activarDeshacerCompletado(){
         deshacerCompletarButton.setEnabled(true);
+    }
+    
+    public void botonesTareasVisibles(boolean visible) {
+        completarTareaButton.setVisible(visible);
+        deshacerCompletarButton.setVisible(visible);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

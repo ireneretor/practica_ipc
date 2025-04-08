@@ -30,6 +30,8 @@ public class VistaMenuInicial extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         entrarTareasButton = new javax.swing.JButton();
         entrarListasButton = new javax.swing.JButton();
         salirButton = new javax.swing.JButton();
@@ -40,9 +42,24 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 300));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("¡BIENVENIDO AL GESTOR DE TAREAS!");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(20, 0, 0, 0);
+        getContentPane().add(jLabel1, gridBagConstraints);
+
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
         entrarTareasButton.setBackground(new java.awt.Color(51, 204, 255));
         entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_tareas.png"))); // NOI18N
         entrarTareasButton.setText("Gestionar Tareas");
+        entrarTareasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.cyan, null, java.awt.Color.blue));
+        entrarTareasButton.setMaximumSize(new java.awt.Dimension(150, 50));
+        entrarTareasButton.setMinimumSize(new java.awt.Dimension(150, 50));
+        entrarTareasButton.setPreferredSize(new java.awt.Dimension(150, 50));
         entrarTareasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarTareasButtonActionPerformed(evt);
@@ -50,25 +67,38 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 1.0;
-        getContentPane().add(entrarTareasButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        jPanel1.add(entrarTareasButton, gridBagConstraints);
 
         entrarListasButton.setBackground(new java.awt.Color(51, 204, 255));
         entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_listas.png"))); // NOI18N
         entrarListasButton.setText("Gestionar Listas");
+        entrarListasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.cyan, null, java.awt.Color.blue));
+        entrarListasButton.setMaximumSize(new java.awt.Dimension(150, 50));
+        entrarListasButton.setMinimumSize(new java.awt.Dimension(150, 50));
+        entrarListasButton.setPreferredSize(new java.awt.Dimension(150, 50));
         entrarListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entrarListasButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 1.0;
-        getContentPane().add(entrarListasButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        jPanel1.add(entrarListasButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         salirButton.setBackground(new java.awt.Color(255, 0, 0));
         salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/salir.png"))); // NOI18N
@@ -79,8 +109,9 @@ public class VistaMenuInicial extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         getContentPane().add(salirButton, gridBagConstraints);
 
         pack();
@@ -156,6 +187,8 @@ public class VistaMenuInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton entrarListasButton;
     private javax.swing.JButton entrarTareasButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton salirButton;
     // End of variables declaration//GEN-END:variables
 }
