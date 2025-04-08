@@ -25,7 +25,6 @@ public class VistaGestorListas extends javax.swing.JFrame {
     public VistaGestorListas() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(255, 255, 230)); 
-        botonesTareasVisibles(false);
         this.controlador = new ControladorGestorListas(this);
     }
 
@@ -799,10 +798,19 @@ public class VistaGestorListas extends javax.swing.JFrame {
         deshacerCompletarButton.setEnabled(true);
     }
     
-    public void botonesTareasVisibles(boolean visible) {
-        completarTareaButton.setVisible(visible);
-        deshacerCompletarButton.setVisible(visible);
-        
+    
+    /**
+     * Funcion que pone el label de error en rojo
+     */
+    public void errorRojo(){
+        errorLabel.setForeground(new Color(204, 0, 0));
+    }
+    
+    /**
+     * Funcion que pone el label de error en verde
+     */
+    public void errorVerde(){
+        errorLabel.setForeground(new Color(0, 204, 51));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

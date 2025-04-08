@@ -66,7 +66,7 @@ public class ControladorGestorTareas {
                     vista.actualizarTareas(this.lista.getTodasTareas());
                     vista.limpiarCampos();
                     vista.errorVerde();
-                    vista.setError("Tarea guardada con éxito");
+                    vista.setError("Tarea editada con éxito");
                 }catch(IllegalArgumentException e){
                     vista.errorRojo();
                     vista.setError(e.getMessage());
@@ -131,6 +131,8 @@ public class ControladorGestorTareas {
             indexEditar=-1;
             vista.actualizarTareas(lista.getTodasTareas());
             vista.limpiarCampos();
+            vista.errorVerde();
+            vista.setError("Tarea eliminada con éxito");
         }catch(IllegalArgumentException e){
             vista.errorRojo();
             vista.setError(e.getMessage());

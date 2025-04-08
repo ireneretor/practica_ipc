@@ -6,7 +6,6 @@ package uva.ipc.practica2.vista;
 import java.util.ArrayList;
 import uva.ipc.practica2.Main;
 import uva.ipc.practica2.modelo.GestorListas;
-import uva.ipc.practica2.modelo.Tarea;
 
 /**
  *Clase controladora de los eventos de la vista del gestor de listas
@@ -40,8 +39,10 @@ public class ControladorGestorListas {
             vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
             desmantelarDeshacer();
-            vista.botonesTareasVisibles(false);
+            vista.errorVerde();
+            vista.setError("Lista añadida con éxito");
         }catch(IllegalArgumentException e){
+                vista.errorRojo();
                 vista.setError(e.getMessage());
                 vista.anadirRojo();
         }
@@ -68,7 +69,6 @@ public class ControladorGestorListas {
      */
     public void procesarEventoSeleccionarLista() {
         if(vista.getIndexListaSeleccionada()!=-1) lista.seleccionarLista(vista.getIndexListaSeleccionada());
-        vista.botonesTareasVisibles(true);
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());   
         vista.setError("");
         vista.pendientesBlanco();
@@ -85,7 +85,10 @@ public class ControladorGestorListas {
             vista.setError("");
             vista.pendientesBlanco();
             vista.activarDeshacerCompletado();
+            vista.errorVerde();
+            vista.setError("Tarea completada con éxito");
         }catch(IllegalArgumentException e){
+                vista.errorRojo();
                 vista.setError(e.getMessage());
                 vista.pendientesRojo();
         }
@@ -100,8 +103,10 @@ public class ControladorGestorListas {
             vista.actualizarListas(lista.getGestorListas());
             vista.vaciarCampos();
             desmantelarDeshacer();
-            vista.botonesTareasVisibles(false);
+            vista.errorVerde();
+            vista.setError("Lista borrada con éxito");
         }catch(IllegalArgumentException e){
+                vista.errorRojo();
                 vista.setError(e.getMessage());
                 if(e.getMessage().equals("Para borrar una lista, debe completar todas las tareas")){
                     vista.pendientesRojo();
@@ -120,6 +125,8 @@ public class ControladorGestorListas {
         vista.cambiarCamposListaSeleccionada(lista.getListaSeleccionada());
         vista.setError("");
         vista.pendientesBlanco();
+        vista.errorVerde();
+        vista.setError("Deshacer completado con éxito");
         if(tareasAntiguas.isEmpty()){
             vista.desactivarDeshacerCompletado();           
         }
