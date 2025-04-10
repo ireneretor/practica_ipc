@@ -1118,6 +1118,15 @@ public class VistaGestorTareas extends javax.swing.JFrame {
     public void setSpinnerVisible(boolean visible) {
         porcentajeSpinner.setEnabled(visible);
     }
+    
+    /**
+     * Setter de la visibilidad del combobox de seleccion de lista
+     * 
+     * @param enable: boolean que se refiere a la visibilidad del combobox
+     */
+    public void setEditarEnable(boolean enable) {
+        seleccionarListaComboBox.setEnabled(enable);
+    }
 
     
     /**
@@ -1191,6 +1200,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         fechaDateChooser.getDateEditor().getUiComponent().setBackground(new Color(255, 255, 255));
         anadirNombreTareaTextField.setBackground(new Color(255, 255, 255));
         listaTareasList.setBackground(new Color(255, 255, 255));
+        setEditarEnable(true);
 
     }
     

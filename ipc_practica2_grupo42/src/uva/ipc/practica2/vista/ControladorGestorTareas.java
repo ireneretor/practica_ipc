@@ -99,6 +99,7 @@ public class ControladorGestorTareas {
             vista.setPrioridad(t.getPrioridad());
             vista.setProgreso(t.getProgreso());
             vista.setLista(t.getLista());
+            vista.setEditarEnable(false);
             if (t.getProgreso() == 100) {
                 vista.setCompletado(true);
                 vista.setSpinnerVisible(false);
