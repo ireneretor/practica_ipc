@@ -730,6 +730,9 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar_listas.png"))); // NOI18N
         GestorListasButton.setText("Gestionar Listas");
         GestorListasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        GestorListasButton.setMaximumSize(new java.awt.Dimension(150, 41));
+        GestorListasButton.setMinimumSize(new java.awt.Dimension(150, 41));
+        GestorListasButton.setPreferredSize(new java.awt.Dimension(150, 41));
         GestorListasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GestorListasButtonActionPerformed(evt);
