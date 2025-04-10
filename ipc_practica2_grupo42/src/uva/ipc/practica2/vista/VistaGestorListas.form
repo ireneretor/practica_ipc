@@ -205,7 +205,7 @@
                       <Color blue="0" green="99" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/uva/ipc/practica2/imagenes/anadir.png"/>
+                      <Image iconType="3" name="/uva/ipc/practica2/img/anadir.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="A&#xf1;adir Lista"/>
                   </Properties>
@@ -224,7 +224,7 @@
                       <Color blue="0" green="99" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/uva/ipc/practica2/imagenes/eliminar.png"/>
+                      <Image iconType="3" name="/uva/ipc/practica2/img/eliminar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Borrar Lista"/>
                   </Properties>
@@ -534,7 +534,7 @@
                       <Color blue="0" green="99" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/uva/ipc/practica2/imagenes/completar.png"/>
+                      <Image iconType="3" name="/uva/ipc/practica2/img/completar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Completar Tarea"/>
                   </Properties>
@@ -553,7 +553,7 @@
                       <Color blue="0" green="99" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/uva/ipc/practica2/imagenes/deshacer.png"/>
+                      <Image iconType="3" name="/uva/ipc/practica2/img/deshacer.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Deshacer Completar Tarea"/>
                   </Properties>
@@ -629,7 +629,7 @@
               <Color blue="ff" green="cc" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/uva/ipc/practica2/imagenes/flecha_atras.png"/>
+              <Image iconType="3" name="/uva/ipc/practica2/img/flecha_atras.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Men&#xfa; Principal"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -662,7 +662,7 @@
               <Color blue="ff" green="cc" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/uva/ipc/practica2/imagenes/editar_tareas.png"/>
+              <Image iconType="3" name="/uva/ipc/practica2/img/editar_tareas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Tareas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

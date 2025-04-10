@@ -169,7 +169,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
         anadirListaButton.setBackground(new java.awt.Color(255, 153, 0));
-        anadirListaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/anadir.png"))); // NOI18N
+        anadirListaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/anadir.png"))); // NOI18N
         anadirListaButton.setText("Añadir Lista");
         anadirListaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +186,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel16.add(anadirListaButton, gridBagConstraints);
 
         borrarListaButton.setBackground(new java.awt.Color(255, 153, 0));
-        borrarListaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/eliminar.png"))); // NOI18N
+        borrarListaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/eliminar.png"))); // NOI18N
         borrarListaButton.setText("Borrar Lista");
         borrarListaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,7 +393,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel13.setLayout(new java.awt.GridBagLayout());
 
         completarTareaButton.setBackground(new java.awt.Color(255, 153, 0));
-        completarTareaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/completar.png"))); // NOI18N
+        completarTareaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/completar.png"))); // NOI18N
         completarTareaButton.setText("Completar Tarea");
         completarTareaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,7 +410,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel13.add(completarTareaButton, gridBagConstraints);
 
         deshacerCompletarButton.setBackground(new java.awt.Color(255, 153, 0));
-        deshacerCompletarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/deshacer.png"))); // NOI18N
+        deshacerCompletarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/deshacer.png"))); // NOI18N
         deshacerCompletarButton.setText("Deshacer Completar Tarea");
         deshacerCompletarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -477,7 +477,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         irMenuButton.setBackground(new java.awt.Color(51, 204, 255));
-        irMenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/flecha_atras.png"))); // NOI18N
+        irMenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/flecha_atras.png"))); // NOI18N
         irMenuButton.setText("Menú Principal");
         irMenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         irMenuButton.setMaximumSize(new java.awt.Dimension(150, 41));
@@ -498,7 +498,7 @@ public class VistaGestorListas extends javax.swing.JFrame {
         jPanel1.add(irMenuButton, gridBagConstraints);
 
         irTareasButton.setBackground(new java.awt.Color(51, 204, 255));
-        irTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_tareas.png"))); // NOI18N
+        irTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar_tareas.png"))); // NOI18N
         irTareasButton.setText("Gestionar Tareas");
         irTareasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         irTareasButton.setMaximumSize(new java.awt.Dimension(150, 41));

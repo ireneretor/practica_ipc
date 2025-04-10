@@ -54,7 +54,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         entrarTareasButton.setBackground(new java.awt.Color(51, 204, 255));
-        entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_tareas.png"))); // NOI18N
+        entrarTareasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar_tareas.png"))); // NOI18N
         entrarTareasButton.setText("Gestionar Tareas");
         entrarTareasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.cyan, null, java.awt.Color.blue));
         entrarTareasButton.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -74,7 +74,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         jPanel1.add(entrarTareasButton, gridBagConstraints);
 
         entrarListasButton.setBackground(new java.awt.Color(51, 204, 255));
-        entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_listas.png"))); // NOI18N
+        entrarListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar_listas.png"))); // NOI18N
         entrarListasButton.setText("Gestionar Listas");
         entrarListasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.cyan, null, java.awt.Color.blue));
         entrarListasButton.setMaximumSize(new java.awt.Dimension(150, 50));
@@ -101,7 +101,7 @@ public class VistaMenuInicial extends javax.swing.JFrame {
         getContentPane().add(jPanel1, gridBagConstraints);
 
         salirButton.setBackground(new java.awt.Color(255, 0, 0));
-        salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/salir.png"))); // NOI18N
+        salirButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/salir.png"))); // NOI18N
         salirButton.setText("Salir");
         salirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

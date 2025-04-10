@@ -362,7 +362,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
         guardarButton.setBackground(new java.awt.Color(255, 153, 0));
-        guardarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/guardar.png"))); // NOI18N
+        guardarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/guardar.png"))); // NOI18N
         guardarButton.setText("Guardar");
         guardarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         guardarButton.setPreferredSize(new java.awt.Dimension(87, 35));
@@ -379,7 +379,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel9.add(guardarButton, gridBagConstraints);
 
         limpiarButton.setBackground(new java.awt.Color(255, 153, 0));
-        limpiarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/escoba.png"))); // NOI18N
+        limpiarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/escoba.png"))); // NOI18N
         limpiarButton.setText("Limpiar");
         limpiarButton.setPreferredSize(new java.awt.Dimension(82, 35));
         limpiarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -666,7 +666,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
         editarButton.setBackground(new java.awt.Color(255, 153, 0));
-        editarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar-pequeño.png"))); // NOI18N
+        editarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar-pequeño.png"))); // NOI18N
         editarButton.setText("Editar");
         editarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         editarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -685,7 +685,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel16.add(editarButton, gridBagConstraints);
 
         eliminarButton.setBackground(new java.awt.Color(255, 153, 0));
-        eliminarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/eliminar.png"))); // NOI18N
+        eliminarButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/eliminar.png"))); // NOI18N
         eliminarButton.setText("Eliminar");
         eliminarButton.setMinimumSize(new java.awt.Dimension(82, 28));
         eliminarButton.setPreferredSize(new java.awt.Dimension(82, 35));
@@ -727,7 +727,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
         GestorListasButton.setBackground(new java.awt.Color(51, 204, 255));
-        GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/editar_listas.png"))); // NOI18N
+        GestorListasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/editar_listas.png"))); // NOI18N
         GestorListasButton.setText("Gestionar Listas");
         GestorListasButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         GestorListasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -780,7 +780,7 @@ public class VistaGestorTareas extends javax.swing.JFrame {
         jPanel31.setLayout(new java.awt.GridBagLayout());
 
         MenuButton.setBackground(new java.awt.Color(51, 204, 255));
-        MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/imagenes/flecha_atras.png"))); // NOI18N
+        MenuButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/uva/ipc/practica2/img/flecha_atras.png"))); // NOI18N
         MenuButton.setText("Menú Principal");
         MenuButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MenuButton.setMaximumSize(new java.awt.Dimension(150, 41));

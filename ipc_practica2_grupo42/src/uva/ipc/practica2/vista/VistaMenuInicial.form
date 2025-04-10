@@ -61,7 +61,7 @@
               <Color blue="ff" green="cc" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/uva/ipc/practica2/imagenes/editar_tareas.png"/>
+              <Image iconType="3" name="/uva/ipc/practica2/img/editar_tareas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Tareas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -97,7 +97,7 @@
               <Color blue="ff" green="cc" red="33" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/uva/ipc/practica2/imagenes/editar_listas.png"/>
+              <Image iconType="3" name="/uva/ipc/practica2/img/editar_listas.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Gestionar Listas"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -135,7 +135,7 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/uva/ipc/practica2/imagenes/salir.png"/>
+          <Image iconType="3" name="/uva/ipc/practica2/img/salir.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
